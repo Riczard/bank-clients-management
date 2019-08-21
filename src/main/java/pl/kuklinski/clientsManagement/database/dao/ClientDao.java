@@ -1,4 +1,4 @@
 package pl.kuklinski.clientsManagement.database.dao;
 
-public class ClientsDao extends CommonDao{
+public class ClientDao extends CommonDao{
 }
