@@ -9,8 +9,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-
-<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.kuklinski.clientsManagement.AddElementsController">
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.kuklinski.clientsManagement.controllers.AddElementsController">
    <children>
       <GridPane alignment="CENTER" hgap="10.0" prefHeight="100.0" prefWidth="506.0" vgap="10.0">
         <columnConstraints>
@@ -27,8 +26,8 @@
             <Label contentDisplay="RIGHT" text="%adviser.client" GridPane.rowIndex="1" />
             <TextField fx:id="textFieldAccStatus" GridPane.columnIndex="1" />
             <TextField fx:id="textFieldAdviser" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <Button fx:id="addAccStatus" mnemonicParsing="false" text="%add.general" GridPane.columnIndex="2" />
-            <Button fx:id="addAdviser" mnemonicParsing="false" text="%add.general" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <Button mnemonicParsing="false" onAction="#addAccStatus" text="%add.general" GridPane.columnIndex="2" />
+            <Button mnemonicParsing="false" onAction="#addAdviser" text="%add.general" GridPane.columnIndex="2" GridPane.rowIndex="1" />
          </children>
          <VBox.margin>
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
