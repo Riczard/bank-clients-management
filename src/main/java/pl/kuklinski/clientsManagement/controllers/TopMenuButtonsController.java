@@ -5,11 +5,14 @@ import javafx.fxml.FXML;
 
 public class TopMenuButtonsController {
 
+    private static final String LIST_CLIENTS_FXML= "/fxml/ListClients.fxml";
+
     private MainController mainController;
 
 
     @FXML
-    public void showClients(ActionEvent actionEvent) {
+    public void showClients() {
+        mainController.setCenter(LIST_CLIENTS_FXML);
     }
 
     @FXML
