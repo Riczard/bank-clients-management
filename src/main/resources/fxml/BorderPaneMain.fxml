@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.CheckMenuItem?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane maxHeight="-Infinity" fx:id="borderPane" fx:controller="pl.kuklinski.clientsManagement.controllers.MainController" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane fx:id="borderPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.kuklinski.clientsManagement.controllers.MainController">
    <top>
       <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
@@ -14,12 +15,12 @@
               <menus>
                 <Menu mnemonicParsing="false" text="%file.menuBar">
                   <items>
-                    <MenuItem mnemonicParsing="false" text="Close" />
+                    <MenuItem mnemonicParsing="false" onAction="#closeApp" text="%exit.menuBar" />
                   </items>
                 </Menu>
                 <Menu mnemonicParsing="false" text="%options.menuBar">
                   <items>
-                    <MenuItem mnemonicParsing="false" text="Delete" />
+                        <CheckMenuItem mnemonicParsing="false" onAction="#setAlwaysOnTop" text="%alwaysOnTop.menuBar" />
                   </items>
                 </Menu>
                 <Menu mnemonicParsing="false" text="%about.menuBar">
@@ -34,7 +35,7 @@
                   </Menu>
               </menus>
             </MenuBar>
-             <fx:include source="TopMenuButtons.fxml" fx:id="topMenuButtons"/>
+             <fx:include fx:id="topMenuButtons" source="TopMenuButtons.fxml" />
          </children>
       </VBox>
    </top>
