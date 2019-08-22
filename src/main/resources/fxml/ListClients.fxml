@@ -16,8 +16,8 @@
       </HBox>
       <TableView fx:id="clientsTableView" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
         <columns>
-          <TableColumn fx:id="nameColumn" prefWidth="75.0" text="%name.client" />
-          <TableColumn fx:id="surnameColumn" prefWidth="75.0" text="%surname.client" />
+          <TableColumn fx:id="nameColumn" prefWidth="75.0" text="%name.general" />
+          <TableColumn fx:id="surnameColumn" prefWidth="75.0" text="%surname.general" />
             <TableColumn fx:id="peselColumn" prefWidth="75.0" text="%pesel.client" />
             <TableColumn fx:id="clickAmountColumn" prefWidth="75.0" text="%clickAmount.client" />
             <TableColumn fx:id="phoneColumn" prefWidth="75.0" text="%phone.client" />

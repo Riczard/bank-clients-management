@@ -8,7 +8,8 @@
    <children>
       <Button mnemonicParsing="false" onAction="#showClients" prefHeight="150.0" prefWidth="400.0" text="%clients.button" />
       <Button mnemonicParsing="false" onAction="#searchClient" prefHeight="150.0" prefWidth="400.0" text="%search.button" />
-      <Button layoutX="167.0" layoutY="20.0" mnemonicParsing="false" onAction="#addElements" prefHeight="150.0" prefWidth="400.0" text="%add.general" />
+      <Button layoutX="167.0" layoutY="20.0" mnemonicParsing="false" onAction="#addAdvisers" prefHeight="150.0" prefWidth="400.0" text="%advisers.button" />
+      <Button layoutX="256.0" layoutY="20.0" mnemonicParsing="false" onAction="#addAccStatus" prefHeight="150.0" prefWidth="400.0" text="%accountStatus.button" textAlignment="CENTER" wrapText="true" />
       <Button mnemonicParsing="false" onAction="#importFile" prefHeight="150.0" prefWidth="400.0" text="%import.button" />
       <Button mnemonicParsing="false" onAction="#exportFile" prefHeight="150.0" prefWidth="400.0" text="%export.button" />
    </children>
