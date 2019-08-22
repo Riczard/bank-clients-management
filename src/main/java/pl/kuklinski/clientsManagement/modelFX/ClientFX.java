@@ -17,7 +17,7 @@ public class ClientFX {
     private StringProperty relation = new SimpleStringProperty();
     private StringProperty clickAmount = new SimpleStringProperty();
     private StringProperty comment = new SimpleStringProperty();
-    private ObjectProperty<AccountStateFX> accountState = new SimpleObjectProperty<>();
+    private ObjectProperty<AccountStatusFX> accountState = new SimpleObjectProperty<>();
     private ObjectProperty<LocalDate> lastContactDate = new SimpleObjectProperty<>();
     private ObjectProperty<LocalDate> verificationDate = new SimpleObjectProperty<>();
     private ObjectProperty<AdviserFX> adviser = new SimpleObjectProperty<>();
@@ -154,15 +154,15 @@ public class ClientFX {
         this.comment.set(comment);
     }
 
-    public AccountStateFX getAccountState() {
+    public AccountStatusFX getAccountState() {
         return accountState.get();
     }
 
-    public ObjectProperty<AccountStateFX> accountStateProperty() {
+    public ObjectProperty<AccountStatusFX> accountStateProperty() {
         return accountState;
     }
 
-    public void setAccountState(AccountStateFX accountState) {
+    public void setAccountState(AccountStatusFX accountState) {
         this.accountState.set(accountState);
     }
 
