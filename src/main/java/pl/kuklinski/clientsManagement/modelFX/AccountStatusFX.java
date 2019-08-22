@@ -3,7 +3,7 @@ package pl.kuklinski.clientsManagement.modelFX;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
-public class AccountStateFX {
+public class AccountStatusFX {
 
     private StringProperty accountState = new SimpleStringProperty();
 
