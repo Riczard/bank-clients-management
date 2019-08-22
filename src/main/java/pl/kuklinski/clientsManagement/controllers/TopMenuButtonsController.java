@@ -5,8 +5,8 @@ import javafx.fxml.FXML;
 
 public class TopMenuButtonsController {
 
-    private static final String LIST_CLIENTS_FXML= "/fxml/ListClients.fxml";
-    private static final String ADD_ADVISER_FXML="/fxml/AddAdvisers.fxml";
+    private static final String LIST_CLIENTS_FXML = "/fxml/ListClients.fxml";
+    private static final String ADD_ADVISERS_FXML = "/fxml/AddAdvisers.fxml";
 
     private MainController mainController;
 
@@ -19,7 +19,7 @@ public class TopMenuButtonsController {
     @FXML
     public void searchClient(ActionEvent actionEvent) {
     }
-    
+
     @FXML
     public void importFile(ActionEvent actionEvent) {
     }
@@ -34,10 +34,11 @@ public class TopMenuButtonsController {
     }
 
 
-    public void addAdvisers(ActionEvent actionEvent) {
+    public void addAdvisers() {
+        mainController.setCenter(ADD_ADVISERS_FXML);
     }
 
     public void addAccStatus() {
-        mainController.setCenter(ADD_ADVISER_FXML);
+
     }
 }
