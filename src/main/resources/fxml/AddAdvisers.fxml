@@ -11,8 +11,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-
-<VBox fx:controller="pl.kuklinski.clientsManagement.controllers.AddAdvisersController" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.kuklinski.clientsManagement.controllers.AdvisersController">
    <children>
       <HBox prefHeight="100.0" prefWidth="200.0" spacing="20.0">
          <children>
@@ -21,14 +20,14 @@
                   <Insets top="5.0" />
                </padding>
             </Label>
-            <TextField />
+            <TextField fx:id="adviserNameField" />
             <Label text="%surname.general">
                <padding>
                   <Insets top="5.0" />
                </padding>
             </Label>
-            <TextField />
-            <Button mnemonicParsing="false" onAction="#addAdviser" text="%add.general" />
+            <TextField fx:id="adviserSurnameField" />
+            <Button fx:id="addButton" mnemonicParsing="false" onAction="#addAdviser" text="%add.general" />
          </children>
          <VBox.margin>
             <Insets />
@@ -37,7 +36,7 @@
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
          </padding>
       </HBox>
-      <TableView editable="true" maxHeight="1.7976931348623157E308" prefWidth="200.0" tableMenuButtonVisible="true">
+      <TableView fx:id="adviserTableView" editable="true" maxHeight="1.7976931348623157E308" prefWidth="200.0" tableMenuButtonVisible="true">
         <columns>
           <TableColumn fx:id="nameAdviserColumn" prefWidth="75.0" text="%name.general" />
           <TableColumn fx:id="surnameAdviserColumn" prefWidth="75.0" text="%surname.general" />
@@ -45,7 +44,7 @@
          <contextMenu>
             <ContextMenu>
               <items>
-                <MenuItem mnemonicParsing="false" text="%delete.general" />
+                <MenuItem fx:id="deleteMenuItem" mnemonicParsing="false" onAction="#deleteAdviser" text="%delete.general" />
               </items>
             </ContextMenu>
          </contextMenu>
