@@ -7,6 +7,7 @@ public class TopMenuButtonsController {
 
     private static final String LIST_CLIENTS_FXML = "/fxml/ListClients.fxml";
     private static final String ADD_ADVISERS_FXML = "/fxml/AddAdvisers.fxml";
+    private static final String ADD_ACCOUNT_STATUS_FXML = "/fxml/AddAccountStatus.fxml";
 
     private MainController mainController;
 
@@ -39,6 +40,6 @@ public class TopMenuButtonsController {
     }
 
     public void addAccStatus() {
-
+        mainController.setCenter(ADD_ACCOUNT_STATUS_FXML);
     }
 }
