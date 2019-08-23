@@ -9,7 +9,7 @@ public class AdviserConverter {
         AdviserFX adviserFX = new AdviserFX();
         adviserFX.setName(adviser.getName());
         adviserFX.setId(adviser.getId());
-        adviserFX.setSurname(adviser.getName());
+        adviserFX.setSurname(adviser.getSurname());
         return adviserFX;
     }
 
