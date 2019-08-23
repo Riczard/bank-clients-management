@@ -6,11 +6,12 @@ import javafx.scene.control.MenuItem;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.TextFieldTableCell;
 import pl.kuklinski.clientsManagement.database.dao.AdviserDao;
 import pl.kuklinski.clientsManagement.modelFX.AdviserFX;
 import pl.kuklinski.clientsManagement.modelFX.AdviserModel;
 
-public class AddAdvisersController {
+public class AdvisersController {
 
     @FXML
     private TableView<AdviserFX> adviserTableView;
@@ -35,6 +36,15 @@ public class AddAdvisersController {
 
     private void bindingTableView() {
         this.adviserTableView.setItems(this.adviserModel.getAdviserFXObservableList());
+        this.nameAdviserColumn.setCellValueFactory(cellData -> cellData.getValue().nameProperty());
+        this.surnameAdviserColumn.setCellValueFactory(cellData ->cellData.getValue().surnameProperty());
+
+        this.nameAdviserColumn.setCellFactory(TextFieldTableCell.forTableColumn());
+        this.surnameAdviserColumn.setCellFactory(TextFieldTableCell.forTableColumn());
+
+        this.adviserTableView.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+            this.adviserModel.setAdviserFXObjectPropertyEdit(newValue);
+        });
     }
 
 
