@@ -1,4 +1,4 @@
 package pl.kuklinski.clientsManagement.database.models;
 
-public class Clients {
+public class Client {
 }
