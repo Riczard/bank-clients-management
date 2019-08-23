@@ -1,21 +1,36 @@
 package pl.kuklinski.clientsManagement.modelFX;
 
+import javafx.beans.property.LongProperty;
+import javafx.beans.property.SimpleLongProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
 public class AccountStatusFX {
 
-    private StringProperty accountState = new SimpleStringProperty();
+    private LongProperty id = new SimpleLongProperty();
+    private StringProperty accountStatus = new SimpleStringProperty();
 
-    public String getAccountState() {
-        return accountState.get();
+    public String getAccountStatus() {
+        return accountStatus.get();
     }
 
-    public StringProperty accountStateProperty() {
-        return accountState;
+    public StringProperty accountStatusProperty() {
+        return accountStatus;
     }
 
-    public void setAccountState(String accountState) {
-        this.accountState.set(accountState);
+    public void setAccountStatus(String accountStatus) {
+        this.accountStatus.set(accountStatus);
+    }
+
+    public long getId() {
+        return id.get();
+    }
+
+    public LongProperty idProperty() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id.set(id);
     }
 }
