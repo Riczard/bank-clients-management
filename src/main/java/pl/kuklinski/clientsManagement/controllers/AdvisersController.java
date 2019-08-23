@@ -2,10 +2,7 @@ package pl.kuklinski.clientsManagement.controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.MenuItem;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.TextFieldTableCell;
 import pl.kuklinski.clientsManagement.database.dao.AdviserDao;
 import pl.kuklinski.clientsManagement.modelFX.AdviserFX;
@@ -13,6 +10,8 @@ import pl.kuklinski.clientsManagement.modelFX.AdviserModel;
 
 public class AdvisersController {
 
+    @FXML
+    private Button addButton;
     @FXML
     private TableView<AdviserFX> adviserTableView;
     @FXML
@@ -31,7 +30,16 @@ public class AdvisersController {
     public void initialize() {
         this.adviserModel = new AdviserModel();
         this.adviserModel.init();
+        bindings();
         bindingTableView();
+    }
+
+    private void bindings() {
+        this.adviserModel.adviserFXObjectProperty().get().nameProperty().bind(this.adviserNameField.textProperty());
+        this.adviserModel.adviserFXObjectProperty().get().surnameProperty().bind(this.adviserSurnameField.textProperty());
+        this.addButton.disableProperty().bind(this.adviserNameField.textProperty().isEmpty()
+                .or(this.adviserSurnameField.textProperty().isEmpty()));
+        this.deleteMenuItem.disableProperty().bind(this.adviserTableView.getSelectionModel().selectedItemProperty().isNull());
     }
 
     private void bindingTableView() {
