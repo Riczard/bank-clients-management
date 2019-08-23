@@ -12,4 +12,12 @@ public class AdviserConverter {
         adviserFX.setSurname(adviser.getName());
         return adviserFX;
     }
+
+    public static Adviser convertToAdviser(AdviserFX adviserFX) {
+        Adviser adviser = new Adviser();
+        adviser.setId(adviserFX.getId());
+        adviser.setName(adviserFX.getName());
+        adviser.setSurname(adviserFX.getSurname());
+        return adviser;
+    }
 }
