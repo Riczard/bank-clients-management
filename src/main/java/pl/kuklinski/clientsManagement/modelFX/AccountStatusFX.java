@@ -33,4 +33,9 @@ public class AccountStatusFX {
     public void setId(long id) {
         this.id.set(id);
     }
+
+    @Override
+    public String toString() {
+        return accountStatusProperty().get();
+    }
 }

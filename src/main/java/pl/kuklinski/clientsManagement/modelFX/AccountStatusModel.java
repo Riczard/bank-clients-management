@@ -4,7 +4,6 @@ import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import pl.kuklinski.clientsManagement.controllers.AccountStatusController;
 import pl.kuklinski.clientsManagement.database.dao.AccountStatusDao;
 import pl.kuklinski.clientsManagement.database.models.AccountStatus;
 import pl.kuklinski.clientsManagement.utils.converters.AccountStatusConverter;
