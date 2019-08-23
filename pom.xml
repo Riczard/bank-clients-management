@@ -9,7 +9,6 @@
   <version>1.0-SNAPSHOT</version>
 
   <name>clientsmanagement</name>
-  <!-- FIXME change it to the project's website -->
   <url>https://github.com/Riczard/bank-clients-management</url>
 
   <properties>
