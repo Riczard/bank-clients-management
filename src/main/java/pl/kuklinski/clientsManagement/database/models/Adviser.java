@@ -1,6 +1,7 @@
 package pl.kuklinski.clientsManagement.database.models;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Adviser implements BaseModel{
@@ -14,6 +15,9 @@ public class Adviser implements BaseModel{
 
     @Column
     private String surname;
+
+    @OneToMany(mappedBy = "adviser")
+    private List<Client> clients;
 
     public Adviser() {
     }
@@ -40,5 +44,13 @@ public class Adviser implements BaseModel{
 
     public void setSurname(String surname) {
         this.surname = surname;
+    }
+
+    public List<Client> getClients() {
+        return clients;
+    }
+
+    public void setClients(List<Client> clients) {
+        this.clients = clients;
     }
 }

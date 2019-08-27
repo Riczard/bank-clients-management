@@ -1,6 +1,7 @@
 package pl.kuklinski.clientsManagement.database.models;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class AccountStatus implements BaseModel{
@@ -11,6 +12,9 @@ public class AccountStatus implements BaseModel{
 
     @Column
     private String title;
+
+    @OneToMany(mappedBy = "status")
+    private List<Client> clients;
 
     public AccountStatus() {
     }
