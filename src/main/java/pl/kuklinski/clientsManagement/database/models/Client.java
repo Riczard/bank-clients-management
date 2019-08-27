@@ -1,4 +1,4 @@
 package pl.kuklinski.clientsManagement.database.models;
 
-public class Client {
+public class Client implements BaseModel{
 }
