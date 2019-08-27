@@ -9,6 +9,7 @@ public class ClientConverter {
         ClientFX clientFX = new ClientFX();
         clientFX.setId(client.getId());
         clientFX.setName(client.getName());
+        clientFX.setPhone(client.getPhone());
         clientFX.setSurname(client.getSurname());
         clientFX.setCity(client.getCity());
         clientFX.setIncome(client.getIncome());

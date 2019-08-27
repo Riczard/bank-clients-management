@@ -10,7 +10,7 @@ public class ClientFX {
     private StringProperty name = new SimpleStringProperty();
     private StringProperty surname = new SimpleStringProperty();
     private StringProperty city = new SimpleStringProperty();
-    private IntegerProperty phone = new SimpleIntegerProperty();
+    private StringProperty phone = new SimpleStringProperty();
     private StringProperty status = new SimpleStringProperty();
     private StringProperty pesel = new SimpleStringProperty();
     private StringProperty income = new SimpleStringProperty();
@@ -70,15 +70,15 @@ public class ClientFX {
         this.city.set(city);
     }
 
-    public int getPhone() {
+    public String getPhone() {
         return phone.get();
     }
 
-    public IntegerProperty phoneProperty() {
+    public StringProperty phoneProperty() {
         return phone;
     }
 
-    public void setPhone(int phone) {
+    public void setPhone(String phone) {
         this.phone.set(phone);
     }
 

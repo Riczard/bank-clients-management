@@ -12,37 +12,28 @@ public class Client implements BaseModel {
 
     @Column
     private String name;
-
     @Column
     private String surname;
-
     @Column
     private String city;
-
     @Column
-    private int phone;
+    private String phone;
+    @Column
+    private String income;
+    @Column
+    private String relation;
+    @Column
+    private String clickAmount;
+    @Column
+    private String comment;
+    @Column
+    private LocalDate lastContactDate;
+    @Column
+    private LocalDate verificationDate;
 
     @JoinColumn
     @ManyToOne
     private AccountStatus status;
-
-    @Column
-    private String income;
-
-    @Column
-    private String relation;
-
-    @Column
-    private String clickAmount;
-
-    @Column
-    private String comment;
-
-    @Column
-    private LocalDate lastContactDate;
-
-    @Column
-    private LocalDate verificationDate;
 
     @ManyToOne
     private Adviser adviser;
@@ -82,11 +73,11 @@ public class Client implements BaseModel {
         this.city = city;
     }
 
-    public int getPhone() {
+    public String getPhone() {
         return phone;
     }
 
-    public void setPhone(int phone) {
+    public void setPhone(String phone) {
         this.phone = phone;
     }
 
