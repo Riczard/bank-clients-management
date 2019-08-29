@@ -18,8 +18,12 @@ public class ClientConverter {
         clientFX.setComment(client.getComment());
         clientFX.setLastContactDate(client.getLastContactDate());
         clientFX.setVerificationDate(client.getVerificationDate());
-        clientFX.setAccountState(AccountStatusConverter.convertToAccStatusFX(client.getStatus()));
-        clientFX.setAdviser(AdviserConverter.convertToAdviserFx(client.getAdviser()));
+        if(client.getStatus() != null) {
+            clientFX.setAccountState(AccountStatusConverter.convertToAccStatusFX(client.getStatus()));
+        }
+        if(client.getAdviser() != null) {
+            clientFX.setAdviser(AdviserConverter.convertToAdviserFx(client.getAdviser()));
+        }
         return clientFX;
     }
 }
