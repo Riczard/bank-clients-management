@@ -31,9 +31,7 @@ public class ListClientsModel {
     private void initClientFxList() {
         ClientDao clientDao = new ClientDao();
         Stream<Client> clientStream = clientDao.queryForAll(Client.class);
-        clientStream.forEach(client -> {
-            this.clientFXList.add(ClientConverter.convertToClientFX(client));
-        });
+        clientStream.forEach(client -> this.clientFXList.add(ClientConverter.convertToClientFX(client)));
         this.clientFXObservableList.setAll(clientFXList);
         clientDao.closeConnection();
     }

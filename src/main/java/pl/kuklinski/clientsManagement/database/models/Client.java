@@ -21,6 +21,8 @@ public class Client implements BaseModel {
     @Column
     private String income;
     @Column
+    private String pesel;
+    @Column
     private String relation;
     @Column
     private String clickAmount;
@@ -143,5 +145,13 @@ public class Client implements BaseModel {
 
     public void setAdviser(Adviser adviser) {
         this.adviser = adviser;
+    }
+
+    public String getPesel() {
+        return pesel;
+    }
+
+    public void setPesel(String pesel) {
+        this.pesel = pesel;
     }
 }
