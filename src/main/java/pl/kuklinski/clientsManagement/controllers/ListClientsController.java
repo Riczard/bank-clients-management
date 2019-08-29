@@ -34,6 +34,19 @@ public class ListClientsController {
 
     @FXML
     public void initialize() {
+        this.listClientsModel = new ListClientsModel();
+        listClientsModel.init();
 
+        setCells();
+    }
+
+    private void setCells() {
+        this.clientsTableView.setItems(this.listClientsModel.getClientFXObservableList());
+        this.nameColumn.setCellValueFactory(cellData -> cellData.getValue().nameProperty());
+        this.surnameColumn.setCellValueFactory(cellData -> cellData.getValue().surnameProperty());
+        this.peselColumn.setCellValueFactory(cellData -> cellData.getValue().peselProperty());
+        this.clickAmountColumn.setCellValueFactory(cellData -> cellData.getValue().clickAmountProperty());
+        this.phoneColumn.setCellValueFactory(cellData -> cellData.getValue().phoneProperty());
+        this.cityColumn.setCellValueFactory(cellData -> cellData.getValue().cityProperty());
     }
 }
