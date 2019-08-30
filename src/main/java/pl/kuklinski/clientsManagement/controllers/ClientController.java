@@ -3,6 +3,7 @@ package pl.kuklinski.clientsManagement.controllers;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.stage.Stage;
 import pl.kuklinski.clientsManagement.modelFX.AccountStatusFX;
 import pl.kuklinski.clientsManagement.modelFX.AdviserFX;
 import pl.kuklinski.clientsManagement.modelFX.ClientModel;
@@ -58,7 +59,7 @@ public class ClientController {
         this.surnameField.textProperty().bindBidirectional(this.clientModel.getClientFXObjectProperty().surnameProperty());
         this.commentArea.textProperty().bindBidirectional(this.clientModel.getClientFXObjectProperty().commentProperty());
         this.peselField.textProperty().bindBidirectional(this.clientModel.getClientFXObjectProperty().peselProperty());
-        this.relationField.textProperty().bindBidirectional(this.clientModel.getClientFXObjectProperty().peselProperty());
+        this.relationField.textProperty().bindBidirectional(this.clientModel.getClientFXObjectProperty().relationProperty());
         this.lastContactDate.valueProperty().bindBidirectional(this.clientModel.getClientFXObjectProperty().lastContactDateProperty());
         this.verificationDate.valueProperty().bindBidirectional(this.clientModel.getClientFXObjectProperty().verificationDateProperty());
         this.phoneField.textProperty().bindBidirectional(this.clientModel.getClientFXObjectProperty().phoneProperty());
@@ -77,5 +78,8 @@ public class ClientController {
     @FXML
     public void addClient() {
         this.clientModel.saveClientInDataBase();
+        Stage window = (Stage) addButton.getScene().getWindow();
+        window.close();
     }
+
 }
