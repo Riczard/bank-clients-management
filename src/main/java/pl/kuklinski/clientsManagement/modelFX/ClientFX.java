@@ -11,7 +11,6 @@ public class ClientFX {
     private StringProperty surname = new SimpleStringProperty();
     private StringProperty city = new SimpleStringProperty();
     private StringProperty phone = new SimpleStringProperty();
-//    private StringProperty status = new SimpleStringProperty();
     private StringProperty pesel = new SimpleStringProperty();
     private StringProperty income = new SimpleStringProperty();
     private StringProperty relation = new SimpleStringProperty();
