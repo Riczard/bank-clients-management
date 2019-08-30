@@ -12,16 +12,17 @@ public class ClientConverter {
         clientFX.setPhone(client.getPhone());
         clientFX.setSurname(client.getSurname());
         clientFX.setCity(client.getCity());
+        clientFX.setPesel(client.getPesel());
         clientFX.setIncome(client.getIncome());
         clientFX.setRelation(client.getRelation());
         clientFX.setClickAmount(client.getClickAmount());
         clientFX.setComment(client.getComment());
         clientFX.setLastContactDate(client.getLastContactDate());
         clientFX.setVerificationDate(client.getVerificationDate());
-        if(client.getStatus() != null) {
+        if (client.getStatus() != null) {
             clientFX.setAccountStatus(AccountStatusConverter.convertToAccStatusFX(client.getStatus()));
         }
-        if(client.getAdviser() != null) {
+        if (client.getAdviser() != null) {
             clientFX.setAdviser(AdviserConverter.convertToAdviserFx(client.getAdviser()));
         }
         return clientFX;
@@ -41,11 +42,11 @@ public class ClientConverter {
         client.setComment(clientFX.getComment());
         client.setLastContactDate(clientFX.getLastContactDate());
         client.setVerificationDate(clientFX.getVerificationDate());
-        if(clientFX.getAccountStatus() != null) {
+        if (clientFX.getAccountStatus() != null) {
             client.setStatus(AccountStatusConverter.convertToAccStatus(clientFX.getAccountStatus()));
         }
-        if(client.getAdviser() != null) {
-            clientFX.setAdviser(AdviserConverter.convertToAdviserFx(client.getAdviser()));
+        if (clientFX.getAdviser() != null) {
+            client.setAdviser(AdviserConverter.convertToAdviser(clientFX.getAdviser()));
         }
         return client;
     }
