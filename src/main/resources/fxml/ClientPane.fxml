@@ -12,59 +12,58 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-
-<ScrollPane xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
-   <content>
-      <GridPane alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="400.0">
-        <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="523.0" minWidth="10.0" prefWidth="118.0" />
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="485.0" minWidth="10.0" prefWidth="262.0" />
-        </columnConstraints>
-        <rowConstraints>
-          <RowConstraints fillHeight="false" minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints fillHeight="false" minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
-        </rowConstraints>
-         <children>
-            <Label cacheShape="false" centerShape="false" contentDisplay="CENTER" focusTraversable="false" scaleShape="false" text="%name.general" GridPane.halignment="LEFT" />
-            <TextField GridPane.columnIndex="1" />
-            <Label text="%surname.general" GridPane.rowIndex="1" />
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <Label text="%pesel.client" GridPane.rowIndex="2" />
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <Label text="%city.client" GridPane.rowIndex="3" />
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <Label text="%phone.client" GridPane.rowIndex="4" />
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="4" />
-            <Label alignment="CENTER" text="%income.client" textOverrun="CLIP" GridPane.rowIndex="5" />
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="5" />
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="6" />
-            <Label text="%relation.client" GridPane.rowIndex="6" />
-            <Label text="%accState.client" GridPane.rowIndex="7" />
-            <ComboBox prefWidth="150.0" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="7" />
-            <Label text="%verificationDate.client" GridPane.rowIndex="9" />
-            <DatePicker GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="9" />
-            <DatePicker GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="10" />
-            <Label text="%lastContactDate.client" GridPane.rowIndex="10" />
-            <Label text="%adviser.client" GridPane.rowIndex="8" />
-            <ComboBox prefWidth="150.0" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="8" />
-            <Label text="%comment.client" GridPane.rowIndex="11" />
-            <TextArea prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="11" />
-            <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" text="%save.general" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="12" />
-         </children>
-         <padding>
-            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-         </padding>
-      </GridPane>
-   </content>
+<ScrollPane xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.kuklinski.clientsManagement.controllers.ClientController">
+    <content>
+        <GridPane alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="400.0">
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="523.0" minWidth="10.0" prefWidth="118.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="485.0" minWidth="10.0" prefWidth="262.0" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints fillHeight="false" minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints fillHeight="false" minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+            </rowConstraints>
+            <children>
+                <Label cacheShape="false" centerShape="false" contentDisplay="CENTER" focusTraversable="false" scaleShape="false" text="%name.general" GridPane.halignment="LEFT" />
+                <TextField fx:id="nameField" GridPane.columnIndex="1" />
+                <Label text="%surname.general" GridPane.rowIndex="1" />
+                <TextField fx:id="surnameField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                <Label text="%pesel.client" GridPane.rowIndex="2" />
+                <TextField fx:id="peselField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                <Label text="%city.client" GridPane.rowIndex="3" />
+                <TextField fx:id="cityField" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                <Label text="%phone.client" GridPane.rowIndex="4" />
+                <TextField fx:id="phoneField" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                <Label alignment="CENTER" text="%income.client" textOverrun="CLIP" GridPane.rowIndex="5" />
+                <TextField fx:id="incomeField" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                <TextField fx:id="relationField" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                <Label text="%relation.client" GridPane.rowIndex="6" />
+                <Label text="%accState.client" GridPane.rowIndex="7" />
+                <ComboBox fx:id="accStatusComboBox" prefWidth="150.0" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="7" />
+                <Label text="%verificationDate.client" GridPane.rowIndex="9" />
+                <DatePicker fx:id="verificationDate" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="9" />
+                <DatePicker fx:id="lastContactDate" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="10" />
+                <Label text="%lastContactDate.client" GridPane.rowIndex="10" />
+                <Label text="%adviser.client" GridPane.rowIndex="8" />
+                <ComboBox fx:id="adviserComboBox" prefWidth="150.0" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="8" />
+                <Label text="%comment.client" GridPane.rowIndex="11" />
+                <TextArea fx:id="commentArea" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="11" />
+                <Button fx:id="addButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#addClient" text="%save.general" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="12" />
+            </children>
+            <padding>
+                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+            </padding>
+        </GridPane>
+    </content>
 </ScrollPane>

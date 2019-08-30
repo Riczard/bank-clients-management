@@ -11,13 +11,13 @@ public class ClientFX {
     private StringProperty surname = new SimpleStringProperty();
     private StringProperty city = new SimpleStringProperty();
     private StringProperty phone = new SimpleStringProperty();
-    private StringProperty status = new SimpleStringProperty();
+//    private StringProperty status = new SimpleStringProperty();
     private StringProperty pesel = new SimpleStringProperty();
     private StringProperty income = new SimpleStringProperty();
     private StringProperty relation = new SimpleStringProperty();
     private StringProperty clickAmount = new SimpleStringProperty();
     private StringProperty comment = new SimpleStringProperty();
-    private ObjectProperty<AccountStatusFX> accountState = new SimpleObjectProperty<>();
+    private ObjectProperty<AccountStatusFX> accountStatus = new SimpleObjectProperty<>();
     private ObjectProperty<LocalDate> lastContactDate = new SimpleObjectProperty<>();
     private ObjectProperty<LocalDate> verificationDate = new SimpleObjectProperty<>();
     private ObjectProperty<AdviserFX> adviser = new SimpleObjectProperty<>();
@@ -82,17 +82,6 @@ public class ClientFX {
         this.phone.set(phone);
     }
 
-    public String getStatus() {
-        return status.get();
-    }
-
-    public StringProperty statusProperty() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status.set(status);
-    }
 
     public String getPesel() {
         return pesel.get();
@@ -154,16 +143,16 @@ public class ClientFX {
         this.comment.set(comment);
     }
 
-    public AccountStatusFX getAccountState() {
-        return accountState.get();
+    public AccountStatusFX getAccountStatus() {
+        return accountStatus.get();
     }
 
-    public ObjectProperty<AccountStatusFX> accountStateProperty() {
-        return accountState;
+    public ObjectProperty<AccountStatusFX> accountStatusProperty() {
+        return accountStatus;
     }
 
-    public void setAccountState(AccountStatusFX accountState) {
-        this.accountState.set(accountState);
+    public void setAccountStatus(AccountStatusFX accountStatus) {
+        this.accountStatus.set(accountStatus);
     }
 
     public LocalDate getLastContactDate() {
