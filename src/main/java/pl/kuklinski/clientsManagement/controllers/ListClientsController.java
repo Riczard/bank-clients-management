@@ -6,6 +6,7 @@ import javafx.scene.control.TableView;
 import pl.kuklinski.clientsManagement.modelFX.AdviserFX;
 import pl.kuklinski.clientsManagement.modelFX.ClientFX;
 import pl.kuklinski.clientsManagement.modelFX.ListClientsModel;
+import pl.kuklinski.clientsManagement.utils.FXMLUtils;
 
 public class ListClientsController {
 
@@ -32,6 +33,8 @@ public class ListClientsController {
 
     private ListClientsModel listClientsModel;
 
+    private final static String CLIENT_PANE_FXML = "/fxml/ClientPane.fxml";
+
     @FXML
     public void initialize() {
         this.listClientsModel = new ListClientsModel();
@@ -48,5 +51,9 @@ public class ListClientsController {
         this.clickAmountColumn.setCellValueFactory(cellData -> cellData.getValue().clickAmountProperty());
         this.phoneColumn.setCellValueFactory(cellData -> cellData.getValue().phoneProperty());
         this.cityColumn.setCellValueFactory(cellData -> cellData.getValue().cityProperty());
+    }
+
+    public void addClient() {
+        FXMLUtils.showPopUp(CLIENT_PANE_FXML);
     }
 }
