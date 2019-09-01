@@ -1,11 +1,12 @@
 package pl.kuklinski.clientsManagement.controllers;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.TextFieldListCell;
+import javafx.util.StringConverter;
 import pl.kuklinski.clientsManagement.modelFX.AccountStatusFX;
 import pl.kuklinski.clientsManagement.modelFX.AccountStatusModel;
 
@@ -27,6 +28,24 @@ public class AccountStatusController {
         this.accStatusModel.init();
         bindings();
         bindingsListView();
+
+        setOnEditCells();
+    }
+
+    private void setOnEditCells() {
+        statusListView.setCellFactory(TextFieldListCell.forListView(new StringConverter<AccountStatusFX>() {
+            @Override
+            public String toString(AccountStatusFX object) {
+                return object.getAccountStatus();
+            }
+
+            @Override
+            public AccountStatusFX fromString(String string) {
+                AccountStatusFX accountStatusFX = new AccountStatusFX();
+                accountStatusFX.setAccountStatus(string);
+                return accountStatusFX;
+            }
+        }));
     }
 
     private void bindings() {
@@ -53,4 +72,10 @@ public class AccountStatusController {
     public void deleteStatusOnAction() {
         this.accStatusModel.deleteStatusInDataBase();
     }
+
+    public void editStatus(ListView.EditEvent<AccountStatusFX> accountStatusFXEditEvent) {
+        this.accStatusModel.getAccountStatusFXObjectPropertyEdit().setAccountStatus(accountStatusFXEditEvent.getNewValue().getAccountStatus());
+        this.accStatusModel.updateStatusInDB();
+    }
+
 }
