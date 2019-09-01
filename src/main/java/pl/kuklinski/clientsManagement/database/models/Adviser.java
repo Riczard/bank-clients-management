@@ -3,8 +3,8 @@ package pl.kuklinski.clientsManagement.database.models;
 import javax.persistence.*;
 import java.util.List;
 
-@Entity
-public class Adviser implements BaseModel{
+@Entity(name = "Adviser")
+public class Adviser implements BaseModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
@@ -18,6 +18,11 @@ public class Adviser implements BaseModel{
 
     @OneToMany(mappedBy = "adviser")
     private List<Client> clients;
+
+    @PreRemove
+    private void setAdviserInClientToNull() {
+        clients.forEach(client -> client.setAdviser(null));
+    }
 
     public Adviser() {
     }
