@@ -32,17 +32,23 @@ public class AdviserModel {
         adviserDao.closeConnection();
     }
 
-    public void saveAdviserInDataBase() {
+    public void saveAdviserInDB() {
         AdviserDao adviserDao = new AdviserDao();
-        Adviser adviser = AdviserConverter.convertToAdviser(this.getAdviserFXObjectProperty());
-        adviserDao.create(adviser);
+        adviserDao.create(AdviserConverter.convertToAdviser(this.getAdviserFXObjectProperty()));
         adviserDao.closeConnection();
         init();
     }
 
-    public void deleteAdviserInDb() {
+    public void deleteAdviserInDB() {
         AdviserDao adviserDao = new AdviserDao();
         adviserDao.delete(AdviserConverter.convertToAdviser(this.getAdviserFXObjectPropertyEdit()));
+        adviserDao.closeConnection();
+        init();
+    }
+
+    public void updateAdviserInDB() {
+        AdviserDao adviserDao = new AdviserDao();
+        adviserDao.update(AdviserConverter.convertToAdviser(this.getAdviserFXObjectPropertyEdit()));
         adviserDao.closeConnection();
         init();
     }

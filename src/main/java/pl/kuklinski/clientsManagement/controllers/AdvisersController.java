@@ -1,10 +1,8 @@
 package pl.kuklinski.clientsManagement.controllers;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.TextFieldTableCell;
-import pl.kuklinski.clientsManagement.database.dao.AdviserDao;
 import pl.kuklinski.clientsManagement.modelFX.AdviserFX;
 import pl.kuklinski.clientsManagement.modelFX.AdviserModel;
 
@@ -57,24 +55,24 @@ public class AdvisersController {
 
 
     public void addAdviser() {
-        this.adviserModel.saveAdviserInDataBase();
+        this.adviserModel.saveAdviserInDB();
         this.adviserNameField.clear();
         this.adviserSurnameField.clear();
     }
 
 
     public void deleteAdviser() {
-        this.adviserModel.deleteAdviserInDb();
+        this.adviserModel.deleteAdviserInDB();
     }
 
 
     public void editName(TableColumn.CellEditEvent<AdviserFX, String> adviserFXStringCellEditEvent) {
-        this.adviserModel.getAdviserFXObjectProperty().setName(adviserFXStringCellEditEvent.getNewValue());
-        this.adviserModel.saveAdviserInDataBase();
+        this.adviserModel.getAdviserFXObjectPropertyEdit().setName(adviserFXStringCellEditEvent.getNewValue());
+        this.adviserModel.updateAdviserInDB();
     }
 
     public void editSurname(TableColumn.CellEditEvent<AdviserFX, String> adviserFXStringCellEditEvent) {
-        this.adviserModel.getAdviserFXObjectProperty().setSurname(adviserFXStringCellEditEvent.getNewValue());
-        this.adviserModel.saveAdviserInDataBase();
+        this.adviserModel.getAdviserFXObjectPropertyEdit().setSurname(adviserFXStringCellEditEvent.getNewValue());
+        this.adviserModel.updateAdviserInDB();
     }
 }
