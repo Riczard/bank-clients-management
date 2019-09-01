@@ -45,7 +45,7 @@
                 <TableColumn fx:id="clickAmountColumn" onEditCommit="#editClickAmount" prefWidth="75.0" text="%clickAmount.client" />
                 <TableColumn fx:id="phoneColumn" onEditCommit="#editPhone" prefWidth="75.0" text="%phone.client" />
                 <TableColumn fx:id="cityColumn" onEditCommit="#editCity" prefWidth="75.0" text="%city.client" />
-                <TableColumn fx:id="adviserColumn" prefWidth="75.0" text="%adviser.client" />
+                <TableColumn fx:id="adviserColumn" onEditCommit="#editAdviser" prefWidth="75.0" text="%adviser.client" />
                 <TableColumn fx:id="incomeColumn" onEditCommit="#editIncome" prefWidth="75.0" text="%income.client" />
                 <TableColumn fx:id="detailsColumn" prefWidth="75.0" text="%details.general" />
             </columns>
