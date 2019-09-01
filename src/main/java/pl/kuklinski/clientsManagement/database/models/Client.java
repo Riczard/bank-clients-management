@@ -3,7 +3,7 @@ package pl.kuklinski.clientsManagement.database.models;
 import javax.persistence.*;
 import java.time.LocalDate;
 
-@Entity
+@Entity(name = "Client")
 public class Client implements BaseModel {
 
     @Id
@@ -33,11 +33,11 @@ public class Client implements BaseModel {
     @Column
     private LocalDate verificationDate;
 
-    @JoinColumn
     @ManyToOne
     private AccountStatus status;
 
     @ManyToOne
+    @JoinColumn(name = "adviser_id")
     private Adviser adviser;
 
     public Client() {
