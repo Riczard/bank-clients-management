@@ -20,12 +20,14 @@ public class CommonDao {
     public <T extends BaseModel> void create(T t) {
         entityManager.getTransaction().begin();
         entityManager.persist(t);
+        entityManager.flush();
         entityManager.getTransaction().commit();
     }
 
     public <T extends BaseModel> void update(T t) {
         entityManager.getTransaction().begin();
         entityManager.merge(t);
+        entityManager.flush();
         entityManager.getTransaction().commit();
     }
 
@@ -36,7 +38,7 @@ public class CommonDao {
         return entityManager.createQuery(criteria).getResultStream();
     }
 
-    public <T, I extends BaseModel> T findById(Class<T> cls, long id) {
+    public <T> T findById(Class<T> cls, long id) {
         return entityManager.find(cls, id);
     }
 
@@ -47,7 +49,7 @@ public class CommonDao {
 
     public <T extends BaseModel> void delete(T t) {
         entityManager.getTransaction().begin();
-        entityManager.remove(entityManager.contains(t) ? t : entityManager.merge(t));
+        entityManager.remove(findById(t.getClass(), t.getId()));
         entityManager.getTransaction().commit();
     }
 
