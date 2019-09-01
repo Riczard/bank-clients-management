@@ -21,6 +21,7 @@ public class ListClientsModel {
     private ObservableList<AdviserFX> adviserFXObservableList = FXCollections.observableArrayList();
     private ObservableList<AccountStatusFX> accStatusFXObservableList = FXCollections.observableArrayList();
 
+    private ObjectProperty<ClientFX> clientFXObjectPropertyEdit = new SimpleObjectProperty<>(new ClientFX());
     private ObjectProperty<AdviserFX> adviserFXObjectProperty = new SimpleObjectProperty<>();
     private ObjectProperty<AccountStatusFX> accountStatusFXObjectProperty = new SimpleObjectProperty<>();
     private List<ClientFX> clientFXList = new ArrayList<>();
@@ -50,9 +51,9 @@ public class ListClientsModel {
         clientDao.closeConnection();
     }
 
-    public void updateInDataBase(ClientFX clientFX) {
+    public void updateInDataBase() {
         ClientDao clientDao = new ClientDao();
-        clientDao.update(ClientConverter.convertToClient(clientFX));
+        clientDao.update(ClientConverter.convertToClient(this.getClientFXObjectPropertyEdit()));
         clientDao.closeConnection();
     }
 
@@ -110,5 +111,17 @@ public class ListClientsModel {
 
     public void setClientFXList(List<ClientFX> clientFXList) {
         this.clientFXList = clientFXList;
+    }
+
+    public ClientFX getClientFXObjectPropertyEdit() {
+        return clientFXObjectPropertyEdit.get();
+    }
+
+    public ObjectProperty<ClientFX> clientFXObjectProperty() {
+        return clientFXObjectPropertyEdit;
+    }
+
+    public void setClientFXObjectPropertyEdit(ClientFX clientFXObjectPropertyEdit) {
+        this.clientFXObjectPropertyEdit.set(clientFXObjectPropertyEdit);
     }
 }
