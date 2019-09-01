@@ -3,8 +3,8 @@ package pl.kuklinski.clientsManagement.database.models;
 import javax.persistence.*;
 import java.util.List;
 
-@Entity
-public class AccountStatus implements BaseModel{
+@Entity(name = "AccStatus")
+public class AccountStatus implements BaseModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
@@ -17,6 +17,11 @@ public class AccountStatus implements BaseModel{
     private List<Client> clients;
 
     public AccountStatus() {
+    }
+
+    @PreRemove
+    private void setStatusInClientToNull() {
+        clients.forEach(client -> client.setStatus(null));
     }
 
     public long getId() {
@@ -33,5 +38,13 @@ public class AccountStatus implements BaseModel{
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public List<Client> getClients() {
+        return clients;
+    }
+
+    public void setClients(List<Client> clients) {
+        this.clients = clients;
     }
 }
