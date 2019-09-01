@@ -18,7 +18,7 @@
             <Button fx:id="addButton" mnemonicParsing="false" onAction="#addAccStatus" text="%add.button" />
          </children>
       </HBox>
-      <ListView fx:id="statusListView" maxHeight="1.7976931348623157E308" prefHeight="200.0" prefWidth="400.0">
+      <ListView fx:id="statusListView" editable="true" maxHeight="1.7976931348623157E308" onEditCommit="#editStatus" prefHeight="200.0" prefWidth="400.0">
          <contextMenu>
             <ContextMenu>
               <items>
