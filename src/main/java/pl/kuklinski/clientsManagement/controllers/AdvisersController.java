@@ -66,4 +66,15 @@ public class AdvisersController {
     public void deleteAdviser() {
         this.adviserModel.deleteAdviserInDb();
     }
+
+
+    public void editName(TableColumn.CellEditEvent<AdviserFX, String> adviserFXStringCellEditEvent) {
+        this.adviserModel.getAdviserFXObjectProperty().setName(adviserFXStringCellEditEvent.getNewValue());
+        this.adviserModel.saveAdviserInDataBase();
+    }
+
+    public void editSurname(TableColumn.CellEditEvent<AdviserFX, String> adviserFXStringCellEditEvent) {
+        this.adviserModel.getAdviserFXObjectProperty().setSurname(adviserFXStringCellEditEvent.getNewValue());
+        this.adviserModel.saveAdviserInDataBase();
+    }
 }
