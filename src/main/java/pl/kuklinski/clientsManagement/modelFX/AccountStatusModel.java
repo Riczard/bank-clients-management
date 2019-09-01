@@ -46,6 +46,13 @@ public class AccountStatusModel {
         init();
     }
 
+    public void updateStatusInDB() {
+        AccountStatusDao accountStatusDao = new AccountStatusDao();
+        accountStatusDao.update(AccountStatusConverter.convertToAccStatus(this.getAccountStatusFXObjectPropertyEdit()));
+        accountStatusDao.closeConnection();
+        init();
+    }
+
     public AccountStatusFX getAccountStatusFXObjectProperty() {
         return accountStatusFXObjectProperty.get();
     }
@@ -77,4 +84,6 @@ public class AccountStatusModel {
     public void setAccountStatusFXObservableList(ObservableList<AccountStatusFX> accountStatusFXObservableList) {
         this.accountStatusFXObservableList = accountStatusFXObservableList;
     }
+
+
 }
