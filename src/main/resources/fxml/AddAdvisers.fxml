@@ -38,8 +38,8 @@
       </HBox>
       <TableView fx:id="adviserTableView" editable="true" maxHeight="1.7976931348623157E308" prefWidth="200.0" tableMenuButtonVisible="true">
         <columns>
-          <TableColumn fx:id="nameAdviserColumn" prefWidth="75.0" text="%name.general" />
-          <TableColumn fx:id="surnameAdviserColumn" prefWidth="75.0" text="%surname.general" />
+          <TableColumn fx:id="nameAdviserColumn" onEditCommit="#editName" prefWidth="75.0" text="%name.general" />
+          <TableColumn fx:id="surnameAdviserColumn" onEditCommit="#editSurname" prefWidth="75.0" text="%surname.general" />
         </columns>
          <contextMenu>
             <ContextMenu>
