@@ -1,30 +1,66 @@
 package pl.kuklinski.clientsManagement.controllers;
 
-import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
+
+import java.io.File;
 
 public class ImportController {
-    public Button importButton;
-    public TextField statusClient;
-    public TextField adviserClient;
-    public TextField verificationDateClient;
-    public TextField lastContactDateClient;
-    public TextField commentClient;
-    public TextField clickAmountClient;
-    public TextField relationClient;
-    public TextField peselClient;
-    public TextField incomeClient;
-    public TextField phoneClient;
-    public TextField cityClient;
-    public TextField surnameClient;
-    public TextField nameClient;
-    public Label filePath;
 
-    public void chooseFile(ActionEvent event) {
+    @FXML
+    private Button importButton;
+    @FXML
+    private TextField statusClient;
+    @FXML
+    private TextField adviserClient;
+    @FXML
+    private TextField verificationDateClient;
+    @FXML
+    private TextField lastContactDateClient;
+    @FXML
+    private TextField commentClient;
+    @FXML
+    private TextField clickAmountClient;
+    @FXML
+    private TextField relationClient;
+    @FXML
+    private TextField peselClient;
+    @FXML
+    private TextField incomeClient;
+    @FXML
+    private TextField phoneClient;
+    @FXML
+    private TextField cityClient;
+    @FXML
+    private TextField surnameClient;
+    @FXML
+    private TextField nameClient;
+    @FXML
+    private Label filePath;
+
+    private File file;
+
+    @FXML
+    public void chooseFile() {
+        Stage stage = new Stage();
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle(" ");
+        fileChooser.getExtensionFilters().addAll(
+                new FileChooser.ExtensionFilter("All Files", "*.*"),
+                new FileChooser.ExtensionFilter("CSV", "*.csv"),
+                new FileChooser.ExtensionFilter("TXT", "*.txt")
+
+        );
+        file = fileChooser.showOpenDialog(stage);
+        filePath.setText(file.getPath());
+
     }
 
-    public void importData(ActionEvent event) {
+    @FXML
+    public void importData() {
     }
 }
