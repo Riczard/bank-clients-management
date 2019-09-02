@@ -68,7 +68,7 @@
       <Label text="%verificationDate.client" GridPane.halignment="CENTER" GridPane.rowIndex="11" />
       <Label text="%adviser.client" GridPane.halignment="CENTER" GridPane.rowIndex="12" />
       <Label text="%status.client" GridPane.halignment="CENTER" GridPane.rowIndex="13" />
-      <Label fx:id="filePath" GridPane.rowIndex="15">
+      <Label fx:id="filePath" textOverrun="LEADING_ELLIPSIS" GridPane.rowIndex="15">
          <padding>
             <Insets left="10.0" />
          </padding>
