@@ -7,15 +7,13 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.TextFormatter;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
-import pl.kuklinski.clientsManagement.database.dbutils.ImportManager;
+import pl.kuklinski.clientsManagement.database.dbutils.ImportClientFromCSV;
 
 import java.io.File;
 import java.text.DecimalFormat;
 import java.text.ParsePosition;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class ImportController {
 
@@ -51,7 +49,7 @@ public class ImportController {
     private Label filePath;
 
     private File file;
-    private DecimalFormat format = new DecimalFormat( "#.0" );
+    private DecimalFormat format = new DecimalFormat("#.0");
 
     @FXML
     public void initialize() {
@@ -78,23 +76,23 @@ public class ImportController {
 
     private TextFormatter<Object> setFieldOnlyNumeric() {
         return new TextFormatter<>(c -> {
-            if ( c.getControlNewText().isEmpty() ) {
+            if (c.getControlNewText().isEmpty()) {
                 return c;
             }
-            ParsePosition parsePosition = new ParsePosition( 0 );
-            Object object = format.parse( c.getControlNewText(), parsePosition );
+            ParsePosition parsePosition = new ParsePosition(0);
+            Object object = format.parse(c.getControlNewText(), parsePosition);
 
-            if ( object == null || parsePosition.getIndex() < c.getControlNewText().length() ) {
+            if (object == null || parsePosition.getIndex() < c.getControlNewText().length()) {
                 return null;
-            }
-            else {
+            } else {
                 return c;
             }
         });
     }
 
     private void validation() {
-        this.importButton.disableProperty().bind(this.filePath.textProperty().isEmpty());
+        this.importButton.disableProperty().bind(this.filePath.textProperty().isEmpty()
+                .or(this.peselIndex.textProperty().isEmpty()));
     }
 
     @FXML
@@ -115,24 +113,25 @@ public class ImportController {
 
     @FXML
     public void importData() {
-        ImportManager.importToDataBase(getColumnsIndex(), file);
+        ImportClientFromCSV importClient = new ImportClientFromCSV(getColumnsIndex());
+        importClient.importClientToDB(file);
     }
 
-    private Map<String, Integer> getColumnsIndex() {
-        Map<String, Integer> columnsIndex = new HashMap<>();
-        columnsIndex.put("nameClient", Integer.parseInt(nameIndex.getText()));
-        columnsIndex.put("surnameClient", Integer.parseInt(surnameIndex.getText()));
-        columnsIndex.put("cityClient", Integer.parseInt(cityIndex.getText()));
-        columnsIndex.put("phoneClient", Integer.parseInt(phoneIndex.getText()));
-        columnsIndex.put("incomeClient", Integer.parseInt(incomeIndex.getText()));
-        columnsIndex.put("peselClient", Integer.parseInt(peselIndex.getText()));
-        columnsIndex.put("relationClient", Integer.parseInt(relationIndex.getText()));
-        columnsIndex.put("clickAmountClient", Integer.parseInt(clickAmountIndex.getText()));
-        columnsIndex.put("commentClient", Integer.parseInt(commentIndex.getText()));
-        columnsIndex.put("lastContactDateClient", Integer.parseInt(lastContactDateIndex.getText()));
-        columnsIndex.put("verificationDateClient", Integer.parseInt(verificationDateIndex.getText()));
-        columnsIndex.put("adviserClient", Integer.parseInt(adviserIndex.getText()));
-        columnsIndex.put("statusClient", Integer.parseInt(statusIndex.getText()));
+    private Map<String, String> getColumnsIndex() {
+        Map<String, String> columnsIndex = new HashMap<>();
+        columnsIndex.put(nameIndex.getText(), "nameClient");
+        columnsIndex.put(surnameIndex.getText(), "surnameClient");
+        columnsIndex.put(cityIndex.getText(), "cityClient");
+        columnsIndex.put(phoneIndex.getText(), "phoneClient");
+        columnsIndex.put(incomeIndex.getText(), "incomeClient");
+        columnsIndex.put(peselIndex.getText(), "peselClient");
+        columnsIndex.put(relationIndex.getText(), "relationClient");
+        columnsIndex.put(clickAmountIndex.getText(), "clickAmountClient");
+        columnsIndex.put(commentIndex.getText(), "commentClient");
+        columnsIndex.put(lastContactDateIndex.getText(), "lastContactDateClient");
+        columnsIndex.put(verificationDateIndex.getText(), "verificationDateClient");
+        columnsIndex.put(adviserIndex.getText(), "adviserClient");
+        columnsIndex.put(statusIndex.getText(), "statusClient");
         return columnsIndex;
     }
 
