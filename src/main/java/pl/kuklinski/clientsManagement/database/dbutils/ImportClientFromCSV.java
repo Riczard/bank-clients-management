@@ -10,7 +10,6 @@ import pl.kuklinski.clientsManagement.utils.CSVUtils;
 import pl.kuklinski.clientsManagement.utils.CommonUtils;
 
 import java.io.File;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
@@ -24,7 +23,7 @@ public class ImportClientFromCSV {
 
     public void importClientToDB(File file) {
         ClientDao clientDao = new ClientDao();
-        List<String[]> data = CSVUtils.getData(file);
+        List<String[]> data = CSVUtils.getDataFromCSV(file);
         for (String[] clientInfo : data) {
 
             if(clientInfo.length > 0) {
