@@ -42,7 +42,7 @@ public class CommonDao {
         return entityManager.find(cls, id);
     }
 
-    private <T extends BaseModel> CriteriaQuery<T> getCriteriaQuery(Class<T> cls) {
+    public  <T extends BaseModel> CriteriaQuery<T> getCriteriaQuery(Class<T> cls) {
         CriteriaBuilder builder = entityManager.getCriteriaBuilder();
         return builder.createQuery(cls);
     }
@@ -55,5 +55,9 @@ public class CommonDao {
 
     public void closeConnection() {
         entityManager.close();
+    }
+
+    public EntityManager getEntityManager() {
+        return entityManager;
     }
 }
