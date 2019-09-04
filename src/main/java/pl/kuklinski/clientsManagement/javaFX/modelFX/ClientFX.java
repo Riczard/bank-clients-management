@@ -22,6 +22,7 @@ public class ClientFX {
     private StringProperty clickAmount = new SimpleStringProperty();
     private StringProperty consolidationAmount = new SimpleStringProperty();
     private StringProperty city = new SimpleStringProperty();
+    private StringProperty soruce = new SimpleStringProperty();
     private ObjectProperty<AdviserFX> adviser = new SimpleObjectProperty<>();
 
     public long getId() {
@@ -226,5 +227,17 @@ public class ClientFX {
 
     public void setAdviser(AdviserFX adviser) {
         this.adviser.set(adviser);
+    }
+
+    public String getSoruce() {
+        return soruce.get();
+    }
+
+    public StringProperty soruceProperty() {
+        return soruce;
+    }
+
+    public void setSoruce(String soruce) {
+        this.soruce.set(soruce);
     }
 }
