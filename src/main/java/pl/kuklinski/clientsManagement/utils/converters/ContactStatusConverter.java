@@ -12,7 +12,7 @@ public class ContactStatusConverter {
         return contactStatusFX;
     }
 
-    public static ContactStatus convertToAccStatus(ContactStatusFX contactStatusFX) {
+    public static ContactStatus convertToContactStatus(ContactStatusFX contactStatusFX) {
         ContactStatus contactStatus = new ContactStatus();
         contactStatus.setId(contactStatusFX.getId());
         contactStatus.setTitle(contactStatusFX.getContactStatus());
