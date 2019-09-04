@@ -39,24 +39,31 @@
         <TableView fx:id="clientsTableView" editable="true" maxHeight="1.7976931348623157E308"
                    maxWidth="1.7976931348623157E308" tableMenuButtonVisible="true">
             <columns>
-                <TableColumn fx:id="idColumn" editable="false" prefWidth="25.0" resizable="false" text="ID"/>
+                <TableColumn fx:id="idColumn" editable="false" prefWidth="25.0" text="ID"/>
                 <TableColumn fx:id="nameColumn" onEditCommit="#editName" prefWidth="75.0" text="%name.general"/>
                 <TableColumn fx:id="surnameColumn" onEditCommit="#editSurname" prefWidth="75.0"
                              text="%surname.general"/>
                 <TableColumn fx:id="peselColumn" onEditCommit="#editPesel" prefWidth="75.0" text="%pesel.client"/>
                 <TableColumn fx:id="phoneColumn" onEditCommit="#editPhone" prefWidth="75.0" text="%phone.client"/>
-                <TableColumn fx:id="offerStatusColumn" onEditCommit="#editOfferStatus" prefWidth="75.0" text="%offerStatus.client"/>
-                <TableColumn fx:id="relationColumn" onEditCommit="#editRelation" prefWidth="75.0" text="%relation.client"/>
-                <TableColumn fx:id="contactStatusColumn" onEditCommit="#editContactStatus" prefWidth="75.0" text="%contactStatus.client"/>
-                <TableColumn fx:id="lastContactDateColumn" onEditCommit="#editLastContact" prefWidth="75.0" text="%lastContactDate.client"/>
-                <TableColumn fx:id="plannedContactDateColumn" onEditCommit="#editPlannedContact" prefWidth="75.0" text="%plannedContactDate.client"/>
+                <TableColumn fx:id="offerStatusColumn" onEditCommit="#editOfferStatus" prefWidth="75.0"
+                             text="%offerStatus.client"/>
+                <TableColumn fx:id="relationColumn" onEditCommit="#editRelation" prefWidth="75.0"
+                             text="%relation.client"/>
+                <TableColumn fx:id="contactStatusColumn" onEditCommit="#editContactStatus" prefWidth="75.0"
+                             text="%contactStatus.client"/>
+                <TableColumn fx:id="lastContactDateColumn" onEditCommit="#editLastContact" prefWidth="75.0"
+                             text="%lastContactDate.client"/>
+                <TableColumn fx:id="plannedContactDateColumn" onEditCommit="#editPlannedContact" prefWidth="75.0"
+                             text="%plannedContactDate.client"/>
                 <TableColumn fx:id="commentColumn" onEditCommit="#editComment" prefWidth="75.0" text="%comment.client"/>
                 <TableColumn fx:id="incomeTypeColumn" onEditCommit="#editIncomeType" prefWidth="75.0"
                              text="%income.client"/>
-                <TableColumn fx:id="verificationDateColumn" editable="false" prefWidth="75.0" text="%verificationDate.client"/>
+                <TableColumn fx:id="verificationDateColumn" editable="false" prefWidth="75.0"
+                             text="%verificationDate.client"/>
                 <TableColumn fx:id="clickAmountColumn" onEditCommit="#editClickAmount" prefWidth="75.0"
                              text="%clickAmount.client"/>
-                <TableColumn fx:id="consolidationAmountColumn" onEditCommit="#editConsolidationAmount" prefWidth="75.0" text="%consolidationAmount.client"/>
+                <TableColumn fx:id="consolidationAmountColumn" onEditCommit="#editConsolidationAmount" prefWidth="75.0"
+                             text="%consolidationAmount.client"/>
                 <TableColumn fx:id="detailsColumn" editable="false" prefWidth="75.0" text="%details.general"/>
             </columns>
         </TableView>
