@@ -22,7 +22,7 @@ public class ClientFX {
     private StringProperty clickAmount = new SimpleStringProperty();
     private StringProperty consolidationAmount = new SimpleStringProperty();
     private StringProperty city = new SimpleStringProperty();
-    private StringProperty soruce = new SimpleStringProperty();
+    private StringProperty source = new SimpleStringProperty();
     private ObjectProperty<AdviserFX> adviser = new SimpleObjectProperty<>();
 
     public long getId() {
@@ -229,15 +229,15 @@ public class ClientFX {
         this.adviser.set(adviser);
     }
 
-    public String getSoruce() {
-        return soruce.get();
+    public String getSource() {
+        return source.get();
     }
 
-    public StringProperty soruceProperty() {
-        return soruce;
+    public StringProperty sourceProperty() {
+        return source;
     }
 
-    public void setSoruce(String soruce) {
-        this.soruce.set(soruce);
+    public void setSource(String source) {
+        this.source.set(source);
     }
 }
