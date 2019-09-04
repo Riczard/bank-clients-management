@@ -1,7 +1,7 @@
 package pl.kuklinski.clientsManagement.utils.converters;
 
 import pl.kuklinski.clientsManagement.database.models.Adviser;
-import pl.kuklinski.clientsManagement.modelFX.AdviserFX;
+import pl.kuklinski.clientsManagement.javaFX.modelFX.AdviserFX;
 
 public class AdviserConverter {
 
