@@ -21,6 +21,8 @@ public class ClientFX {
     private ObjectProperty<LocalDate> verificationDate = new SimpleObjectProperty<>();
     private StringProperty clickAmount = new SimpleStringProperty();
     private StringProperty consolidationAmount = new SimpleStringProperty();
+    private StringProperty city = new SimpleStringProperty();
+    private ObjectProperty<AdviserFX> adviser = new SimpleObjectProperty<>();
 
     public long getId() {
         return id.get();
@@ -200,5 +202,29 @@ public class ClientFX {
 
     public void setConsolidationAmount(String consolidationAmount) {
         this.consolidationAmount.set(consolidationAmount);
+    }
+
+    public String getCity() {
+        return city.get();
+    }
+
+    public StringProperty cityProperty() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city.set(city);
+    }
+
+    public AdviserFX getAdviser() {
+        return adviser.get();
+    }
+
+    public ObjectProperty<AdviserFX> adviserProperty() {
+        return adviser;
+    }
+
+    public void setAdviser(AdviserFX adviser) {
+        this.adviser.set(adviser);
     }
 }
