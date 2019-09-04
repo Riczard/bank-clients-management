@@ -1,7 +1,7 @@
 package pl.kuklinski.clientsManagement.utils.converters;
 
 import pl.kuklinski.clientsManagement.database.models.Client;
-import pl.kuklinski.clientsManagement.modelFX.ClientFX;
+import pl.kuklinski.clientsManagement.javaFX.modelFX.ClientFX;
 
 public class ClientConverter {
 
@@ -9,24 +9,33 @@ public class ClientConverter {
         ClientFX clientFX = new ClientFX();
         clientFX.setId(client.getId());
         clientFX.setName(client.getName());
-        clientFX.setPhone(client.getPhone());
         clientFX.setSurname(client.getSurname());
-        clientFX.setCity(client.getCity());
         clientFX.setPesel(client.getPesel());
-        clientFX.setIncome(client.getIncome());
-        clientFX.setRelation(client.getRelation());
-        clientFX.setClickAmount(client.getClickAmount());
-        clientFX.setComment(client.getComment());
-        clientFX.setLastContactDate(client.getLastContactDate());
-        clientFX.setVerificationDate(client.getVerificationDate());
-        if (client.getStatus() != null) {
-            clientFX.setAccountStatus(AccountStatusConverter.convertToAccStatusFX(client.getStatus()));
+        clientFX.setPhone(client.getPhone());
+        if (client.getOfferStatus() != null) {
+            clientFX.setOfferStatus(OfferStatusConverter.convertToOfferStatusFX(client.getOfferStatus()));
         }
+        if (client.getRelation() != null) {
+            clientFX.setRelation(RelationConverter.convertToRelationFX(client.getRelation()));
+        }
+        if (client.getStatus() != null) {
+            clientFX.setContactStatus(ContactStatusConverter.convertToAccStatusFX(client.getStatus()));
+        }
+        clientFX.setLastContactDate(client.getLastContactDate());
+        clientFX.setPlannedDate(client.getPlannedContactDate());
+        clientFX.setComment(client.getComment());
+        clientFX.setIncomeType(client.getIncomeType());
+        clientFX.setVerificationDate(client.getVerificationDate());
+        clientFX.setClickAmount(client.getClickAmount());
+        clientFX.setConsolidationAmount(client.getConsolidationAmount());
+        clientFX.setCity(client.getCity());
+        clientFX.setSource(client.getSource());
         if (client.getAdviser() != null) {
             clientFX.setAdviser(AdviserConverter.convertToAdviserFx(client.getAdviser()));
         }
         return clientFX;
     }
+
 
     public static Client convertToClient(ClientFX clientFX) {
         Client client = new Client();
@@ -35,16 +44,24 @@ public class ClientConverter {
         client.setSurname(clientFX.getSurname());
         client.setPesel(clientFX.getPesel());
         client.setPhone(clientFX.getPhone());
-        client.setCity(clientFX.getCity());
-        client.setIncome(clientFX.getIncome());
-        client.setRelation(clientFX.getRelation());
-        client.setClickAmount(clientFX.getClickAmount());
-        client.setComment(clientFX.getComment());
-        client.setLastContactDate(clientFX.getLastContactDate());
-        client.setVerificationDate(clientFX.getVerificationDate());
-        if (clientFX.getAccountStatus() != null) {
-            client.setStatus(AccountStatusConverter.convertToAccStatus(clientFX.getAccountStatus()));
+        if (clientFX.getOfferStatus() != null) {
+            client.setOfferStatus(OfferStatusConverter.convertToOfferStatus(clientFX.getOfferStatus()));
         }
+        if (clientFX.getRelation() != null) {
+            client.setRelation(RelationConverter.convertToRelation(clientFX.getRelation()));
+        }
+        if (clientFX.getContactStatus() != null) {
+            client.setStatus(ContactStatusConverter.convertToContactStatus(clientFX.getContactStatus()));
+        }
+        client.setLastContactDate(clientFX.getLastContactDate());
+        client.setPlannedContactDate(clientFX.getPlannedDate());
+        client.setComment(clientFX.getComment());
+        client.setIncomeType(clientFX.getIncomeType());
+        client.setVerificationDate(clientFX.getVerificationDate());
+        client.setClickAmount(clientFX.getClickAmount());
+        client.setConsolidationAmount(clientFX.getConsolidationAmount());
+        client.setCity(clientFX.getCity());
+        client.setSource(clientFX.getSource());
         if (clientFX.getAdviser() != null) {
             client.setAdviser(AdviserConverter.convertToAdviser(clientFX.getAdviser()));
         }
