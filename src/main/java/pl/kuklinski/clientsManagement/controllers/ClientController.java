@@ -61,18 +61,19 @@ public class ClientController {
 
     private void bindings() {
         this.clientModel.getClientFXObjectProperty();
-//        this.accStatusComboBox.valueProperty().bindBidirectional(this.clientModel.getClientFXObjectProperty().accountStatusProperty());
-//        this.adviserComboBox.valueProperty().bindBidirectional(this.clientModel.getClientFXObjectProperty().adviserProperty());
         this.nameField.textProperty().bindBidirectional(this.clientModel.getClientFXObjectProperty().nameProperty());
         this.surnameField.textProperty().bindBidirectional(this.clientModel.getClientFXObjectProperty().surnameProperty());
-//        this.commentArea.textProperty().bindBidirectional(this.clientModel.getClientFXObjectProperty().commentProperty());
         this.peselField.textProperty().bindBidirectional(this.clientModel.getClientFXObjectProperty().peselProperty());
-//        this.relationField.textProperty().bindBidirectional(this.clientModel.getClientFXObjectProperty().relationProperty());
-//        this.lastContactDate.valueProperty().bindBidirectional(this.clientModel.getClientFXObjectProperty().lastContactDateProperty());
-//        this.verificationDate.valueProperty().bindBidirectional(this.clientModel.getClientFXObjectProperty().verificationDateProperty());
         this.phoneField.textProperty().bindBidirectional(this.clientModel.getClientFXObjectProperty().phoneProperty());
-//        this.incomeField.textProperty().bindBidirectional(this.clientModel.getClientFXObjectProperty().incomeTypeProperty());
-//        this.cityField.textProperty().bindBidirectional(this.clientModel.getClientFXObjectProperty().cityProperty());
+        this.statusOfferField.valueProperty().bindBidirectional(this.clientModel.getClientFXObjectProperty().offerStatusProperty());
+        this.relationField.valueProperty().bindBidirectional(this.clientModel.getClientFXObjectProperty().relationProperty());
+        this.contactStatusField.valueProperty().bindBidirectional(this.clientModel.getClientFXObjectProperty().contactStatusProperty());
+        this.lastContactField.valueProperty().bindBidirectional(this.clientModel.getClientFXObjectProperty().lastContactDateProperty());
+        this.plannedDateField.valueProperty().bindBidirectional(this.clientModel.getClientFXObjectProperty().plannedDateProperty());
+        this.commentField.textProperty().bindBidirectional(this.clientModel.getClientFXObjectProperty().commentProperty());
+        this.incomeTypeField.textProperty().bindBidirectional(this.clientModel.getClientFXObjectProperty().incomeTypeProperty());
+        this.cityField.textProperty().bindBidirectional(this.clientModel.getClientFXObjectProperty().cityProperty());
+        this.adviserField.valueProperty().bindBidirectional(this.clientModel.getClientFXObjectProperty().adviserProperty());
     }
 
     private void validation() {
