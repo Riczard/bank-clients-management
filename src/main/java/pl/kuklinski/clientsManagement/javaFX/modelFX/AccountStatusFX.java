@@ -1,4 +1,4 @@
-package pl.kuklinski.clientsManagement.modelFX;
+package pl.kuklinski.clientsManagement.javaFX.modelFX;
 
 import javafx.beans.property.LongProperty;
 import javafx.beans.property.SimpleLongProperty;

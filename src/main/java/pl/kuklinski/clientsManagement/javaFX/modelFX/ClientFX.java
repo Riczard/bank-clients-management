@@ -1,6 +1,8 @@
-package pl.kuklinski.clientsManagement.modelFX;
+package pl.kuklinski.clientsManagement.javaFX.modelFX;
 
 import javafx.beans.property.*;
+import pl.kuklinski.clientsManagement.javaFX.modelFX.AccountStatusFX;
+import pl.kuklinski.clientsManagement.javaFX.modelFX.AdviserFX;
 
 import java.time.LocalDate;
 

@@ -1,11 +1,12 @@
-package pl.kuklinski.clientsManagement.modelFX;
+package pl.kuklinski.clientsManagement.javaFX.model;
 
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import pl.kuklinski.clientsManagement.database.dao.AccountStatusDao;
-import pl.kuklinski.clientsManagement.database.models.AccountStatus;
+import pl.kuklinski.clientsManagement.database.models.ContactStatus;
+import pl.kuklinski.clientsManagement.javaFX.modelFX.AccountStatusFX;
 import pl.kuklinski.clientsManagement.utils.converters.AccountStatusConverter;
 
 import java.util.stream.Stream;
@@ -24,7 +25,7 @@ public class AccountStatusModel {
 
     private void addAccStatusToObservableList() {
         AccountStatusDao accountStatusDao = new AccountStatusDao();
-        Stream<AccountStatus> accStatusStream = accountStatusDao.queryForAll(AccountStatus.class);
+        Stream<ContactStatus> accStatusStream = accountStatusDao.queryForAll(ContactStatus.class);
         accStatusStream.forEach(status -> {
             AccountStatusFX accountStatusFX = AccountStatusConverter.convertToAccStatusFX(status);
             this.accountStatusFXObservableList.add(accountStatusFX);
@@ -34,8 +35,8 @@ public class AccountStatusModel {
 
     public void saveStatusInDataBase() {
         AccountStatusDao accountStatusDao = new AccountStatusDao();
-        AccountStatus accountStatus = AccountStatusConverter.convertToAccStatus(this.getAccountStatusFXObjectProperty());
-        accountStatusDao.create(accountStatus);
+        ContactStatus contactStatus = AccountStatusConverter.convertToAccStatus(this.getAccountStatusFXObjectProperty());
+        accountStatusDao.create(contactStatus);
         init();
     }
 

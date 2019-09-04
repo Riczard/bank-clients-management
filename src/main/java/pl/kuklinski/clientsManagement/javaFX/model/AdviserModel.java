@@ -1,4 +1,4 @@
-package pl.kuklinski.clientsManagement.modelFX;
+package pl.kuklinski.clientsManagement.javaFX.model;
 
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
@@ -6,6 +6,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import pl.kuklinski.clientsManagement.database.dao.AdviserDao;
 import pl.kuklinski.clientsManagement.database.models.Adviser;
+import pl.kuklinski.clientsManagement.javaFX.modelFX.AdviserFX;
 import pl.kuklinski.clientsManagement.utils.converters.AdviserConverter;
 
 import java.util.stream.Stream;
