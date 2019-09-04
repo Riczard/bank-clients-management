@@ -57,7 +57,7 @@
                              text="%plannedContactDate.client"/>
                 <TableColumn fx:id="commentColumn" onEditCommit="#editComment" prefWidth="75.0" text="%comment.client"/>
                 <TableColumn fx:id="incomeTypeColumn" onEditCommit="#editIncomeType" prefWidth="75.0"
-                             text="%income.client"/>
+                             text="%incomeType.client"/>
                 <TableColumn fx:id="verificationDateColumn" editable="false" prefWidth="75.0"
                              text="%verificationDate.client"/>
                 <TableColumn fx:id="clickAmountColumn" onEditCommit="#editClickAmount" prefWidth="75.0"
