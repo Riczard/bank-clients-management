@@ -11,11 +11,11 @@ public class Client implements BaseModel {
     private long id;
 
     @Column
-    private String pesel;
-    @Column
     private String name;
     @Column
     private String surname;
+    @Column
+    private String pesel;
     @Column
     private String phone;
     @ManyToOne
