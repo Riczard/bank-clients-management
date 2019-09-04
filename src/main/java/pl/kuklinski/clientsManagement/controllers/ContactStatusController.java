@@ -7,24 +7,24 @@ import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.TextFieldListCell;
 import javafx.util.StringConverter;
-import pl.kuklinski.clientsManagement.modelFX.AccountStatusFX;
-import pl.kuklinski.clientsManagement.modelFX.AccountStatusModel;
+import pl.kuklinski.clientsManagement.javaFX.modelFX.ContactStatusFX;
+import pl.kuklinski.clientsManagement.javaFX.model.ContactStatusModel;
 
-public class AccountStatusController {
+public class ContactStatusController {
 
     @FXML
     private MenuItem deleteStatus;
     @FXML
-    private ListView<AccountStatusFX> statusListView;
+    private ListView<ContactStatusFX> statusListView;
     @FXML
     private Button addButton;
     @FXML
     private TextField statusField;
 
-    private AccountStatusModel accStatusModel;
+    private ContactStatusModel accStatusModel;
 
     public void initialize() {
-        this.accStatusModel = new AccountStatusModel();
+        this.accStatusModel = new ContactStatusModel();
         this.accStatusModel.init();
         bindings();
         bindingsListView();
@@ -33,29 +33,29 @@ public class AccountStatusController {
     }
 
     private void setOnEditCells() {
-        statusListView.setCellFactory(TextFieldListCell.forListView(new StringConverter<AccountStatusFX>() {
+        statusListView.setCellFactory(TextFieldListCell.forListView(new StringConverter<ContactStatusFX>() {
             @Override
-            public String toString(AccountStatusFX object) {
-                return object.getAccountStatus();
+            public String toString(ContactStatusFX object) {
+                return object.getContactStatus();
             }
 
             @Override
-            public AccountStatusFX fromString(String string) {
-                AccountStatusFX accountStatusFX = new AccountStatusFX();
-                accountStatusFX.setAccountStatus(string);
-                return accountStatusFX;
+            public ContactStatusFX fromString(String string) {
+                ContactStatusFX contactStatusFX = new ContactStatusFX();
+                contactStatusFX.setContactStatus(string);
+                return contactStatusFX;
             }
         }));
     }
 
     private void bindings() {
-        this.accStatusModel.accountStatusFXObjectPropertyy().get().accountStatusProperty().bind(this.statusField.textProperty());
+        this.accStatusModel.accountStatusFXObjectPropertyy().get().contactStatusProperty().bind(this.statusField.textProperty());
         this.addButton.disableProperty().bind(this.statusField.textProperty().isEmpty());
         this.deleteStatus.disableProperty().bind(this.statusListView.getSelectionModel().selectedItemProperty().isNull());
     }
 
     private void bindingsListView() {
-        this.statusListView.setItems(this.accStatusModel.getAccountStatusFXObservableList());
+        this.statusListView.setItems(this.accStatusModel.getContactStatusFXObservableList());
         this.statusListView.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             this.accStatusModel.setAccountStatusFXObjectPropertyEdit(newValue);
         });
@@ -73,8 +73,8 @@ public class AccountStatusController {
         this.accStatusModel.deleteStatusInDataBase();
     }
 
-    public void editStatus(ListView.EditEvent<AccountStatusFX> accountStatusFXEditEvent) {
-        this.accStatusModel.getAccountStatusFXObjectPropertyEdit().setAccountStatus(accountStatusFXEditEvent.getNewValue().getAccountStatus());
+    public void editStatus(ListView.EditEvent<ContactStatusFX> accountStatusFXEditEvent) {
+        this.accStatusModel.getAccountStatusFXObjectPropertyEdit().setContactStatus(accountStatusFXEditEvent.getNewValue().getContactStatus());
         this.accStatusModel.updateStatusInDB();
     }
 
