@@ -11,4 +11,11 @@ public class OfferStatusConverter {
         offerStatusFX.setTitle(status.getTitle());
         return offerStatusFX;
     }
+
+    public static OfferStatus convertToOfferStatus(OfferStatusFX statusFX) {
+        OfferStatus offerStatus = new OfferStatus();
+        offerStatus.setId(statusFX.getId());
+        offerStatus.setTitle(statusFX.getTitle());
+        return offerStatus;
+    }
 }
