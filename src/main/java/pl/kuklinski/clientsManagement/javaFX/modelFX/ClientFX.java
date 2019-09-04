@@ -1,8 +1,6 @@
 package pl.kuklinski.clientsManagement.javaFX.modelFX;
 
 import javafx.beans.property.*;
-import pl.kuklinski.clientsManagement.javaFX.modelFX.AccountStatusFX;
-import pl.kuklinski.clientsManagement.javaFX.modelFX.AdviserFX;
 
 import java.time.LocalDate;
 
@@ -11,17 +9,18 @@ public class ClientFX {
     private LongProperty id = new SimpleLongProperty();
     private StringProperty name = new SimpleStringProperty();
     private StringProperty surname = new SimpleStringProperty();
-    private StringProperty city = new SimpleStringProperty();
-    private StringProperty phone = new SimpleStringProperty();
     private StringProperty pesel = new SimpleStringProperty();
-    private StringProperty income = new SimpleStringProperty();
-    private StringProperty relation = new SimpleStringProperty();
-    private StringProperty clickAmount = new SimpleStringProperty();
-    private StringProperty comment = new SimpleStringProperty();
-    private ObjectProperty<AccountStatusFX> accountStatus = new SimpleObjectProperty<>();
+    private StringProperty phone = new SimpleStringProperty();
+    private ObjectProperty<OfferStatusFX> offerStatus = new SimpleObjectProperty<>();
+    private ObjectProperty<RelationFX> relation = new SimpleObjectProperty<>();
+    private ObjectProperty<ContactStatusFX> contactStatus = new SimpleObjectProperty<>();
     private ObjectProperty<LocalDate> lastContactDate = new SimpleObjectProperty<>();
+    private ObjectProperty<LocalDate> plannedDate = new SimpleObjectProperty<>();
+    private StringProperty comment = new SimpleStringProperty();
+    private StringProperty incomeType = new SimpleStringProperty();
     private ObjectProperty<LocalDate> verificationDate = new SimpleObjectProperty<>();
-    private ObjectProperty<AdviserFX> adviser = new SimpleObjectProperty<>();
+    private StringProperty clickAmount = new SimpleStringProperty();
+    private StringProperty consolidationAmount = new SimpleStringProperty();
 
     public long getId() {
         return id.get();
@@ -59,16 +58,16 @@ public class ClientFX {
         this.surname.set(surname);
     }
 
-    public String getCity() {
-        return city.get();
+    public String getPesel() {
+        return pesel.get();
     }
 
-    public StringProperty cityProperty() {
-        return city;
+    public StringProperty peselProperty() {
+        return pesel;
     }
 
-    public void setCity(String city) {
-        this.city.set(city);
+    public void setPesel(String pesel) {
+        this.pesel.set(pesel);
     }
 
     public String getPhone() {
@@ -83,77 +82,40 @@ public class ClientFX {
         this.phone.set(phone);
     }
 
-
-    public String getPesel() {
-        return pesel.get();
+    public OfferStatusFX getOfferStatus() {
+        return offerStatus.get();
     }
 
-    public StringProperty peselProperty() {
-        return pesel;
+    public ObjectProperty<OfferStatusFX> offerStatusProperty() {
+        return offerStatus;
     }
 
-    public void setPesel(String pesel) {
-        this.pesel.set(pesel);
+    public void setOfferStatus(OfferStatusFX offerStatus) {
+        this.offerStatus.set(offerStatus);
     }
 
-    public String getIncome() {
-        return income.get();
-    }
-
-    public StringProperty incomeProperty() {
-        return income;
-    }
-
-    public void setIncome(String income) {
-        this.income.set(income);
-    }
-
-    public String getRelation() {
+    public RelationFX getRelation() {
         return relation.get();
     }
 
-    public StringProperty relationProperty() {
+    public ObjectProperty<RelationFX> relationProperty() {
         return relation;
     }
 
-    public void setRelation(String relation) {
+    public void setRelation(RelationFX relation) {
         this.relation.set(relation);
     }
 
-    public String getClickAmount() {
-        return clickAmount.get();
+    public ContactStatusFX getContactStatus() {
+        return contactStatus.get();
     }
 
-    public StringProperty clickAmountProperty() {
-        return clickAmount;
+    public ObjectProperty<ContactStatusFX> contactStatusProperty() {
+        return contactStatus;
     }
 
-    public void setClickAmount(String clickAmount) {
-        this.clickAmount.set(clickAmount);
-    }
-
-    public String getComment() {
-        return comment.get();
-    }
-
-    public StringProperty commentProperty() {
-        return comment;
-    }
-
-    public void setComment(String comment) {
-        this.comment.set(comment);
-    }
-
-    public AccountStatusFX getAccountStatus() {
-        return accountStatus.get();
-    }
-
-    public ObjectProperty<AccountStatusFX> accountStatusProperty() {
-        return accountStatus;
-    }
-
-    public void setAccountStatus(AccountStatusFX accountStatus) {
-        this.accountStatus.set(accountStatus);
+    public void setContactStatus(ContactStatusFX contactStatus) {
+        this.contactStatus.set(contactStatus);
     }
 
     public LocalDate getLastContactDate() {
@@ -168,6 +130,42 @@ public class ClientFX {
         this.lastContactDate.set(lastContactDate);
     }
 
+    public LocalDate getPlannedDate() {
+        return plannedDate.get();
+    }
+
+    public ObjectProperty<LocalDate> plannedDateProperty() {
+        return plannedDate;
+    }
+
+    public void setPlannedDate(LocalDate plannedDate) {
+        this.plannedDate.set(plannedDate);
+    }
+
+    public String getComment() {
+        return comment.get();
+    }
+
+    public StringProperty commentProperty() {
+        return comment;
+    }
+
+    public void setComment(String comment) {
+        this.comment.set(comment);
+    }
+
+    public String getIncomeType() {
+        return incomeType.get();
+    }
+
+    public StringProperty incomeTypeProperty() {
+        return incomeType;
+    }
+
+    public void setIncomeType(String incomeType) {
+        this.incomeType.set(incomeType);
+    }
+
     public LocalDate getVerificationDate() {
         return verificationDate.get();
     }
@@ -180,15 +178,27 @@ public class ClientFX {
         this.verificationDate.set(verificationDate);
     }
 
-    public AdviserFX getAdviser() {
-        return adviser.get();
+    public String getClickAmount() {
+        return clickAmount.get();
     }
 
-    public ObjectProperty<AdviserFX> adviserProperty() {
-        return adviser;
+    public StringProperty clickAmountProperty() {
+        return clickAmount;
     }
 
-    public void setAdviser(AdviserFX adviser) {
-        this.adviser.set(adviser);
+    public void setClickAmount(String clickAmount) {
+        this.clickAmount.set(clickAmount);
+    }
+
+    public String getConsolidationAmount() {
+        return consolidationAmount.get();
+    }
+
+    public StringProperty consolidationAmountProperty() {
+        return consolidationAmount;
+    }
+
+    public void setConsolidationAmount(String consolidationAmount) {
+        this.consolidationAmount.set(consolidationAmount);
     }
 }
