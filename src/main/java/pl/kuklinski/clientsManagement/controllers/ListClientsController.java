@@ -2,6 +2,8 @@ package pl.kuklinski.clientsManagement.controllers;
 
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.fxml.FXML;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.ComboBoxTableCell;
@@ -12,6 +14,7 @@ import pl.kuklinski.clientsManagement.javaFX.modelFX.ClientFX;
 import pl.kuklinski.clientsManagement.javaFX.modelFX.ContactStatusFX;
 import pl.kuklinski.clientsManagement.javaFX.modelFX.OfferStatusFX;
 import pl.kuklinski.clientsManagement.javaFX.modelFX.RelationFX;
+import pl.kuklinski.clientsManagement.utils.CommonUtils;
 import pl.kuklinski.clientsManagement.utils.FXMLUtils;
 
 import java.time.LocalDate;
@@ -104,8 +107,7 @@ public class ListClientsController {
         this.offerStatusColumn.setCellFactory(ComboBoxTableCell.forTableColumn(this.listClientsModel.getOfferStatusFXES()));
         this.relationColumn.setCellFactory(ComboBoxTableCell.forTableColumn(this.listClientsModel.getRelationFXES()));
         this.contactStatusColumn.setCellFactory(ComboBoxTableCell.forTableColumn(this.listClientsModel.getContactStatusFXES()));
-
-//        this.lastContactDateColumn.setCellFactory(param -> new DatePicker(param.));
+//        this.lastContactDateColumn.setCellFactory(param -> new DatePicker(this.listClientsModel.getClientFXObjectPropertyEdit().getLastContactDate())));
         this.commentColumn.setCellFactory(TextFieldTableCell.forTableColumn());
         this.incomeTypeColumn.setCellFactory(TextFieldTableCell.forTableColumn());
 //        this.verificationDateColumn.setCellFactory();
@@ -120,7 +122,7 @@ public class ListClientsController {
 
     @FXML
     public void editName(TableColumn.CellEditEvent<ClientFX, String> event) {
-//        this.listClientsModel.getClientFXObjectPropertyEdit().setName(event.getNewValue());
+        this.listClientsModel.getClientFXObjectPropertyEdit().setName(event.getNewValue());
         this.listClientsModel.updateInDataBase();
     }
 
@@ -149,34 +151,50 @@ public class ListClientsController {
     }
 
     @FXML
-    public void editIncomeType(TableColumn.CellEditEvent cellEditEvent) {
+    public void editIncomeType(TableColumn.CellEditEvent<ClientFX, String> event) {
+        this.listClientsModel.getClientFXObjectPropertyEdit().setIncomeType(event.getNewValue());
+        this.listClientsModel.updateInDataBase();
     }
 
     @FXML
     public void editConsolidationAmount(TableColumn.CellEditEvent<ClientFX, String> event) {
+        this.listClientsModel.getClientFXObjectPropertyEdit().setClickAmount(event.getNewValue());
+        this.listClientsModel.updateInDataBase();
     }
 
     @FXML
     public void editComment(TableColumn.CellEditEvent<ClientFX, String> event) {
+        this.listClientsModel.getClientFXObjectPropertyEdit().setClickAmount(event.getNewValue());
+        this.listClientsModel.updateInDataBase();
     }
 
     @FXML
-    public void editPlannedContact(TableColumn.CellEditEvent<ClientFX, LocalDate> clientFXLocalDateCellEditEvent) {
+    public void editPlannedContact(TableColumn.CellEditEvent<ClientFX, LocalDate> event) {
+        this.listClientsModel.getClientFXObjectPropertyEdit().setPlannedDate(event.getNewValue());
+        this.listClientsModel.updateInDataBase();
     }
 
     @FXML
-    public void editLastContact(TableColumn.CellEditEvent<ClientFX, LocalDate> clientFXLocalDateCellEditEvent) {
+    public void editLastContact(TableColumn.CellEditEvent<ClientFX, LocalDate> event) {
+        this.listClientsModel.getClientFXObjectPropertyEdit().setLastContactDate(event.getNewValue());
+        this.listClientsModel.updateInDataBase();
     }
 
     @FXML
-    public void editContactStatus(TableColumn.CellEditEvent<ClientFX, ContactStatusFX> clientFXContactStatusFXCellEditEvent) {
+    public void editContactStatus(TableColumn.CellEditEvent<ClientFX, ContactStatusFX> event) {
+        this.listClientsModel.getClientFXObjectPropertyEdit().setContactStatus(event.getNewValue());
+        this.listClientsModel.updateInDataBase();
     }
 
     @FXML
-    public void editRelation(TableColumn.CellEditEvent<ClientFX, RelationFX> clientFXRelationFXCellEditEvent) {
+    public void editRelation(TableColumn.CellEditEvent<ClientFX, RelationFX> event) {
+        this.listClientsModel.getClientFXObjectPropertyEdit().setRelation(event.getNewValue());
+        this.listClientsModel.updateInDataBase();
     }
 
     @FXML
-    public void editOfferStatus(TableColumn.CellEditEvent<ClientFX, OfferStatusFX> clientFXOfferStatusFXCellEditEvent) {
+    public void editOfferStatus(TableColumn.CellEditEvent<ClientFX, OfferStatusFX> event) {
+        this.listClientsModel.getClientFXObjectPropertyEdit().setOfferStatus(event.getNewValue());
+        this.listClientsModel.updateInDataBase();
     }
 }
