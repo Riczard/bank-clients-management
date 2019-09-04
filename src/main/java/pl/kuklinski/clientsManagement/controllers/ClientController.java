@@ -49,7 +49,7 @@ public class ClientController {
         this.clientModel.init();
         setItemsToComboBox();
         bindings();
-//        validation();
+        validation();
     }
 
     private void setItemsToComboBox() {
