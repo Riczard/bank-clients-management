@@ -20,14 +20,12 @@ public class ListClientsModel {
 
     private ObservableList<ClientFX> clientFXES = FXCollections.observableArrayList();
     private ObservableList<AdviserFX> adviserFXES = FXCollections.observableArrayList();
-    private ObservableList<AccountStatusFX> accountStatusFXES = FXCollections.observableArrayList();
     private ObservableList<ContactStatusFX> contactStatusFXES = FXCollections.observableArrayList();
     private ObservableList<OfferStatusFX> offerStatusFXES = FXCollections.observableArrayList();
     private ObservableList<RelationFX> relationFXES = FXCollections.observableArrayList();
 
     private ObjectProperty<ClientFX> clientFXObjectPropertyEdit = new SimpleObjectProperty<>(new ClientFX());
     private ObjectProperty<AdviserFX> adviserFXObjectProperty = new SimpleObjectProperty<>();
-    private ObjectProperty<AccountStatusFX> accountStatusFXObjectProperty = new SimpleObjectProperty<>();
     private ObjectProperty<ContactStatusFX> contactStatusFXObjectProperty = new SimpleObjectProperty<>();
     private ObjectProperty<OfferStatusFX> offerStatusFXObjectProperty = new SimpleObjectProperty<>();
     private ObjectProperty<RelationFX> relationFXObjectProperty = new SimpleObjectProperty<>();
@@ -81,22 +79,6 @@ public class ListClientsModel {
         this.adviserFXES = adviserFXES;
     }
 
-    public ObservableList<AccountStatusFX> getAccountStatusFXES() {
-        return accountStatusFXES;
-    }
-
-    public void setAccountStatusFXES(ObservableList<AccountStatusFX> accountStatusFXES) {
-        this.accountStatusFXES = accountStatusFXES;
-    }
-
-    public ObservableList<ContactStatusFX> getContactStatusFXES() {
-        return contactStatusFXES;
-    }
-
-    public void setContactStatusFXES(ObservableList<ContactStatusFX> contactStatusFXES) {
-        this.contactStatusFXES = contactStatusFXES;
-    }
-
     public ObservableList<OfferStatusFX> getOfferStatusFXES() {
         return offerStatusFXES;
     }
@@ -135,18 +117,6 @@ public class ListClientsModel {
 
     public void setAdviserFXObjectProperty(AdviserFX adviserFXObjectProperty) {
         this.adviserFXObjectProperty.set(adviserFXObjectProperty);
-    }
-
-    public AccountStatusFX getAccountStatusFXObjectProperty() {
-        return accountStatusFXObjectProperty.get();
-    }
-
-    public ObjectProperty<AccountStatusFX> accountStatusFXObjectProperty() {
-        return accountStatusFXObjectProperty;
-    }
-
-    public void setAccountStatusFXObjectProperty(AccountStatusFX accountStatusFXObjectProperty) {
-        this.accountStatusFXObjectProperty.set(accountStatusFXObjectProperty);
     }
 
     public ContactStatusFX getContactStatusFXObjectProperty() {
@@ -191,5 +161,13 @@ public class ListClientsModel {
 
     public void setClientFXList(List<ClientFX> clientFXList) {
         this.clientFXList = clientFXList;
+    }
+
+    public ObservableList<ContactStatusFX> getContactStatusFXES() {
+        return contactStatusFXES;
+    }
+
+    public void setContactStatusFXES(ObservableList<ContactStatusFX> contactStatusFXES) {
+        this.contactStatusFXES = contactStatusFXES;
     }
 }

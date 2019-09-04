@@ -7,7 +7,7 @@ import javafx.collections.ObservableList;
 import pl.kuklinski.clientsManagement.database.dao.ContactStatusDao;
 import pl.kuklinski.clientsManagement.database.models.ContactStatus;
 import pl.kuklinski.clientsManagement.javaFX.modelFX.ContactStatusFX;
-import pl.kuklinski.clientsManagement.utils.converters.AccountStatusConverter;
+import pl.kuklinski.clientsManagement.utils.converters.ContactStatusConverter;
 
 import java.util.stream.Stream;
 
@@ -27,7 +27,7 @@ public class ContactStatusModel {
         ContactStatusDao contactStatusDao = new ContactStatusDao();
         Stream<ContactStatus> accStatusStream = contactStatusDao.queryForAll(ContactStatus.class);
         accStatusStream.forEach(status -> {
-            ContactStatusFX contactStatusFX = AccountStatusConverter.convertToAccStatusFX(status);
+            ContactStatusFX contactStatusFX = ContactStatusConverter.convertToAccStatusFX(status);
             this.contactStatusFXObservableList.add(contactStatusFX);
         });
         contactStatusDao.closeConnection();
@@ -35,21 +35,21 @@ public class ContactStatusModel {
 
     public void saveStatusInDataBase() {
         ContactStatusDao contactStatusDao = new ContactStatusDao();
-        ContactStatus contactStatus = AccountStatusConverter.convertToAccStatus(this.getAccountStatusFXObjectProperty());
+        ContactStatus contactStatus = ContactStatusConverter.convertToContactStatus(this.getAccountStatusFXObjectProperty());
         contactStatusDao.create(contactStatus);
         init();
     }
 
     public void deleteStatusInDataBase() {
         ContactStatusDao contactStatusDao = new ContactStatusDao();
-        contactStatusDao.delete(AccountStatusConverter.convertToAccStatus(this.getAccountStatusFXObjectPropertyEdit()));
+        contactStatusDao.delete(ContactStatusConverter.convertToContactStatus(this.getAccountStatusFXObjectPropertyEdit()));
         contactStatusDao.closeConnection();
         init();
     }
 
     public void updateStatusInDB() {
         ContactStatusDao contactStatusDao = new ContactStatusDao();
-        contactStatusDao.update(AccountStatusConverter.convertToAccStatus(this.getAccountStatusFXObjectPropertyEdit()));
+        contactStatusDao.update(ContactStatusConverter.convertToContactStatus(this.getAccountStatusFXObjectPropertyEdit()));
         contactStatusDao.closeConnection();
         init();
     }

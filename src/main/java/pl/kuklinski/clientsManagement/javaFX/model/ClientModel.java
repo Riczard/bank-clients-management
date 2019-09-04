@@ -7,9 +7,7 @@ import javafx.collections.ObservableList;
 import pl.kuklinski.clientsManagement.database.dao.*;
 import pl.kuklinski.clientsManagement.database.models.*;
 import pl.kuklinski.clientsManagement.javaFX.modelFX.*;
-import pl.kuklinski.clientsManagement.utils.converters.AccountStatusConverter;
-import pl.kuklinski.clientsManagement.utils.converters.AdviserConverter;
-import pl.kuklinski.clientsManagement.utils.converters.ClientConverter;
+import pl.kuklinski.clientsManagement.utils.converters.*;
 
 import java.util.stream.Stream;
 
@@ -45,7 +43,7 @@ public class ClientModel {
         ContactStatusDao statusDao = new ContactStatusDao();
         Stream<ContactStatus> statusStream = statusDao.queryForAll(ContactStatus.class);
         statusStream.forEach(status -> {
-            ContactStatusFX statusFX = AccountStatusConverter.convertToAccStatusFX(status);
+            ContactStatusFX statusFX = ContactStatusConverter.convertToAccStatusFX(status);
             contactStatusFXES.add(statusFX);
         });
         statusDao.closeConnection();

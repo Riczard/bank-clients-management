@@ -3,8 +3,8 @@ package pl.kuklinski.clientsManagement.controllers;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.TextFieldTableCell;
-import pl.kuklinski.clientsManagement.modelFX.AdviserFX;
-import pl.kuklinski.clientsManagement.modelFX.AdviserModel;
+import pl.kuklinski.clientsManagement.javaFX.modelFX.AdviserFX;
+import pl.kuklinski.clientsManagement.javaFX.model.AdviserModel;
 
 public class AdvisersController {
 

@@ -161,7 +161,7 @@ public class ListClientsController {
 
     @FXML
     public void editComment(TableColumn.CellEditEvent<ClientFX, String> event) {
-        this.listClientsModel.getClientFXObjectPropertyEdit().setClickAmount(event.getNewValue());
+        this.listClientsModel.getClientFXObjectPropertyEdit().setComment(event.getNewValue());
         this.listClientsModel.updateInDataBase();
     }
 
