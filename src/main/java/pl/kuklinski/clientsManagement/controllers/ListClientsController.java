@@ -1,20 +1,24 @@
 package pl.kuklinski.clientsManagement.controllers;
 
+import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.control.cell.ComboBoxTableCell;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
-import pl.kuklinski.clientsManagement.modelFX.AdviserFX;
-import pl.kuklinski.clientsManagement.modelFX.ClientFX;
-import pl.kuklinski.clientsManagement.modelFX.ListClientsModel;
+import pl.kuklinski.clientsManagement.javaFX.modelFX.*;
+import pl.kuklinski.clientsManagement.javaFX.model.ListClientsModel;
 import pl.kuklinski.clientsManagement.utils.FXMLUtils;
+
+import java.time.LocalDate;
 
 public class ListClientsController {
 
     @FXML
     private TableView<ClientFX> clientsTableView;
+
+    @FXML
+    private TableColumn<ClientFX, Number> idColumn;
     @FXML
     private TableColumn<ClientFX, String> nameColumn;
     @FXML
@@ -22,15 +26,27 @@ public class ListClientsController {
     @FXML
     private TableColumn<ClientFX, String> peselColumn;
     @FXML
-    private TableColumn<ClientFX, String> clickAmountColumn;
-    @FXML
     private TableColumn<ClientFX, String> phoneColumn;
     @FXML
-    private TableColumn<ClientFX, String> cityColumn;
+    private TableColumn<ClientFX, OfferStatusFX> offerStatusColumn;
     @FXML
-    private TableColumn<ClientFX, AdviserFX> adviserColumn;
+    private TableColumn<ClientFX, RelationFX> relationColumn;
     @FXML
-    private TableColumn<ClientFX, String> incomeColumn;
+    private TableColumn<ClientFX, ContactStatusFX> contactStatusColumn;
+    @FXML
+    private TableColumn<ClientFX, LocalDate> lastContactDateColumn;
+    @FXML
+    private TableColumn<ClientFX, LocalDate> plannedContactDateColumn;
+    @FXML
+    private TableColumn<ClientFX, String> commentColumn;
+    @FXML
+    private TableColumn<ClientFX, String> incomeTypeColumn;
+    @FXML
+    private TableColumn<ClientFX, LocalDate> verificationDateColumn;
+    @FXML
+    private TableColumn<ClientFX, String> clickAmountColumn;
+    @FXML
+    private TableColumn<ClientFX, String> consolidationAmountColumn;
     @FXML
     private TableColumn<ClientFX, String> detailsColumn;
 
@@ -47,9 +63,9 @@ public class ListClientsController {
 
 
     private void bindingTableView() {
-        this.clientsTableView.setItems(this.listClientsModel.getClientFXObservableList());
-        setValues();
-        setCells();
+        this.clientsTableView.setItems(this.listClientsModel.getClientFXES());
+        setCellValueFactories();
+//        setCells();
 
         this.clientsTableView.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             this.listClientsModel.setClientFXObjectPropertyEdit(newValue);
@@ -57,26 +73,46 @@ public class ListClientsController {
 
     }
 
+    private void setCellValueFactories() {
+        this.idColumn.setCellValueFactory(column -> new ReadOnlyObjectWrapper<>
+                (clientsTableView.getItems().indexOf(column.getValue()) + 1)); // +1 because start index from 0
+        this.nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
+        this.surnameColumn.setCellValueFactory(new PropertyValueFactory<>("surname"));
+        this.peselColumn.setCellValueFactory(new PropertyValueFactory<>("pesel"));
+        this.phoneColumn.setCellValueFactory(new PropertyValueFactory<>("phone"));
+        this.offerStatusColumn.setCellValueFactory(new PropertyValueFactory<>("offerStatus"));
+        this.relationColumn.setCellValueFactory(new PropertyValueFactory<>("relation"));
+        this.contactStatusColumn.setCellValueFactory(new PropertyValueFactory<>("contactStatus"));
+        this.lastContactDateColumn.setCellValueFactory(new PropertyValueFactory<>("lastContactDate"));
+        this.plannedContactDateColumn.setCellValueFactory(new PropertyValueFactory<>("plannedDate"));
+        this.commentColumn.setCellValueFactory(new PropertyValueFactory<>("comment"));
+        this.incomeTypeColumn.setCellValueFactory(new PropertyValueFactory<>("incomeType"));
+        this.verificationDateColumn.setCellValueFactory(new PropertyValueFactory<>("verificationDate"));
+        this.clickAmountColumn.setCellValueFactory(new PropertyValueFactory<>("clickAmount"));
+        this.consolidationAmountColumn.setCellValueFactory(new PropertyValueFactory<>("consolidationAmount"));
+
+        // TO DO //
+        // Add cellValueFactory for detailsColumn
+
+
+////        this.adviserColumn.setCellValueFactory(new PropertyValueFactory<>("adviser"));
+//        this.surnameColumn.setCellValueFactory(cellData -> cellData.getValue().surnameProperty());
+//        this.peselColumn.setCellValueFactory(cellData -> cellData.getValue().peselProperty());
+//        this.clickAmountColumn.setCellValueFactory(cellData -> cellData.getValue().clickAmountProperty());
+//        this.phoneColumn.setCellValueFactory(cellData -> cellData.getValue().phoneProperty());
+////        this.cityColumn.setCellValueFactory(cellData -> cellData.getValue().cityProperty());
+////        this.incomeColumn.setCellValueFactory(cellData -> cellData.getValue().incomeProperty());
+    }
+
     private void setCells() {
         this.nameColumn.setCellFactory(TextFieldTableCell.forTableColumn());
         this.surnameColumn.setCellFactory(TextFieldTableCell.forTableColumn());
         this.phoneColumn.setCellFactory(TextFieldTableCell.forTableColumn());
         this.clickAmountColumn.setCellFactory(TextFieldTableCell.forTableColumn());
-        this.cityColumn.setCellFactory(TextFieldTableCell.forTableColumn());
+//        this.cityColumn.setCellFactory(TextFieldTableCell.forTableColumn());
         this.peselColumn.setCellFactory(TextFieldTableCell.forTableColumn());
-        this.incomeColumn.setCellFactory(TextFieldTableCell.forTableColumn());
-        this.adviserColumn.setCellFactory(ComboBoxTableCell.forTableColumn(this.listClientsModel.getAdviserFXObservableList()));
-    }
-
-    private void setValues() {
-        this.adviserColumn.setCellValueFactory(new PropertyValueFactory<>("adviser"));
-        this.nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
-        this.surnameColumn.setCellValueFactory(cellData -> cellData.getValue().surnameProperty());
-        this.peselColumn.setCellValueFactory(cellData -> cellData.getValue().peselProperty());
-        this.clickAmountColumn.setCellValueFactory(cellData -> cellData.getValue().clickAmountProperty());
-        this.phoneColumn.setCellValueFactory(cellData -> cellData.getValue().phoneProperty());
-        this.cityColumn.setCellValueFactory(cellData -> cellData.getValue().cityProperty());
-        this.incomeColumn.setCellValueFactory(cellData -> cellData.getValue().incomeProperty());
+//        this.incomeColumn.setCellFactory(TextFieldTableCell.forTableColumn());
+//        this.adviserColumn.setCellFactory(ComboBoxTableCell.forTableColumn(this.listClientsModel.getAdviserFXObservableList()));
     }
 
     @FXML
@@ -86,49 +122,51 @@ public class ListClientsController {
 
     @FXML
     public void editName(TableColumn.CellEditEvent<ClientFX, String> event) {
-        this.listClientsModel.getClientFXObjectPropertyEdit().setName(event.getNewValue());
+//        this.listClientsModel.getClientFXObjectPropertyEdit().setName(event.getNewValue());
         this.listClientsModel.updateInDataBase();
     }
-
     @FXML
     public void editSurname(TableColumn.CellEditEvent<ClientFX, String> event) {
         this.listClientsModel.getClientFXObjectPropertyEdit().setSurname(event.getNewValue());
         this.listClientsModel.updateInDataBase();
     }
-
     @FXML
     public void editPesel(TableColumn.CellEditEvent<ClientFX, String> event) {
         this.listClientsModel.getClientFXObjectPropertyEdit().setPesel(event.getNewValue());
         this.listClientsModel.updateInDataBase();
     }
-
     @FXML
     public void editClickAmount(TableColumn.CellEditEvent<ClientFX, String> event) {
         this.listClientsModel.getClientFXObjectPropertyEdit().setClickAmount(event.getNewValue());
         this.listClientsModel.updateInDataBase();
     }
-
     @FXML
     public void editPhone(TableColumn.CellEditEvent<ClientFX, String> event) {
         this.listClientsModel.getClientFXObjectPropertyEdit().setPhone(event.getNewValue());
         this.listClientsModel.updateInDataBase();
     }
-
     @FXML
-    public void editCity(TableColumn.CellEditEvent<ClientFX, String> event) {
-        this.listClientsModel.getClientFXObjectPropertyEdit().setCity(event.getNewValue());
-        this.listClientsModel.updateInDataBase();
+    public void editIncomeType(TableColumn.CellEditEvent cellEditEvent) {
     }
-
     @FXML
-    public void editIncome(TableColumn.CellEditEvent<ClientFX, String> event) {
-        this.listClientsModel.getClientFXObjectPropertyEdit().setIncome(event.getNewValue());
-        this.listClientsModel.updateInDataBase();
+    public void editConsolidationAmount(TableColumn.CellEditEvent<ClientFX, String> event) {
     }
-
     @FXML
-    public void editAdviser(TableColumn.CellEditEvent<ClientFX, AdviserFX> event) {
-        event.getRowValue().setAdviser(event.getNewValue());
-        listClientsModel.updateInDataBase();
+    public void editComment(TableColumn.CellEditEvent<ClientFX, String> event) {
+    }
+    @FXML
+    public void editPlannedContact(TableColumn.CellEditEvent<ClientFX, LocalDate> clientFXLocalDateCellEditEvent) {
+    }
+    @FXML
+    public void editLastContact(TableColumn.CellEditEvent<ClientFX, LocalDate> clientFXLocalDateCellEditEvent) {
+    }
+    @FXML
+    public void editContactStatus(TableColumn.CellEditEvent<ClientFX,ContactStatusFX> clientFXContactStatusFXCellEditEvent) {
+    }
+    @FXML
+    public void editRelation(TableColumn.CellEditEvent<ClientFX,RelationFX> clientFXRelationFXCellEditEvent) {
+    }
+    @FXML
+    public void editOfferStatus(TableColumn.CellEditEvent<ClientFX,OfferStatusFX> clientFXOfferStatusFXCellEditEvent) {
     }
 }
