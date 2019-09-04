@@ -11,4 +11,11 @@ public class RelationConverter {
         relationFX.setTitle(relation.getTitle());
         return relationFX;
     }
+
+    public static Relation convertToRelation(RelationFX relationFX) {
+        Relation relation = new Relation();
+        relation.setId(relationFX.getId());
+        relation.setTitle(relationFX.getTitle());
+        return  relation;
+    }
 }
