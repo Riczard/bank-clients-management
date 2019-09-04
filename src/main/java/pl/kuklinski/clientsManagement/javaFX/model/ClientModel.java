@@ -4,14 +4,8 @@ import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import pl.kuklinski.clientsManagement.database.dao.AdviserDao;
-import pl.kuklinski.clientsManagement.database.dao.ClientDao;
-import pl.kuklinski.clientsManagement.database.dao.ContactStatusDao;
-import pl.kuklinski.clientsManagement.database.dao.OfferStatusDao;
-import pl.kuklinski.clientsManagement.database.models.Adviser;
-import pl.kuklinski.clientsManagement.database.models.Client;
-import pl.kuklinski.clientsManagement.database.models.ContactStatus;
-import pl.kuklinski.clientsManagement.database.models.OfferStatus;
+import pl.kuklinski.clientsManagement.database.dao.*;
+import pl.kuklinski.clientsManagement.database.models.*;
 import pl.kuklinski.clientsManagement.javaFX.modelFX.*;
 import pl.kuklinski.clientsManagement.utils.converters.AccountStatusConverter;
 import pl.kuklinski.clientsManagement.utils.converters.AdviserConverter;
@@ -32,6 +26,7 @@ public class ClientModel {
         initAdviserList();
         initContactStatusList();
         initOfferStatusList();
+        initRelationList();
     }
 
     private void initAdviserList() {
@@ -65,6 +60,17 @@ public class ClientModel {
             offerStatusFXES.add(offerStatusFX);
         });
         statusDao.closeConnection();
+    }
+
+    private void initRelationList() {
+        relationFXES.clear();
+        RelationDao relationDao = new RelationDao();
+        Stream<Relation> relationStream = relationDao.queryForAll(Relation.class);
+        relationStream.forEach(relation -> {
+            RelationFX relationFX = RelationConverter.convertToRelationFX(relation);
+            relationFXES.add(relationFX);
+        });
+        relationDao.closeConnection();
     }
 
     public void saveClientInDataBase() {
