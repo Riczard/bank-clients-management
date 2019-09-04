@@ -39,14 +39,21 @@
         </HBox>
         <TableView fx:id="clientsTableView" editable="true" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" tableMenuButtonVisible="true">
             <columns>
+            <TableColumn editable="false" prefWidth="25.0" resizable="false" text="ID" />
                 <TableColumn fx:id="nameColumn" onEditCommit="#editName" prefWidth="75.0" text="%name.general" />
                 <TableColumn fx:id="surnameColumn" onEditCommit="#editSurname" prefWidth="75.0" text="%surname.general" />
                 <TableColumn fx:id="peselColumn" onEditCommit="#editPesel" prefWidth="75.0" text="%pesel.client" />
-                <TableColumn fx:id="clickAmountColumn" onEditCommit="#editClickAmount" prefWidth="75.0" text="%clickAmount.client" />
                 <TableColumn fx:id="phoneColumn" onEditCommit="#editPhone" prefWidth="75.0" text="%phone.client" />
-                <TableColumn fx:id="cityColumn" onEditCommit="#editCity" prefWidth="75.0" text="%city.client" />
-                <TableColumn fx:id="adviserColumn" onEditCommit="#editAdviser" prefWidth="75.0" text="%adviser.client" />
-                <TableColumn fx:id="incomeColumn" onEditCommit="#editIncome" prefWidth="75.0" text="%income.client" />
+            <TableColumn prefWidth="75.0" text="%offerStatus.client" />
+            <TableColumn prefWidth="75.0" text="%relation.client" />
+            <TableColumn prefWidth="75.0" text="%contactStatus.client" />
+            <TableColumn prefWidth="75.0" text="%lastContactDate.client" />
+            <TableColumn prefWidth="75.0" text="%plannedContactDate.client" />
+            <TableColumn prefWidth="75.0" text="%comment.client" />
+                <TableColumn fx:id="incomeTypeColumn" onEditCommit="#editIncomeType" prefWidth="75.0" text="%income.client" />
+            <TableColumn prefWidth="75.0" text="%verificationDate.client" />
+                <TableColumn fx:id="clickAmountColumn" onEditCommit="#editClickAmount" prefWidth="75.0" text="%clickAmount.client" />
+            <TableColumn prefWidth="75.0" text="%consolidationAmount.client" />
                 <TableColumn fx:id="detailsColumn" prefWidth="75.0" text="%details.general" />
             </columns>
         </TableView>
