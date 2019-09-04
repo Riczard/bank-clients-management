@@ -2,8 +2,6 @@ package pl.kuklinski.clientsManagement.controllers;
 
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.fxml.FXML;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.ComboBoxTableCell;
@@ -14,7 +12,6 @@ import pl.kuklinski.clientsManagement.javaFX.modelFX.ClientFX;
 import pl.kuklinski.clientsManagement.javaFX.modelFX.ContactStatusFX;
 import pl.kuklinski.clientsManagement.javaFX.modelFX.OfferStatusFX;
 import pl.kuklinski.clientsManagement.javaFX.modelFX.RelationFX;
-import pl.kuklinski.clientsManagement.utils.CommonUtils;
 import pl.kuklinski.clientsManagement.utils.FXMLUtils;
 
 import java.time.LocalDate;

@@ -7,7 +7,7 @@ public class TopMenuButtonsController {
 
     private static final String LIST_CLIENTS_FXML = "/fxml/ListClients.fxml";
     private static final String ADD_ADVISERS_FXML = "/fxml/AddAdvisers.fxml";
-    private static final String ADD_ACCOUNT_STATUS_FXML = "/fxml/AddAccountStatus.fxml";
+    private static final String ADD_ACCOUNT_STATUS_FXML = "/fxml/AddContactStatus.fxml";
     private static final String IMPORT_PANE_FXML = "/fxml/ImportPane.fxml";
 
     private MainController mainController;
