@@ -11,31 +11,37 @@ public class Client implements BaseModel {
     private long id;
 
     @Column
+    private String pesel;
+    @Column
     private String name;
     @Column
     private String surname;
     @Column
-    private String city;
-    @Column
     private String phone;
-    @Column
-    private String income;
-    @Column
-    private String pesel;
-    @Column
-    private String relation;
-    @Column
-    private String clickAmount;
-    @Column
-    private String comment;
+    @ManyToOne
+    private OfferStatus offerStatus;
+    @ManyToOne
+    private Relation relation;
+    @ManyToOne
+    private ContactStatus status;
     @Column
     private LocalDate lastContactDate;
     @Column
+    private LocalDate plannedContactDate;
+    @Column
+    private String comment;
+    @Column
+    private String incomeType;
+    @Column
     private LocalDate verificationDate;
-
-    @ManyToOne
-    private AccountStatus status;
-
+    @Column
+    private String clickAmount;
+    @Column
+    private String consolidationAmount;
+    @Column
+    private String city;
+    @Column
+    private String source;
     @ManyToOne
     @JoinColumn(name = "adviser_id")
     private Adviser adviser;
@@ -43,12 +49,21 @@ public class Client implements BaseModel {
     public Client() {
     }
 
+    @Override
     public long getId() {
         return id;
     }
 
     public void setId(long id) {
         this.id = id;
+    }
+
+    public String getPesel() {
+        return pesel;
+    }
+
+    public void setPesel(String pesel) {
+        this.pesel = pesel;
     }
 
     public String getName() {
@@ -67,14 +82,6 @@ public class Client implements BaseModel {
         this.surname = surname;
     }
 
-    public String getCity() {
-        return city;
-    }
-
-    public void setCity(String city) {
-        this.city = city;
-    }
-
     public String getPhone() {
         return phone;
     }
@@ -83,44 +90,28 @@ public class Client implements BaseModel {
         this.phone = phone;
     }
 
-    public AccountStatus getStatus() {
-        return status;
+    public OfferStatus getOfferStatus() {
+        return offerStatus;
     }
 
-    public void setStatus(AccountStatus status) {
-        this.status = status;
+    public void setOfferStatus(OfferStatus offerStatus) {
+        this.offerStatus = offerStatus;
     }
 
-    public String getIncome() {
-        return income;
-    }
-
-    public void setIncome(String income) {
-        this.income = income;
-    }
-
-    public String getRelation() {
+    public Relation getRelation() {
         return relation;
     }
 
-    public void setRelation(String relation) {
+    public void setRelation(Relation relation) {
         this.relation = relation;
     }
 
-    public String getClickAmount() {
-        return clickAmount;
+    public ContactStatus getStatus() {
+        return status;
     }
 
-    public void setClickAmount(String clickAmount) {
-        this.clickAmount = clickAmount;
-    }
-
-    public String getComment() {
-        return comment;
-    }
-
-    public void setComment(String comment) {
-        this.comment = comment;
+    public void setStatus(ContactStatus status) {
+        this.status = status;
     }
 
     public LocalDate getLastContactDate() {
@@ -131,6 +122,30 @@ public class Client implements BaseModel {
         this.lastContactDate = lastContactDate;
     }
 
+    public LocalDate getPlannedContactDate() {
+        return plannedContactDate;
+    }
+
+    public void setPlannedContactDate(LocalDate plannedContactDate) {
+        this.plannedContactDate = plannedContactDate;
+    }
+
+    public String getComment() {
+        return comment;
+    }
+
+    public void setComment(String comment) {
+        this.comment = comment;
+    }
+
+    public String getIncomeType() {
+        return incomeType;
+    }
+
+    public void setIncomeType(String incomeType) {
+        this.incomeType = incomeType;
+    }
+
     public LocalDate getVerificationDate() {
         return verificationDate;
     }
@@ -139,19 +154,43 @@ public class Client implements BaseModel {
         this.verificationDate = verificationDate;
     }
 
+    public String getClickAmount() {
+        return clickAmount;
+    }
+
+    public void setClickAmount(String clickAmount) {
+        this.clickAmount = clickAmount;
+    }
+
+    public String getConsolidationAmount() {
+        return consolidationAmount;
+    }
+
+    public void setConsolidationAmount(String consolidationAmount) {
+        this.consolidationAmount = consolidationAmount;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getSource() {
+        return source;
+    }
+
+    public void setSource(String source) {
+        this.source = source;
+    }
+
     public Adviser getAdviser() {
         return adviser;
     }
 
     public void setAdviser(Adviser adviser) {
         this.adviser = adviser;
-    }
-
-    public String getPesel() {
-        return pesel;
-    }
-
-    public void setPesel(String pesel) {
-        this.pesel = pesel;
     }
 }
