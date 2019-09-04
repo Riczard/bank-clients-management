@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity(name = "AccStatus")
-public class AccountStatus implements BaseModel {
+public class ContactStatus implements BaseModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
@@ -16,7 +16,7 @@ public class AccountStatus implements BaseModel {
     @OneToMany(mappedBy = "status")
     private List<Client> clients;
 
-    public AccountStatus() {
+    public ContactStatus() {
     }
 
     @PreRemove
