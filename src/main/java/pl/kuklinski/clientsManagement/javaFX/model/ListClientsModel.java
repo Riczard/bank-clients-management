@@ -4,13 +4,10 @@ import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import pl.kuklinski.clientsManagement.database.dao.AdviserDao;
-import pl.kuklinski.clientsManagement.database.dao.ClientDao;
-import pl.kuklinski.clientsManagement.database.models.Adviser;
-import pl.kuklinski.clientsManagement.database.models.Client;
+import pl.kuklinski.clientsManagement.database.dao.*;
+import pl.kuklinski.clientsManagement.database.models.*;
 import pl.kuklinski.clientsManagement.javaFX.modelFX.*;
-import pl.kuklinski.clientsManagement.utils.converters.AdviserConverter;
-import pl.kuklinski.clientsManagement.utils.converters.ClientConverter;
+import pl.kuklinski.clientsManagement.utils.converters.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,6 +33,9 @@ public class ListClientsModel {
         clientFXList.clear();
         initClientFxList();
         initAdvisers();
+        initContactStatusList();
+        initOfferStatusList();
+        initRelationList();
     }
 
     private void initAdvisers() {
@@ -47,6 +47,39 @@ public class ListClientsModel {
             adviserFXES.add(adviserFX);
         });
         adviserDao.closeConnection();
+    }
+
+    private void initContactStatusList() {
+        contactStatusFXES.clear();
+        ContactStatusDao statusDao = new ContactStatusDao();
+        Stream<ContactStatus> statusStream = statusDao.queryForAll(ContactStatus.class);
+        statusStream.forEach(status -> {
+            ContactStatusFX statusFX = ContactStatusConverter.convertToAccStatusFX(status);
+            contactStatusFXES.add(statusFX);
+        });
+        statusDao.closeConnection();
+    }
+
+    private void initOfferStatusList() {
+        offerStatusFXES.clear();
+        OfferStatusDao statusDao = new OfferStatusDao();
+        Stream<OfferStatus> offerStatusStream = statusDao.queryForAll(OfferStatus.class);
+        offerStatusStream.forEach(status -> {
+            OfferStatusFX offerStatusFX = OfferStatusConverter.convertToOfferStatusFX(status);
+            offerStatusFXES.add(offerStatusFX);
+        });
+        statusDao.closeConnection();
+    }
+
+    private void initRelationList() {
+        relationFXES.clear();
+        RelationDao relationDao = new RelationDao();
+        Stream<Relation> relationStream = relationDao.queryForAll(Relation.class);
+        relationStream.forEach(relation -> {
+            RelationFX relationFX = RelationConverter.convertToRelationFX(relation);
+            relationFXES.add(relationFX);
+        });
+        relationDao.closeConnection();
     }
 
     private void initClientFxList() {
