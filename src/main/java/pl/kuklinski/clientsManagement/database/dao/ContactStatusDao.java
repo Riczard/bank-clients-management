@@ -11,7 +11,7 @@ public class ContactStatusDao extends CommonDao {
     }
 
     public ContactStatus findByName(String status) {
-        Query query = getEntityManager().createQuery("select a from AccStatus a where a.title like :status");
+        Query query = getEntityManager().createQuery("select c from ContactStatus c where c.title like :status");
         query.setParameter("status", status);
         return (ContactStatus) query.getResultStream().findFirst().orElse(null);
     }
