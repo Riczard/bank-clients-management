@@ -7,71 +7,90 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.TextFormatter;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
-import pl.kuklinski.clientsManagement.database.dbutils.ImportClientFromCSV;
+import pl.kuklinski.clientsManagement.javaFX.model.ImportModel;
+import pl.kuklinski.clientsManagement.utils.CSVUtils;
 
 import java.io.File;
 import java.text.DecimalFormat;
 import java.text.ParsePosition;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class ImportController {
 
     @FXML
+    private TextField delimiterField;
+    @FXML
     private Button importButton;
+
     @FXML
-    private TextField statusIndex;
-    @FXML
-    private TextField adviserIndex;
-    @FXML
-    private TextField verificationDateIndex;
-    @FXML
-    private TextField lastContactDateIndex;
-    @FXML
-    private TextField commentIndex;
-    @FXML
-    private TextField clickAmountIndex;
-    @FXML
-    private TextField relationIndex;
-    @FXML
-    private TextField peselIndex;
-    @FXML
-    private TextField incomeIndex;
-    @FXML
-    private TextField phoneIndex;
-    @FXML
-    private TextField cityIndex;
+    private TextField nameIndex;
     @FXML
     private TextField surnameIndex;
     @FXML
-    private TextField nameIndex;
+    private TextField peselIndex;
+    @FXML
+    private TextField phoneIndex;
+    @FXML
+    private TextField offerStatusIndex;
+    @FXML
+    private TextField relationIndex;
+    @FXML
+    private TextField contactStatusIndex;
+    @FXML
+    private TextField lastContactDateIndex;
+    @FXML
+    private TextField plannedContactIndex;
+    @FXML
+    private TextField commentIndex;
+    @FXML
+    private TextField incomeType;
+    @FXML
+    private TextField verificationDateIndex;
+    @FXML
+    private TextField clickAmountIndex;
+    @FXML
+    private TextField consolidationAmountIndex;
+    @FXML
+    private TextField cityIndex;
+    @FXML
+    private TextField sourceIndex;
+    @FXML
+    private TextField adviserIndex;
     @FXML
     private Label filePath;
 
     private File file;
     private DecimalFormat format = new DecimalFormat("#.0");
+    private ImportModel importModel;
+
 
     @FXML
     public void initialize() {
+        this.importModel = new ImportModel();
         addTextFormatterToFields();
         validation();
-
     }
 
     private void addTextFormatterToFields() {
         nameIndex.setTextFormatter(setFieldOnlyNumeric());
         surnameIndex.setTextFormatter(setFieldOnlyNumeric());
-        cityIndex.setTextFormatter(setFieldOnlyNumeric());
-        phoneIndex.setTextFormatter(setFieldOnlyNumeric());
-        incomeIndex.setTextFormatter(setFieldOnlyNumeric());
         peselIndex.setTextFormatter(setFieldOnlyNumeric());
+        phoneIndex.setTextFormatter(setFieldOnlyNumeric());
+        offerStatusIndex.setTextFormatter(setFieldOnlyNumeric());
         relationIndex.setTextFormatter(setFieldOnlyNumeric());
-        clickAmountIndex.setTextFormatter(setFieldOnlyNumeric());
-        commentIndex.setTextFormatter(setFieldOnlyNumeric());
+        contactStatusIndex.setTextFormatter(setFieldOnlyNumeric());
         lastContactDateIndex.setTextFormatter(setFieldOnlyNumeric());
+        plannedContactIndex.setTextFormatter(setFieldOnlyNumeric());
+        commentIndex.setTextFormatter(setFieldOnlyNumeric());
+        incomeType.setTextFormatter(setFieldOnlyNumeric());
         verificationDateIndex.setTextFormatter(setFieldOnlyNumeric());
+        clickAmountIndex.setTextFormatter(setFieldOnlyNumeric());
+        consolidationAmountIndex.setTextFormatter(setFieldOnlyNumeric());
+        cityIndex.setTextFormatter(setFieldOnlyNumeric());
+        sourceIndex.setTextFormatter(setFieldOnlyNumeric());
         adviserIndex.setTextFormatter(setFieldOnlyNumeric());
-        statusIndex.setTextFormatter(setFieldOnlyNumeric());
     }
 
     private TextFormatter<Object> setFieldOnlyNumeric() {
@@ -104,34 +123,37 @@ public class ImportController {
                 new FileChooser.ExtensionFilter("All Files", "*.*"),
                 new FileChooser.ExtensionFilter("CSV", "*.csv"),
                 new FileChooser.ExtensionFilter("TXT", "*.txt")
-
         );
         file = fileChooser.showOpenDialog(stage);
         filePath.setText(file.getPath());
-
     }
 
     @FXML
     public void importData() {
-        ImportClientFromCSV importClient = new ImportClientFromCSV(getColumnsIndex());
-        importClient.importClientToDB(file);
+        List<String[]> dataFromCSV = CSVUtils.getDataFromCSV(file, delimiterField.getText());
+        importModel.setColumnsIndex(getColumnsIndex());
+        importModel.importToDB(dataFromCSV);
     }
 
     private Map<String, String> getColumnsIndex() {
         Map<String, String> columnsIndex = new HashMap<>();
-        columnsIndex.put(nameIndex.getText(), "nameClient");
-        columnsIndex.put(surnameIndex.getText(), "surnameClient");
+        columnsIndex.put(nameIndex.getText(), "name");
+        columnsIndex.put(surnameIndex.getText(), "surname");
+        columnsIndex.put(peselIndex.getText(), "pesel");
+        columnsIndex.put(phoneIndex.getText(), "phone");
+        columnsIndex.put(offerStatusIndex.getText(), "offerStatus");
+        columnsIndex.put(relationIndex.getText(), "relation");
+        columnsIndex.put(contactStatusIndex.getText(), "contactStatus");
+        columnsIndex.put(lastContactDateIndex.getText(), "lastContactDate");
+        columnsIndex.put(plannedContactIndex.getText(), "plannedContactDate");
+        columnsIndex.put(commentIndex.getText(), "comment");
+        columnsIndex.put(incomeType.getText(), "income");
+        columnsIndex.put(verificationDateIndex.getText(), "verificationDate");
+        columnsIndex.put(clickAmountIndex.getText(), "clickAmount");
+        columnsIndex.put(consolidationAmountIndex.getText(), "consolidationAmount");
         columnsIndex.put(cityIndex.getText(), "cityClient");
-        columnsIndex.put(phoneIndex.getText(), "phoneClient");
-        columnsIndex.put(incomeIndex.getText(), "incomeClient");
-        columnsIndex.put(peselIndex.getText(), "peselClient");
-        columnsIndex.put(relationIndex.getText(), "relationClient");
-        columnsIndex.put(clickAmountIndex.getText(), "clickAmountClient");
-        columnsIndex.put(commentIndex.getText(), "commentClient");
-        columnsIndex.put(lastContactDateIndex.getText(), "lastContactDateClient");
-        columnsIndex.put(verificationDateIndex.getText(), "verificationDateClient");
+        columnsIndex.put(sourceIndex.getText(), "source");
         columnsIndex.put(adviserIndex.getText(), "adviserClient");
-        columnsIndex.put(statusIndex.getText(), "statusClient");
         return columnsIndex;
     }
 
