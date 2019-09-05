@@ -147,7 +147,7 @@ public class ImportController {
         columnsIndex.put(lastContactDateIndex.getText(), "lastContactDate");
         columnsIndex.put(plannedContactIndex.getText(), "plannedContactDate");
         columnsIndex.put(commentIndex.getText(), "comment");
-        columnsIndex.put(incomeType.getText(), "income");
+        columnsIndex.put(incomeType.getText(), "incomeType");
         columnsIndex.put(verificationDateIndex.getText(), "verificationDate");
         columnsIndex.put(clickAmountIndex.getText(), "clickAmount");
         columnsIndex.put(consolidationAmountIndex.getText(), "consolidationAmount");
