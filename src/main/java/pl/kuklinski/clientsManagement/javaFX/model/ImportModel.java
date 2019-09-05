@@ -28,6 +28,7 @@ public class ImportModel {
                 if (client == null) {
                     client = new Client();
                     setClientData(clientInfo, client);
+
                     clientDao.create(client);
                 } else {
                     setClientData(clientInfo, client);
@@ -39,7 +40,7 @@ public class ImportModel {
     }
 
     private String getPesel(String[] clientInfo) {
-        String peselIndex = CommonUtils.getKeyByValue(columnsIndex, "peselClient");
+        String peselIndex = CommonUtils.getKeyByValue(columnsIndex, "pesel");
         if (peselIndex != null && Integer.parseInt(peselIndex) - 1 >= 0) {
             return clientInfo[Integer.parseInt(peselIndex) - 1];
         }
@@ -54,7 +55,6 @@ public class ImportModel {
             if (columnsIndex.containsKey(key)) {
                 columnName = columnsIndex.get(key);
             }
-
             switch (columnName) {
                 case "name":
                     client.setName(clientData);
@@ -78,12 +78,10 @@ public class ImportModel {
                     client.setStatus(importClient(clientData));
                     break;
                 case "lastContactDate":
-                    if (clientData.contains("\".*\\\\d.*\""))
-                        client.setLastContactDate(CommonUtils.convertStringToLocalDate(clientData));
+                    client.setLastContactDate(CommonUtils.convertStringToLocalDate(clientData));
                     break;
                 case "plannedContactDate":
-                    if (clientData.contains("\".*\\\\d.*\""))
-                        client.setPlannedContactDate(CommonUtils.convertStringToLocalDate(clientData));
+                    client.setPlannedContactDate(CommonUtils.convertStringToLocalDate(clientData));
                     break;
                 case "comment":
                     client.setComment(clientData);
@@ -92,8 +90,7 @@ public class ImportModel {
                     client.setIncomeType(clientData);
                     break;
                 case "verificationDate":
-                    if (clientData.contains("\".*\\\\d.*\""))
-                        client.setVerificationDate(CommonUtils.convertStringToLocalDate(clientData));
+                    client.setVerificationDate(CommonUtils.convertStringToLocalDate(clientData));
                     break;
                 case "clickAmount":
                     client.setClickAmount(clientData);
