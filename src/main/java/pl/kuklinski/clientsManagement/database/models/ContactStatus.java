@@ -3,7 +3,7 @@ package pl.kuklinski.clientsManagement.database.models;
 import javax.persistence.*;
 import java.util.List;
 
-@Entity(name = "AccStatus")
+@Entity(name = "ContactStatus")
 public class ContactStatus implements BaseModel {
 
     @Id
