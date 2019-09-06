@@ -1,71 +1,64 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.effect.SepiaTone?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
-<VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" xmlns="http://javafx.com/javafx/8.0.171"
-      xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="pl.kuklinski.clientsManagement.controllers.ListClientsController">
+
+<VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="702.0" prefWidth="1152.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.kuklinski.clientsManagement.controllers.ListClientsController">
     <children>
-        <HBox prefHeight="62.0" prefWidth="677.0" spacing="20.0">
+        <HBox maxHeight="1.7976931348623157E308" prefHeight="62.0" prefWidth="677.0" spacing="20.0">
             <children>
-                <Button maxHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#addClient"
-                        prefHeight="200.0">
+                <Button maxHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#addClient" prefHeight="200.0">
                     <graphic>
                         <ImageView fitHeight="57.0" fitWidth="66.0" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@../icons/person.png"/>
+                                <Image url="@../icons/person.png" />
                             </image>
                             <effect>
-                                <SepiaTone/>
+                                <SepiaTone />
                             </effect>
                         </ImageView>
                     </graphic>
                 </Button>
-                <Label text="Filtry"/>
-                <Button mnemonicParsing="false" text="Button"/>
+                <Label text="Filtry" />
+                <Button mnemonicParsing="false" text="Button" />
             </children>
             <padding>
-                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
             </padding>
             <VBox.margin>
-                <Insets/>
+                <Insets />
             </VBox.margin>
         </HBox>
-        <TableView fx:id="clientsTableView" editable="true" maxHeight="1.7976931348623157E308"
-                   maxWidth="1.7976931348623157E308" tableMenuButtonVisible="true">
+        <TableView fx:id="clientsTableView" editable="true" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" tableMenuButtonVisible="true" VBox.vgrow="ALWAYS">
             <columns>
-                <TableColumn fx:id="idColumn" editable="false" prefWidth="25.0" text="ID"/>
-                <TableColumn fx:id="nameColumn" onEditCommit="#editName" prefWidth="75.0" text="%name.general"/>
-                <TableColumn fx:id="surnameColumn" onEditCommit="#editSurname" prefWidth="75.0"
-                             text="%surname.general"/>
-                <TableColumn fx:id="peselColumn" onEditCommit="#editPesel" prefWidth="75.0" text="%pesel.client"/>
-                <TableColumn fx:id="phoneColumn" onEditCommit="#editPhone" prefWidth="75.0" text="%phone.client"/>
-                <TableColumn fx:id="offerStatusColumn" onEditCommit="#editOfferStatus" prefWidth="75.0"
-                             text="%offerStatus.client"/>
-                <TableColumn fx:id="relationColumn" onEditCommit="#editRelation" prefWidth="75.0"
-                             text="%relation.client"/>
-                <TableColumn fx:id="contactStatusColumn" onEditCommit="#editContactStatus" prefWidth="75.0"
-                             text="%contactStatus.client"/>
-                <TableColumn fx:id="lastContactDateColumn" onEditCommit="#editLastContact" prefWidth="75.0"
-                             text="%lastContactDate.client"/>
-                <TableColumn fx:id="plannedContactDateColumn" onEditCommit="#editPlannedContact" prefWidth="75.0"
-                             text="%plannedContactDate.client"/>
-                <TableColumn fx:id="commentColumn" onEditCommit="#editComment" prefWidth="75.0" text="%comment.client"/>
-                <TableColumn fx:id="incomeTypeColumn" onEditCommit="#editIncomeType" prefWidth="75.0"
-                             text="%incomeType.client"/>
-                <TableColumn fx:id="verificationDateColumn" editable="false" prefWidth="75.0"
-                             text="%verificationDate.client"/>
-                <TableColumn fx:id="clickAmountColumn" onEditCommit="#editClickAmount" prefWidth="75.0"
-                             text="%clickAmount.client"/>
-                <TableColumn fx:id="consolidationAmountColumn" onEditCommit="#editConsolidationAmount" prefWidth="75.0"
-                             text="%consolidationAmount.client"/>
-                <TableColumn fx:id="detailsColumn" editable="false" prefWidth="75.0" text="%details.general"/>
+                <TableColumn fx:id="idColumn" editable="false" prefWidth="25.0" text="ID" />
+                <TableColumn fx:id="nameColumn" onEditCommit="#editName" prefWidth="75.0" text="%name.general" />
+                <TableColumn fx:id="surnameColumn" onEditCommit="#editSurname" prefWidth="75.0" text="%surname.general" />
+                <TableColumn fx:id="peselColumn" onEditCommit="#editPesel" prefWidth="75.0" text="%pesel.client" />
+                <TableColumn fx:id="phoneColumn" onEditCommit="#editPhone" prefWidth="75.0" text="%phone.client" />
+                <TableColumn fx:id="offerStatusColumn" onEditCommit="#editOfferStatus" prefWidth="75.0" text="%offerStatus.client" />
+                <TableColumn fx:id="relationColumn" onEditCommit="#editRelation" prefWidth="75.0" text="%relation.client" />
+                <TableColumn fx:id="contactStatusColumn" onEditCommit="#editContactStatus" prefWidth="75.0" text="%contactStatus.client" />
+                <TableColumn fx:id="lastContactDateColumn" onEditCommit="#editLastContact" prefWidth="75.0" text="%lastContactDate.client" />
+                <TableColumn fx:id="plannedContactDateColumn" onEditCommit="#editPlannedContact" prefWidth="75.0" text="%plannedContactDate.client" />
+                <TableColumn fx:id="commentColumn" onEditCommit="#editComment" prefWidth="75.0" text="%comment.client" />
+                <TableColumn fx:id="incomeTypeColumn" onEditCommit="#editIncomeType" prefWidth="75.0" text="%incomeType.client" />
+                <TableColumn fx:id="verificationDateColumn" editable="false" prefWidth="75.0" text="%verificationDate.client" />
+                <TableColumn fx:id="clickAmountColumn" onEditCommit="#editClickAmount" prefWidth="75.0" text="%clickAmount.client" />
+                <TableColumn fx:id="consolidationAmountColumn" onEditCommit="#editConsolidationAmount" prefWidth="75.0" text="%consolidationAmount.client" />
+                <TableColumn fx:id="detailsColumn" editable="false" prefWidth="75.0" text="%details.general" />
             </columns>
+         <VBox.margin>
+            <Insets bottom="20.0" left="10.0" right="10.0" />
+         </VBox.margin>
         </TableView>
     </children>
 </VBox>
