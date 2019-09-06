@@ -41,7 +41,7 @@ public class ImportModel {
 
     private String getPesel(String[] clientInfo) {
         String peselIndex = CommonUtils.getKeyByValue(columnsIndex, "pesel");
-        if (peselIndex != null && Integer.parseInt(peselIndex) - 1 >= 0) {
+        if (peselIndex != null && Integer.parseInt(peselIndex) - 1 >= 0 && clientInfo.length > 0) {
             return clientInfo[Integer.parseInt(peselIndex) - 1];
         }
         return null;
