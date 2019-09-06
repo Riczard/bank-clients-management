@@ -9,6 +9,7 @@ public class TopMenuButtonsController {
     private static final String ADD_ADVISERS_FXML = "/fxml/AddAdvisers.fxml";
     private static final String ADD_ACCOUNT_STATUS_FXML = "/fxml/AddContactStatus.fxml";
     private static final String IMPORT_PANE_FXML = "/fxml/ImportPane.fxml";
+    private static final String SEARCH_PANE_FXML = "/fxml/SearchPane.fxml";
 
     private MainController mainController;
 
@@ -19,7 +20,8 @@ public class TopMenuButtonsController {
     }
 
     @FXML
-    public void searchClient(ActionEvent actionEvent) {
+    public void searchClient() {
+        mainController.setCenter(SEARCH_PANE_FXML);
     }
 
     @FXML
