@@ -15,7 +15,7 @@
         </Label>
         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
             <children>
-                <ComboBox fx:id="credytTypeComboBox" prefHeight="26.0" prefWidth="210.0"
+                <ComboBox fx:id="creditTypeCombobox" prefHeight="26.0" prefWidth="210.0"
                           promptText="%chooseCreditType.search"/>
             </children>
             <padding>
