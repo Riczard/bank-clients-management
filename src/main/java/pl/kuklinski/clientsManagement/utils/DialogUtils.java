@@ -3,6 +3,7 @@ package pl.kuklinski.clientsManagement.utils;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextArea;
+import javafx.stage.DirectoryChooser;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
@@ -41,5 +42,10 @@ public class DialogUtils {
                 new FileChooser.ExtensionFilter("TXT", "*.txt")
         );
         return fileChooser.showOpenDialog(new Stage());
+    }
+
+    public static File directoryChooserDialog() {
+        DirectoryChooser directoryChooser = new DirectoryChooser();
+        return directoryChooser.showDialog(new Stage());
     }
 }
