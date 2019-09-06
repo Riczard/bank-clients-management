@@ -3,7 +3,10 @@ package pl.kuklinski.clientsManagement.utils;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextArea;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 
+import java.io.File;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
@@ -27,5 +30,16 @@ public class DialogUtils {
         TextArea textArea = new TextArea(information);
         informationAlert.getDialogPane().setContent(textArea);
         informationAlert.showAndWait();
+    }
+
+    public static File fileChooserDialog() {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle(" ");
+        fileChooser.getExtensionFilters().addAll(
+                new FileChooser.ExtensionFilter("All Files", "*.*"),
+                new FileChooser.ExtensionFilter("CSV", "*.csv"),
+                new FileChooser.ExtensionFilter("TXT", "*.txt")
+        );
+        return fileChooser.showOpenDialog(new Stage());
     }
 }

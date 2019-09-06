@@ -9,6 +9,7 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import pl.kuklinski.clientsManagement.javaFX.model.ImportModel;
 import pl.kuklinski.clientsManagement.utils.CSVUtils;
+import pl.kuklinski.clientsManagement.utils.DialogUtils;
 
 import java.io.File;
 import java.text.DecimalFormat;
@@ -116,15 +117,7 @@ public class ImportController {
 
     @FXML
     public void chooseFile() {
-        Stage stage = new Stage();
-        FileChooser fileChooser = new FileChooser();
-        fileChooser.setTitle(" ");
-        fileChooser.getExtensionFilters().addAll(
-                new FileChooser.ExtensionFilter("All Files", "*.*"),
-                new FileChooser.ExtensionFilter("CSV", "*.csv"),
-                new FileChooser.ExtensionFilter("TXT", "*.txt")
-        );
-        file = fileChooser.showOpenDialog(stage);
+        file = DialogUtils.fileChooserDialog();
         filePath.setText(file.getPath());
     }
 
