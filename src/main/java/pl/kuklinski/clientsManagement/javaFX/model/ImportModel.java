@@ -50,7 +50,6 @@ public class ImportModel {
     private void setClientData(String[] clientInfo, Client client) {
         for (int i = 0; i < clientInfo.length; i++) {
             String clientData = clientInfo[i];
-            System.out.println(clientData);
             if (!clientData.isEmpty()) {
                 String key = String.valueOf(i + 1);
                 String columnName = "";
@@ -80,13 +79,10 @@ public class ImportModel {
                         client.setStatus(importClient(clientData));
                         break;
                     case "lastContactDate":
-//                        if(clientData.contains("\\d\\d.\\d\\d.\\d\\d\\d\\d"))
                         client.setLastContactDate(CommonUtils.convertStringToLocalDate(clientData));
                         break;
                     case "plannedContactDate":
-//                        if(clientData.contains("\\d\\d.\\d\\d.\\d\\d\\d\\d"))
-
-                            client.setPlannedContactDate(CommonUtils.convertStringToLocalDate(clientData));
+                        client.setPlannedContactDate(CommonUtils.convertStringToLocalDate(clientData));
                         break;
                     case "comment":
                         client.setComment(clientData);
@@ -95,8 +91,7 @@ public class ImportModel {
                         client.setIncomeType(clientData);
                         break;
                     case "verificationDate":
-//                        if(clientData.contains("\\d\\d.\\d\\d.\\d\\d\\d\\d"))
-                            client.setVerificationDate(CommonUtils.convertStringToLocalDate(clientData));
+                        client.setVerificationDate(CommonUtils.convertStringToLocalDate(clientData));
                         break;
                     case "clickAmount":
                         client.setClickAmount(clientData);
@@ -109,8 +104,11 @@ public class ImportModel {
                         break;
                     case "source":
                         client.setSource(clientData);
+                        break;
                     case "adviserClient":
                         client.setAdviser(importAdviser(clientData));
+                        break;
+                    default:
                         break;
                 }
 
