@@ -12,7 +12,6 @@ import pl.kuklinski.clientsManagement.utils.FXMLUtils;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.Arrays;
 
 public class SearchController {
 
@@ -57,7 +56,8 @@ public class SearchController {
 
     private void validation() {
         this.searchButton.disableProperty().bind(this.directoryPath.textProperty().isEmpty()
-                .or((createTxtCheckbox.selectedProperty()).not()).and(addToDbCheckbox.selectedProperty().not()));
+                .or(createTxtCheckbox.selectedProperty().not().and(addToDbCheckbox.selectedProperty().not()))
+                .or(creditTypeCombobox.valueProperty().isNull()));
     }
 
     @FXML
@@ -78,12 +78,9 @@ public class SearchController {
         if (createTxtCheckbox.isSelected() && addToDbCheckbox.isSelected()) {
             searchModel.createTxtFile(data);
             searchModel.importToDB(data);
-            System.out.println("tu i tu");
         } else if (createTxtCheckbox.isSelected()) {
-            System.out.println("tworzy txt");
             searchModel.createTxtFile(data);
         } else {
-            System.out.println("do db");
             searchModel.importToDB(data);
         }
     }
