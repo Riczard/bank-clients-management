@@ -112,7 +112,7 @@ public class ImportController {
 
     private void validation() {
         this.importButton.disableProperty().bind(this.filePath.textProperty().isEmpty()
-                .or(this.peselIndex.textProperty().isEmpty()));
+                .or(this.delimiterField.textProperty().isEmpty()));
     }
 
     @FXML
