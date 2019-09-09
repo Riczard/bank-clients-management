@@ -28,12 +28,15 @@ public class ImportModel {
                 if (client == null) {
                     client = new Client();
                     setClientData(clientInfo, client);
-
                     clientDao.create(client);
                 } else {
                     setClientData(clientInfo, client);
                     clientDao.update(client);
                 }
+            } else {
+                Client client = new Client();
+                setClientData(clientInfo, client);
+                clientDao.create(client);
             }
         }
         clientDao.closeConnection();
