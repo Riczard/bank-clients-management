@@ -7,7 +7,12 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import pl.kuklinski.clientsManagement.javaFX.model.SearchModel;
 import pl.kuklinski.clientsManagement.javaFX.modelFX.CreditFX;
+import pl.kuklinski.clientsManagement.utils.DialogUtils;
 import pl.kuklinski.clientsManagement.utils.FXMLUtils;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Arrays;
 
 public class SearchController {
 
@@ -23,6 +28,8 @@ public class SearchController {
     private Button searchButton;
 
     private SearchModel searchModel;
+
+    private File directory;
 
     @FXML
     public void initialize() {
@@ -44,7 +51,7 @@ public class SearchController {
 
         CreditFX allTypes = new CreditFX();
         allTypes.setTitle(FXMLUtils.getResourceBundle().getString("creditAll"));
-        allTypes.setType("all");
+        allTypes.setType("creditAll");
         creditTypeCombobox.getItems().add(allTypes);
     }
 
@@ -55,9 +62,29 @@ public class SearchController {
 
     @FXML
     public void chooseFolder() {
+        directory = DialogUtils.directoryChooserDialog();
+        directoryPath.setText(directory.getPath());
     }
 
     @FXML
     public void searchCredits() {
+        searchModel.setDirectory(directory);
+        String[][] data = new String[0][0];
+        try {
+            data = searchModel.search(creditTypeCombobox.getSelectionModel().getSelectedItem());
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        if (createTxtCheckbox.isSelected() && addToDbCheckbox.isSelected()) {
+            searchModel.createTxtFile(data);
+            searchModel.importToDB(data);
+            System.out.println("tu i tu");
+        } else if (createTxtCheckbox.isSelected()) {
+            System.out.println("tworzy txt");
+            searchModel.createTxtFile(data);
+        } else {
+            System.out.println("do db");
+            searchModel.importToDB(data);
+        }
     }
 }

@@ -50,62 +50,70 @@ public class ImportModel {
     private void setClientData(String[] clientInfo, Client client) {
         for (int i = 0; i < clientInfo.length; i++) {
             String clientData = clientInfo[i];
-            String key = String.valueOf(i + 1);
-            String columnName = "";
-            if (columnsIndex.containsKey(key)) {
-                columnName = columnsIndex.get(key);
-            }
-            switch (columnName) {
-                case "name":
-                    client.setName(clientData);
-                    break;
-                case "surname":
-                    client.setSurname(clientData);
-                    break;
-                case "pesel":
-                    client.setPesel(clientData);
-                    break;
-                case "phone":
-                    client.setPhone(clientData);
-                    break;
-                case "offerStatus":
-                    client.setOfferStatus(importOfferStatus(clientData));
-                    break;
-                case "relation":
-                    client.setRelation(importRelation(clientData));
-                    break;
-                case "contactStatus":
-                    client.setStatus(importClient(clientData));
-                    break;
-                case "lastContactDate":
-                    client.setLastContactDate(CommonUtils.convertStringToLocalDate(clientData));
-                    break;
-                case "plannedContactDate":
-                    client.setPlannedContactDate(CommonUtils.convertStringToLocalDate(clientData));
-                    break;
-                case "comment":
-                    client.setComment(clientData);
-                    break;
-                case "incomeType":
-                    client.setIncomeType(clientData);
-                    break;
-                case "verificationDate":
-                    client.setVerificationDate(CommonUtils.convertStringToLocalDate(clientData));
-                    break;
-                case "clickAmount":
-                    client.setClickAmount(clientData);
-                    break;
-                case "consolidationAmount":
-                    client.setConsolidationAmount(clientData);
-                    break;
-                case "cityClient":
-                    client.setCity(clientData);
-                    break;
-                case "source":
-                    client.setSource(clientData);
-                case "adviserClient":
-                    client.setAdviser(importAdviser(clientData));
-                    break;
+            System.out.println(clientData);
+            if (!clientData.isEmpty()) {
+                String key = String.valueOf(i + 1);
+                String columnName = "";
+                if (columnsIndex.containsKey(key)) {
+                    columnName = columnsIndex.get(key);
+                }
+                switch (columnName) {
+                    case "name":
+                        client.setName(clientData);
+                        break;
+                    case "surname":
+                        client.setSurname(clientData);
+                        break;
+                    case "pesel":
+                        client.setPesel(clientData);
+                        break;
+                    case "phone":
+                        client.setPhone(clientData);
+                        break;
+                    case "offerStatus":
+                        client.setOfferStatus(importOfferStatus(clientData));
+                        break;
+                    case "relation":
+                        client.setRelation(importRelation(clientData));
+                        break;
+                    case "contactStatus":
+                        client.setStatus(importClient(clientData));
+                        break;
+                    case "lastContactDate":
+//                        if(clientData.contains("\\d\\d.\\d\\d.\\d\\d\\d\\d"))
+                        client.setLastContactDate(CommonUtils.convertStringToLocalDate(clientData));
+                        break;
+                    case "plannedContactDate":
+//                        if(clientData.contains("\\d\\d.\\d\\d.\\d\\d\\d\\d"))
+
+                            client.setPlannedContactDate(CommonUtils.convertStringToLocalDate(clientData));
+                        break;
+                    case "comment":
+                        client.setComment(clientData);
+                        break;
+                    case "incomeType":
+                        client.setIncomeType(clientData);
+                        break;
+                    case "verificationDate":
+//                        if(clientData.contains("\\d\\d.\\d\\d.\\d\\d\\d\\d"))
+                            client.setVerificationDate(CommonUtils.convertStringToLocalDate(clientData));
+                        break;
+                    case "clickAmount":
+                        client.setClickAmount(clientData);
+                        break;
+                    case "consolidationAmount":
+                        client.setConsolidationAmount(clientData);
+                        break;
+                    case "cityClient":
+                        client.setCity(clientData);
+                        break;
+                    case "source":
+                        client.setSource(clientData);
+                    case "adviserClient":
+                        client.setAdviser(importAdviser(clientData));
+                        break;
+                }
+
             }
         }
     }

@@ -19,6 +19,9 @@ public class CommonUtils {
 
     public static LocalDate convertStringToLocalDate(String date) {
         System.out.println(date);
+        if(date.equals("0")){
+            return null;
+        }
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy");
         formatter = formatter.withLocale(Locale.getDefault());
         return LocalDate.parse(date, formatter);

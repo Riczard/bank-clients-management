@@ -1,11 +1,9 @@
 package pl.kuklinski.clientsManagement.utils;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class CSVUtils {
 
@@ -21,5 +19,15 @@ public class CSVUtils {
             e.printStackTrace();
         }
         return data;
+    }
+
+    public static String getStringFromFile(File file) throws FileNotFoundException {
+        Scanner scanner = new Scanner(file);
+        StringBuilder sb = new StringBuilder();
+//        scanner.useDelimiter("");
+        while (scanner.hasNext()) {
+            sb.append(scanner.next());
+        }
+        return sb.toString();
     }
 }
