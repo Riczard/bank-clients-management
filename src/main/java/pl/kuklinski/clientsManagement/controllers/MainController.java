@@ -23,6 +23,7 @@ public class MainController {
     @FXML
     private void initialize() {
         topMenuButtonsController.setMainController(this);
+        setCenter("/fxml/ListClients.fxml");
     }
 
     public void setCenter(String fxmlPath) {
