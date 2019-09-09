@@ -10,6 +10,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 
 <ScrollPane xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.kuklinski.clientsManagement.controllers.ClientController">
@@ -38,9 +39,19 @@
             </rowConstraints>
             <children>
                 <Label cacheShape="false" centerShape="false" contentDisplay="CENTER" focusTraversable="false" scaleShape="false" text="%name.general" GridPane.halignment="LEFT" />
-                <TextField fx:id="nameField" maxWidth="-Infinity" prefWidth="220.0" GridPane.columnIndex="1" />
+            <HBox alignment="CENTER_LEFT" spacing="5.0" GridPane.columnIndex="1" GridPane.halignment="LEFT">
+               <children>
+                      <TextField fx:id="nameField" maxWidth="-Infinity" prefWidth="220.0" />
+                  <Label text="*" textFill="#f80000" />
+               </children>
+            </HBox>
                 <Label text="%surname.general" GridPane.rowIndex="1" />
-                <TextField fx:id="surnameField" maxWidth="-Infinity" prefWidth="220.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <HBox alignment="CENTER_LEFT" spacing="5.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <children>
+                      <TextField fx:id="surnameField" maxWidth="-Infinity" prefWidth="220.0" />
+                  <Label text="*" textFill="#f80000" />
+               </children>
+            </HBox>
                 <Label text="%pesel.client" GridPane.rowIndex="2" />
                 <TextField fx:id="peselField" maxWidth="-Infinity" prefWidth="220.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                 <Label text="%city.client" GridPane.rowIndex="4" />
