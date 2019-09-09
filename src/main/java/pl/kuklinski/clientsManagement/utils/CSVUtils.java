@@ -22,9 +22,8 @@ public class CSVUtils {
     }
 
     public static String getStringFromFile(File file) throws FileNotFoundException {
-        Scanner scanner = new Scanner(file);
+        Scanner scanner = new Scanner(new FileInputStream(file), "UTF-8");
         StringBuilder sb = new StringBuilder();
-//        scanner.useDelimiter("");
         while (scanner.hasNext()) {
             sb.append(scanner.next());
         }
