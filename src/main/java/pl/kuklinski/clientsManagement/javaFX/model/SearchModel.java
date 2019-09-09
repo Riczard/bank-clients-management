@@ -1,9 +1,11 @@
 package pl.kuklinski.clientsManagement.javaFX.model;
 
+import javafx.scene.control.Dialog;
 import pl.kuklinski.clientsManagement.database.dao.ClientDao;
 import pl.kuklinski.clientsManagement.database.models.Client;
 import pl.kuklinski.clientsManagement.javaFX.modelFX.CreditFX;
 import pl.kuklinski.clientsManagement.utils.CSVUtils;
+import pl.kuklinski.clientsManagement.utils.DialogUtils;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -59,7 +61,9 @@ public class SearchModel {
     }
 
     public String searchAmountByCreditType(String data, String creditType) {
+        DialogUtils.informationDialog(creditType);
         String regex = String.format(".*%s.*?Maksymalnakwota:(.*?zł)", creditType);
+        DialogUtils.informationDialog(regex);
         Pattern p = Pattern.compile(regex);
         Matcher m = p.matcher(data);
         if(m.find()) {
@@ -75,7 +79,6 @@ public class SearchModel {
         }catch (FileNotFoundException e){
             e.printStackTrace();
         }
-
         for(String[] singleData : data) {
             Objects.requireNonNull(printWriter).write(singleData[0]+";" + singleData[1] + ";" + singleData[2] + "\n");
         }
@@ -85,7 +88,6 @@ public class SearchModel {
     public void importToDB(String[][] data) {
         ClientDao clientDao = new ClientDao();
         for(String[] singleData : data) {
-            Arrays.toString(singleData);
             Client client = clientDao.findByPesel(singleData[peselIndex]);
             if(client == null) {
                 client = new Client();
