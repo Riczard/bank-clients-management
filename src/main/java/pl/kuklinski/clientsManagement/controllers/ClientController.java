@@ -80,7 +80,6 @@ public class ClientController {
         this.addButton.disableProperty().bind(this.nameField.textProperty().isEmpty()
                 .or(this.surnameField.textProperty().isEmpty())
                 .or(this.nameField.textProperty().isEmpty())
-                .or(this.peselField.textProperty().isEmpty())
         );
     }
 
