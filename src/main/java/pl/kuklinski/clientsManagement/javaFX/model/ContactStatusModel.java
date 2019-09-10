@@ -51,14 +51,13 @@ public class ContactStatusModel {
         ContactStatusDao contactStatusDao = new ContactStatusDao();
         contactStatusDao.update(ContactStatusConverter.convertToContactStatus(this.getContactStatusFXObjectPropertyEdit()));
         contactStatusDao.closeConnection();
-        init();
     }
 
     public ContactStatusFX getContactStatusFXObjectProperty() {
         return contactStatusFXObjectProperty.get();
     }
 
-    public ObjectProperty<ContactStatusFX> contactStatusFXObjectPropertyy() {
+    public ObjectProperty<ContactStatusFX> contactStatusFXObjectProperty() {
         return contactStatusFXObjectProperty;
     }
 
