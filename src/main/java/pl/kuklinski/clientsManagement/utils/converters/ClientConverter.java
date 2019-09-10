@@ -2,6 +2,7 @@ package pl.kuklinski.clientsManagement.utils.converters;
 
 import pl.kuklinski.clientsManagement.database.models.Client;
 import pl.kuklinski.clientsManagement.javaFX.modelFX.ClientFX;
+import pl.kuklinski.clientsManagement.utils.CommonUtils;
 
 public class ClientConverter {
 
@@ -11,7 +12,9 @@ public class ClientConverter {
         clientFX.setName(client.getName());
         clientFX.setSurname(client.getSurname());
         clientFX.setPesel(client.getPesel());
-        clientFX.setPhone(client.getPhone());
+        if(client.getPhone() != null) {
+            clientFX.setPhone(CommonUtils.insert(client.getPhone(), " ", 3));
+        }
         if (client.getOfferStatus() != null) {
             clientFX.setOfferStatus(OfferStatusConverter.convertToOfferStatusFX(client.getOfferStatus()));
         }
@@ -43,7 +46,7 @@ public class ClientConverter {
         client.setName(clientFX.getName());
         client.setSurname(clientFX.getSurname());
         client.setPesel(clientFX.getPesel());
-        client.setPhone(clientFX.getPhone());
+        client.setPhone(clientFX.getPhone().replaceAll(" ", ""));
         if (clientFX.getOfferStatus() != null) {
             client.setOfferStatus(OfferStatusConverter.convertToOfferStatus(clientFX.getOfferStatus()));
         }
