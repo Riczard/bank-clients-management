@@ -29,8 +29,20 @@ public class ContactStatusController {
         this.contactStatusModel.init();
         bindings();
         bindingsListView();
-
         setOnEditCells();
+    }
+
+    private void bindings() {
+        this.contactStatusModel.contactStatusFXObjectProperty().get().contactStatusProperty().bind(this.statusField.textProperty());
+        this.addButton.disableProperty().bind(this.statusField.textProperty().isEmpty());
+        this.deleteStatus.disableProperty().bind(this.statusListView.getSelectionModel().selectedItemProperty().isNull());
+    }
+
+    private void bindingsListView() {
+        this.statusListView.setItems(this.contactStatusModel.getContactStatusFXObservableList());
+        this.statusListView.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+            this.contactStatusModel.setContactStatusFXObjectPropertyEdit(newValue);
+        });
     }
 
     private void setOnEditCells() {
@@ -49,21 +61,8 @@ public class ContactStatusController {
         }));
     }
 
-    private void bindings() {
-        this.contactStatusModel.accountStatusFXObjectPropertyy().get().contactStatusProperty().bind(this.statusField.textProperty());
-        this.addButton.disableProperty().bind(this.statusField.textProperty().isEmpty());
-        this.deleteStatus.disableProperty().bind(this.statusListView.getSelectionModel().selectedItemProperty().isNull());
-    }
-
-    private void bindingsListView() {
-        this.statusListView.setItems(this.contactStatusModel.getContactStatusFXObservableList());
-        this.statusListView.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
-            this.contactStatusModel.setAccountStatusFXObjectPropertyEdit(newValue);
-        });
-    }
-
     @FXML
-    public void addAccStatus() {
+    public void addContactStatus() {
         this.contactStatusModel.saveStatusInDataBase();
         this.statusField.clear();
     }
@@ -74,8 +73,8 @@ public class ContactStatusController {
     }
 
     @FXML
-    public void editStatus(ListView.EditEvent<ContactStatusFX> accountStatusFXEditEvent) {
-        this.contactStatusModel.getAccountStatusFXObjectPropertyEdit().setContactStatus(accountStatusFXEditEvent.getNewValue().getContactStatus());
+    public void editStatus(ListView.EditEvent<ContactStatusFX> event) {
+        this.contactStatusModel.getContactStatusFXObjectPropertyEdit().setContactStatus(event.getNewValue().getContactStatus());
         this.contactStatusModel.updateStatusInDB();
     }
 
