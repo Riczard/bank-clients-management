@@ -15,7 +15,7 @@
          <children>
             <Label text="%contactStatus.client" />
             <TextField fx:id="statusField" />
-            <Button fx:id="addButton" mnemonicParsing="false" onAction="#addAccStatus" text="%add.button" />
+            <Button fx:id="addButton" mnemonicParsing="false" onAction="#addContactStatus" text="%add.button" />
          </children>
       </HBox>
       <ListView fx:id="statusListView" editable="true" maxHeight="1.7976931348623157E308" onEditCommit="#editStatus" prefWidth="400.0">
