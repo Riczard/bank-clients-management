@@ -2,16 +2,22 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 
-<HBox fx:controller="pl.kuklinski.clientsManagement.controllers.ResourcesController" alignment="TOP_CENTER" fillHeight="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="600.0" spacing="10.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
-   <children>
-      <Button mnemonicParsing="false" prefWidth="110.0" onAction="#showContactStatus" text="%contactStatus.button" />
-      <Button mnemonicParsing="false" prefWidth="110.0" onAction="#showOffersStatus" text="%offerStatus.button" />
-      <Button mnemonicParsing="false" prefWidth="110.0" onAction="#showRelations" text="%relation.button" />
-      <Button mnemonicParsing="false" prefWidth="110.0" onAction="#showAdvisers" text="%advisers.button" />
-   </children>
-   <padding>
-      <Insets top="10.0" />
-   </padding>
-</HBox>
+
+<BorderPane fx:id="resourcesPane" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.kuklinski.clientsManagement.controllers.ResourcesController">
+   <top>
+      <HBox alignment="TOP_CENTER" fillHeight="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="600.0" spacing="10.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button mnemonicParsing="false" onAction="#showContactStatus" prefWidth="110.0" text="%contactStatus.button" />
+            <Button mnemonicParsing="false" onAction="#showOffersStatus" prefWidth="110.0" text="%offerStatus.button" />
+            <Button mnemonicParsing="false" onAction="#showRelations" prefWidth="110.0" text="%relation.button" />
+            <Button mnemonicParsing="false" onAction="#showAdvisers" prefWidth="110.0" text="%advisers.button" />
+         </children>
+         <padding>
+            <Insets top="10.0" />
+         </padding>
+      </HBox>
+   </top>
+</BorderPane>
