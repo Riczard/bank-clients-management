@@ -5,7 +5,7 @@ import javafx.geometry.Pos;
 import javafx.scene.layout.BorderPane;
 import pl.kuklinski.clientsManagement.utils.FXMLUtils;
 
-public class ResourcesController {
+public class ResourcesButtonsController {
 
     private static final String ADD_ADVISERS_FXML = "/fxml/AddAdvisers.fxml";
     private static final String ADD_CONTACT_STATUS_FXML = "/fxml/AddContactStatus.fxml";
