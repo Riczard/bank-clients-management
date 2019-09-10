@@ -10,6 +10,7 @@ import javafx.stage.Stage;
 import pl.kuklinski.clientsManagement.javaFX.model.ImportModel;
 import pl.kuklinski.clientsManagement.utils.CSVUtils;
 import pl.kuklinski.clientsManagement.utils.DialogUtils;
+import pl.kuklinski.clientsManagement.utils.FXMLUtils;
 
 import java.io.File;
 import java.text.DecimalFormat;
@@ -126,6 +127,7 @@ public class ImportController {
         List<String[]> dataFromCSV = CSVUtils.getDataFromCSV(file, delimiterField.getText());
         importModel.setColumnsIndex(getColumnsIndex());
         importModel.importToDB(dataFromCSV);
+        DialogUtils.informationDialog(FXMLUtils.getResourceBundle().getString("information.import"));
     }
 
     private Map<String, String> getColumnsIndex() {
