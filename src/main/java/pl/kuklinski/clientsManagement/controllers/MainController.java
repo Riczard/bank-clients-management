@@ -24,6 +24,7 @@ public class MainController {
     @FXML
     private void initialize() {
         topMenuButtonsController.setMainController(this);
+        topMenuButtonsController.getClientButton().fire();
         setCenter("/fxml/ListClients.fxml");
     }
 

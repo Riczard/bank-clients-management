@@ -6,7 +6,7 @@
 
 <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="75.0" prefWidth="600.0" spacing="10.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.kuklinski.clientsManagement.controllers.TopMenuButtonsController">
    <children>
-      <Button mnemonicParsing="false" onAction="#showClients" prefHeight="60.0" prefWidth="120.0" text="%clients.button" />
+      <Button fx:id="clientButton" mnemonicParsing="false" onAction="#showClients" prefHeight="60.0" prefWidth="120.0" text="%clients.button" />
       <Button mnemonicParsing="false" onAction="#openResources" prefHeight="60.0" prefWidth="120.0" text="%resources.button" />
       <Button mnemonicParsing="false" onAction="#searchClient" prefHeight="60.0" prefWidth="120.0" text="%search.button" />
       <Button mnemonicParsing="false" onAction="#importClients" prefHeight="60.0" prefWidth="120.0" text="%import.button" />

@@ -2,6 +2,7 @@ package pl.kuklinski.clientsManagement.controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 
 public class TopMenuButtonsController {
 
@@ -9,6 +10,9 @@ public class TopMenuButtonsController {
     private static final String IMPORT_PANE_FXML = "/fxml/ImportPane.fxml";
     private static final String SEARCH_PANE_FXML = "/fxml/SearchPane.fxml";
     private static final String RESOURCES_BUTTONS_FXML = "/fxml/ResourcesButtons.fxml";
+
+    @FXML
+    private Button clientButton;
 
     private MainController mainController;
 
@@ -39,5 +43,9 @@ public class TopMenuButtonsController {
     @FXML
     public void setMainController(MainController mainController) {
         this.mainController = mainController;
+    }
+
+    public Button getClientButton() {
+        return clientButton;
     }
 }
