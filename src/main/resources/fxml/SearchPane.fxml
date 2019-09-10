@@ -23,7 +23,7 @@
                 <Insets left="10.0" />
             </padding>
         </HBox>
-        <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="200.0" spacing="10.0">
+        <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="350.0" spacing="10.0">
             <children>
                 <Label text="%path" />
                 <Label fx:id="directoryPath" textOverrun="LEADING_ELLIPSIS" />
@@ -33,7 +33,7 @@
             </VBox.margin>
         </HBox>
         <Button mnemonicParsing="false" onAction="#chooseFolder" text="%chooseDirectory.button" />
-        <HBox alignment="CENTER" prefHeight="60.0" prefWidth="200.0" spacing="20.0">
+        <HBox alignment="CENTER" prefHeight="60.0" spacing="20.0">
             <children>
                 <CheckBox fx:id="createTxtCheckbox" mnemonicParsing="false" text="%createTxt.search" />
                 <CheckBox fx:id="addToDbCheckbox" mnemonicParsing="false" text="%importToDB.search" />
