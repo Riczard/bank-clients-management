@@ -16,6 +16,11 @@ public class ResourcesController {
     public BorderPane resourcesPane;
 
     @FXML
+    public void initialize() {
+        setCenter(ADD_CONTACT_STATUS_FXML);
+    }
+
+    @FXML
     public void showAdvisers() {
         setCenter(ADD_ADVISERS_FXML);
     }
