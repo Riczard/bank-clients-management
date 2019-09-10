@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ContextMenu?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.kuklinski.clientsManagement.controllers.RelationController">
+    <children>
+        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0">
+            <children>
+                <Label text="%relation.client" />
+                <TextField fx:id="relationField" />
+                <Button fx:id="addButton" mnemonicParsing="false" onAction="#addRelation" text="%add.button" />
+            </children>
+        </HBox>
+        <ListView fx:id="relationList" editable="true" maxHeight="1.7976931348623157E308" onEditCommit="#editRelation" prefWidth="400.0">
+            <contextMenu>
+                <ContextMenu>
+                    <items>
+                        <MenuItem fx:id="deleteRelation" mnemonicParsing="false" onAction="#deleteRelationOnAction" text="%delete.general" />
+                    </items>
+                </ContextMenu>
+            </contextMenu>
+        </ListView>
+    </children>
+</VBox>
