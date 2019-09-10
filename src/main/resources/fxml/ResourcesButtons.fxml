@@ -5,15 +5,14 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 
-
 <BorderPane fx:id="resourcesPane" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.kuklinski.clientsManagement.controllers.ResourcesController">
    <top>
       <HBox alignment="TOP_CENTER" fillHeight="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="600.0" spacing="10.0" BorderPane.alignment="CENTER">
          <children>
-            <Button mnemonicParsing="false" onAction="#showContactStatus" prefWidth="110.0" text="%contactStatus.button" />
-            <Button mnemonicParsing="false" onAction="#showOffersStatus" prefWidth="110.0" text="%offerStatus.button" />
-            <Button mnemonicParsing="false" onAction="#showRelations" prefWidth="110.0" text="%relation.button" />
-            <Button mnemonicParsing="false" onAction="#showAdvisers" prefWidth="110.0" text="%advisers.button" />
+            <Button mnemonicParsing="false" onAction="#showContactStatus" prefWidth="130.0" text="%contactStatus.button" />
+            <Button mnemonicParsing="false" onAction="#showOffersStatus" prefWidth="130.0" text="%offerStatus.button" />
+            <Button mnemonicParsing="false" onAction="#showRelations" prefWidth="130.0" text="%relation.button" />
+            <Button mnemonicParsing="false" onAction="#showAdvisers" prefWidth="130.0" text="%advisers.button" />
          </children>
          <padding>
             <Insets top="10.0" />
