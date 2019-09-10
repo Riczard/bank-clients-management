@@ -9,7 +9,7 @@
    <top>
       <HBox alignment="TOP_CENTER" fillHeight="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="600.0" spacing="10.0" BorderPane.alignment="CENTER">
          <children>
-            <Button mnemonicParsing="false" onAction="#showContactStatus" prefWidth="130.0" text="%contactStatus.button" />
+            <Button fx:id="contactStatusButton" mnemonicParsing="false" onAction="#showContactStatus" prefWidth="130.0" text="%contactStatus.button" />
             <Button mnemonicParsing="false" onAction="#showOffersStatus" prefWidth="130.0" text="%offerStatus.button" />
             <Button mnemonicParsing="false" onAction="#showRelations" prefWidth="130.0" text="%relation.button" />
             <Button mnemonicParsing="false" onAction="#showAdvisers" prefWidth="130.0" text="%advisers.button" />

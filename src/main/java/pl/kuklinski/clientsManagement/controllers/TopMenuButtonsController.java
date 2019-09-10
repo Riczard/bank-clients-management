@@ -11,9 +11,6 @@ public class TopMenuButtonsController {
     private static final String SEARCH_PANE_FXML = "/fxml/SearchPane.fxml";
     private static final String RESOURCES_BUTTONS_FXML = "/fxml/ResourcesButtons.fxml";
 
-    @FXML
-    private Button clientButton;
-
     private MainController mainController;
 
     @FXML
@@ -45,7 +42,4 @@ public class TopMenuButtonsController {
         this.mainController = mainController;
     }
 
-    public Button getClientButton() {
-        return clientButton;
-    }
 }
