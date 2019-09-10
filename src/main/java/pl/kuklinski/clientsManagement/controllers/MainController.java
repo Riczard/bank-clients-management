@@ -3,6 +3,7 @@ package pl.kuklinski.clientsManagement.controllers;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.geometry.Pos;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.CheckMenuItem;
 import javafx.scene.layout.BorderPane;
@@ -28,6 +29,7 @@ public class MainController {
 
     public void setCenter(String fxmlPath) {
         borderPane.setCenter(FXMLUtils.fxmlLoader(fxmlPath));
+        BorderPane.setAlignment(borderPane.getCenter(), Pos.TOP_CENTER);
     }
 
     public void setAlwaysOnTop(ActionEvent actionEvent) {
