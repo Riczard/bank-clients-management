@@ -5,6 +5,8 @@ import java.time.format.DateTimeFormatter;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Objects;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class CommonUtils {
 
@@ -25,6 +27,13 @@ public class CommonUtils {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy");
         formatter = formatter.withLocale(Locale.getDefault());
         return LocalDate.parse(date, formatter);
+    }
+
+    public static String insert(String text, String insert, int period) {
+        String regex = String.format("(.{%s})", period);
+        Pattern p = Pattern.compile(regex, Pattern.DOTALL);
+        Matcher m = p.matcher(text);
+        return m.replaceAll("$1" + insert);
     }
 
 }
