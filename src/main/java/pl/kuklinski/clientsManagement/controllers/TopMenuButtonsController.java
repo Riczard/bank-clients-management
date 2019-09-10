@@ -45,4 +45,7 @@ public class TopMenuButtonsController {
     public void importClients() {
         mainController.setCenter(IMPORT_PANE_FXML);
     }
+
+    public void openResources(ActionEvent event) {
+    }
 }
