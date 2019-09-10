@@ -83,6 +83,6 @@ public class SearchController {
         } else {
             searchModel.importToDB(data);
         }
-        DialogUtils.informationDialog(data.length + FXMLUtils.getResourceBundle().getString("search.information"));
+        DialogUtils.informationDialog(data.length + FXMLUtils.getResourceBundle().getString("search.result"));
     }
 }
