@@ -46,7 +46,9 @@ public class ClientConverter {
         client.setName(clientFX.getName());
         client.setSurname(clientFX.getSurname());
         client.setPesel(clientFX.getPesel());
-        client.setPhone(clientFX.getPhone().replaceAll(" ", ""));
+        if(clientFX.getPhone() != null){
+            client.setPhone(clientFX.getPhone().replaceAll(" ", ""));
+        }
         if (clientFX.getOfferStatus() != null) {
             client.setOfferStatus(OfferStatusConverter.convertToOfferStatus(clientFX.getOfferStatus()));
         }
