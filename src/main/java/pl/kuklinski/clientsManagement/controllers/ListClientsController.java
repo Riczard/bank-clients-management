@@ -206,4 +206,8 @@ public class ListClientsController {
     public void setClientFxList(List<ClientFX> clientFxList) {
         this.listClientsModel.setClientFXList(clientFxList);
     }
+
+    public List<ClientFX> getClientFxList() {
+        return this.listClientsModel.getClientFXList();
+    }
 }
