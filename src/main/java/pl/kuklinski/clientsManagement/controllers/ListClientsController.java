@@ -1,14 +1,12 @@
 package pl.kuklinski.clientsManagement.controllers;
 
 import javafx.beans.property.ReadOnlyObjectWrapper;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.ComboBoxTableCell;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
-import javafx.scene.layout.GridPane;
 import pl.kuklinski.clientsManagement.javaFX.LocalDateTableCell;
 import pl.kuklinski.clientsManagement.javaFX.model.ListClientsModel;
 import pl.kuklinski.clientsManagement.javaFX.modelFX.ClientFX;
@@ -18,6 +16,7 @@ import pl.kuklinski.clientsManagement.javaFX.modelFX.RelationFX;
 import pl.kuklinski.clientsManagement.utils.FXMLUtils;
 
 import java.time.LocalDate;
+import java.util.List;
 
 public class ListClientsController {
 
@@ -56,9 +55,6 @@ public class ListClientsController {
     private TableColumn<ClientFX, String> consolidationAmountColumn;
     @FXML
     private TableColumn<ClientFX, String> detailsColumn;
-
-    @FXML
-    private GridPane filters;
 
     @FXML
     private FiltersController filtersController;
@@ -207,9 +203,7 @@ public class ListClientsController {
         this.listClientsModel.updateInDataBase();
     }
 
-    @FXML
-    public void showOrHideFilters() {
-        filters.setVisible(!filters.visibleProperty().get());
-        filters.setDisable(!filters.disableProperty().get());
+    public void setClientFxList(List<ClientFX> clientFxList) {
+        this.listClientsModel.setClientFXList(clientFxList);
     }
 }
