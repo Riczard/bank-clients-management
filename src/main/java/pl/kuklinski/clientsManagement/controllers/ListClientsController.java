@@ -7,6 +7,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.ComboBoxTableCell;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
+import pl.kuklinski.clientsManagement.javaFX.LocalDateTableCell;
 import pl.kuklinski.clientsManagement.javaFX.model.ListClientsModel;
 import pl.kuklinski.clientsManagement.javaFX.modelFX.ClientFX;
 import pl.kuklinski.clientsManagement.javaFX.modelFX.ContactStatusFX;
@@ -104,10 +105,11 @@ public class ListClientsController {
         this.offerStatusColumn.setCellFactory(ComboBoxTableCell.forTableColumn(this.listClientsModel.getOfferStatusFXES()));
         this.relationColumn.setCellFactory(ComboBoxTableCell.forTableColumn(this.listClientsModel.getRelationFXES()));
         this.contactStatusColumn.setCellFactory(ComboBoxTableCell.forTableColumn(this.listClientsModel.getContactStatusFXES()));
-//        this.lastContactDateColumn.setCellFactory(param -> new DatePicker(this.listClientsModel.getClientFXObjectPropertyEdit().getLastContactDate())));
+        this.lastContactDateColumn.setCellFactory(LocalDateTableCell::new);
+        this.plannedContactDateColumn.setCellFactory(LocalDateTableCell::new);
         this.commentColumn.setCellFactory(TextFieldTableCell.forTableColumn());
         this.incomeTypeColumn.setCellFactory(TextFieldTableCell.forTableColumn());
-//        this.verificationDateColumn.setCellFactory();
+        this.verificationDateColumn.setCellFactory(LocalDateTableCell::new);
         this.clickAmountColumn.setCellFactory(TextFieldTableCell.forTableColumn());
         this.consolidationAmountColumn.setCellFactory(TextFieldTableCell.forTableColumn());
     }
