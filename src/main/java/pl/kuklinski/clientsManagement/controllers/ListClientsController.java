@@ -1,12 +1,14 @@
 package pl.kuklinski.clientsManagement.controllers;
 
 import javafx.beans.property.ReadOnlyObjectWrapper;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.ComboBoxTableCell;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
+import javafx.scene.layout.GridPane;
 import pl.kuklinski.clientsManagement.javaFX.LocalDateTableCell;
 import pl.kuklinski.clientsManagement.javaFX.model.ListClientsModel;
 import pl.kuklinski.clientsManagement.javaFX.modelFX.ClientFX;
@@ -55,15 +57,23 @@ public class ListClientsController {
     @FXML
     private TableColumn<ClientFX, String> detailsColumn;
 
+    @FXML
+    private GridPane filters;
+
+    @FXML
+    private FiltersController filtersController;
+
     private ListClientsModel listClientsModel;
 
     private final static String CLIENT_PANE_FXML = "/fxml/ClientPane.fxml";
 
     @FXML
     public void initialize() {
+
         this.listClientsModel = new ListClientsModel();
         listClientsModel.init();
         bindingTableView();
+        filtersController.setListClientsController(this);
     }
 
 
@@ -195,5 +205,11 @@ public class ListClientsController {
     public void editOfferStatus(TableColumn.CellEditEvent<ClientFX, OfferStatusFX> event) {
         this.listClientsModel.getClientFXObjectPropertyEdit().setOfferStatus(event.getNewValue());
         this.listClientsModel.updateInDataBase();
+    }
+
+    @FXML
+    public void showOrHideFilters() {
+        filters.setVisible(!filters.visibleProperty().get());
+        filters.setDisable(!filters.disableProperty().get());
     }
 }
