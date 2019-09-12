@@ -204,10 +204,14 @@ public class ListClientsController {
     }
 
     public void setClientFxList(List<ClientFX> clientFxList) {
-        this.listClientsModel.setClientFXList(clientFxList);
+        this.listClientsModel.getClientFXES().setAll(clientFxList);
     }
 
     public List<ClientFX> getClientFxList() {
         return this.listClientsModel.getClientFXList();
+    }
+
+    public ListClientsModel getListClientsModel() {
+        return listClientsModel;
     }
 }
