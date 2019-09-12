@@ -2,6 +2,7 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.ColumnConstraints?>
@@ -19,7 +20,7 @@
             <Button minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#showOrHideFilters" prefHeight="25.0" prefWidth="40.0" text="&gt;&gt;" />
          </children>
       </VBox>
-      <GridPane fx:id="filtersPane" disable="true" hgap="10.0" prefHeight="60.0" prefWidth="800.0" visible="false">
+      <GridPane fx:id="filtersPane" hgap="10.0" prefHeight="70.0" prefWidth="800.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="100.0" minWidth="10.0" prefWidth="100.0" />
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="150.0" minWidth="10.0" prefWidth="150.0" />
@@ -33,18 +34,18 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Label text="%pesel.client" />
-            <Label text="%surname.general" GridPane.rowIndex="1" />
-            <Label text="%relation.client" GridPane.columnIndex="2" />
+            <Label text="%relation.client" GridPane.rowIndex="1" />
             <Label text="%offerStatus.client" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-            <Label text="%contactStatus.client" GridPane.columnIndex="4" />
-            <Label text="%source.client" GridPane.columnIndex="4" GridPane.rowIndex="1" />
-            <TextField fx:id="peselFilter" alignment="CENTER" maxWidth="-Infinity" minWidth="-Infinity" onKeyReleased="#filterClients" prefWidth="150.0" promptText="%pesel.client" GridPane.columnIndex="1" />
-            <TextField fx:id="surnameFilter" alignment="CENTER" maxWidth="-Infinity" minWidth="-Infinity" onKeyReleased="#filterClients" prefWidth="150.0" promptText="%surname.general" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <TextField fx:id="relationFilter" onKeyReleased="#filterClients" promptText="%relation.client" GridPane.columnIndex="3" />
-            <TextField fx:id="offerStatusFilter" onKeyReleased="#filterClients" promptText="%offerStatus.client" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-            <TextField fx:id="contactStatusFilter" onKeyReleased="#filterClients" promptText="%contactStatus.client" GridPane.columnIndex="5" />
-            <TextField fx:id="sourceFilter" onKeyReleased="#filterClients" promptText="%source.client" GridPane.columnIndex="5" GridPane.rowIndex="1" />
+            <Label text="%contactStatus.client" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+            <Label text="%source.client" GridPane.columnIndex="4" />
+            <TextField fx:id="sourceFilter" onKeyReleased="#filterClients" promptText="%source.client" GridPane.columnIndex="5" />
+            <ComboBox fx:id="relationComboBox" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <ComboBox fx:id="offerStatusComboBox" prefWidth="150.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+            <ComboBox fx:id="contactStatusComboBox" prefWidth="150.0" GridPane.columnIndex="5" GridPane.rowIndex="1" />
+            <Label prefHeight="22.0" prefWidth="98.0" text="%consolidationAmountGreater.search" wrapText="true" />
+            <Label text="%clickAmountGreater.search" GridPane.columnIndex="2" />
+            <TextField fx:id="consolidationAmountField" alignment="CENTER" promptText="%amount.general" GridPane.columnIndex="1" />
+            <TextField fx:id="clickAmountField" alignment="CENTER" promptText="%amount.general" GridPane.columnIndex="3" />
          </children>
          <HBox.margin>
             <Insets left="10.0" />
