@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
@@ -9,17 +10,16 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-
 <HBox alignment="CENTER" spacing="10.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.kuklinski.clientsManagement.controllers.FiltersController">
    <children>
-      <TextField fx:id="generalFilter" minHeight="-Infinity" minWidth="-Infinity" onKeyReleased="#filterAll" prefHeight="26.0" prefWidth="128.0" promptText="%find.general" />
+      <TextField fx:id="generalFilter" minHeight="-Infinity" minWidth="-Infinity" onKeyReleased="#filterClients" prefHeight="26.0" prefWidth="128.0" promptText="%find.general" />
       <VBox alignment="CENTER" spacing="5.0">
          <children>
             <Label alignment="CENTER" text="%filters.general" />
             <Button minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#showOrHideFilters" prefHeight="25.0" prefWidth="40.0" text="&gt;&gt;" />
          </children>
       </VBox>
-      <GridPane disable="true" hgap="10.0" prefHeight="60.0" prefWidth="800.0" visible="false">
+      <GridPane fx:id="filtersPane" disable="true" hgap="10.0" prefHeight="60.0" prefWidth="800.0" visible="false">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="100.0" minWidth="10.0" prefWidth="100.0" />
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="150.0" minWidth="10.0" prefWidth="150.0" />
@@ -39,13 +39,16 @@
             <Label text="%offerStatus.client" GridPane.columnIndex="2" GridPane.rowIndex="1" />
             <Label text="%contactStatus.client" GridPane.columnIndex="4" />
             <Label text="%source.client" GridPane.columnIndex="4" GridPane.rowIndex="1" />
-            <TextField fx:id="peselFilter" alignment="CENTER" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="150.0" promptText="%pesel.client" GridPane.columnIndex="1" />
-            <TextField fx:id="surnameFilter" alignment="CENTER" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="150.0" promptText="%surname.general" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <TextField fx:id="relationFilter" promptText="%relation.client" GridPane.columnIndex="3" />
-            <TextField fx:id="offerStatusFilter" promptText="%offerStatus.client" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-            <TextField fx:id="contactStatusFilter" promptText="%contactStatus.client" GridPane.columnIndex="5" />
-            <TextField fx:id="sourceFilter" promptText="%source.client" GridPane.columnIndex="5" GridPane.rowIndex="1" />
+            <TextField fx:id="peselFilter" alignment="CENTER" maxWidth="-Infinity" minWidth="-Infinity" onKeyReleased="#filterClients" prefWidth="150.0" promptText="%pesel.client" GridPane.columnIndex="1" />
+            <TextField fx:id="surnameFilter" alignment="CENTER" maxWidth="-Infinity" minWidth="-Infinity" onKeyReleased="#filterClients" prefWidth="150.0" promptText="%surname.general" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="relationFilter" onKeyReleased="#filterClients" promptText="%relation.client" GridPane.columnIndex="3" />
+            <TextField fx:id="offerStatusFilter" onKeyReleased="#filterClients" promptText="%offerStatus.client" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+            <TextField fx:id="contactStatusFilter" onKeyReleased="#filterClients" promptText="%contactStatus.client" GridPane.columnIndex="5" />
+            <TextField fx:id="sourceFilter" onKeyReleased="#filterClients" promptText="%source.client" GridPane.columnIndex="5" GridPane.rowIndex="1" />
          </children>
+         <HBox.margin>
+            <Insets left="10.0" />
+         </HBox.margin>
       </GridPane>
    </children>
 </HBox>
