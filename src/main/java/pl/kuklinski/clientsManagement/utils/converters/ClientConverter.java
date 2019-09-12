@@ -12,9 +12,7 @@ public class ClientConverter {
         clientFX.setName(client.getName());
         clientFX.setSurname(client.getSurname());
         clientFX.setPesel(client.getPesel());
-        if(client.getPhone() != null) {
-            clientFX.setPhone(CommonUtils.insert(client.getPhone(), " ", 3));
-        }
+        clientFX.setPhone(client.getPhone() != null ? CommonUtils.insert(client.getPhone(), " ", 3) : "");
         if (client.getOfferStatus() != null) {
             clientFX.setOfferStatus(OfferStatusConverter.convertToOfferStatusFX(client.getOfferStatus()));
         }
