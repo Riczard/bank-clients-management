@@ -4,13 +4,23 @@ import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
+import pl.kuklinski.clientsManagement.database.dao.ContactStatusDao;
+import pl.kuklinski.clientsManagement.database.dao.OfferStatusDao;
+import pl.kuklinski.clientsManagement.database.dao.RelationDao;
+import pl.kuklinski.clientsManagement.database.models.ContactStatus;
+import pl.kuklinski.clientsManagement.database.models.OfferStatus;
+import pl.kuklinski.clientsManagement.database.models.Relation;
 import pl.kuklinski.clientsManagement.javaFX.model.FilterModel;
 import pl.kuklinski.clientsManagement.javaFX.modelFX.ClientFX;
 import pl.kuklinski.clientsManagement.javaFX.modelFX.ContactStatusFX;
 import pl.kuklinski.clientsManagement.javaFX.modelFX.OfferStatusFX;
 import pl.kuklinski.clientsManagement.javaFX.modelFX.RelationFX;
+import pl.kuklinski.clientsManagement.utils.converters.ContactStatusConverter;
+import pl.kuklinski.clientsManagement.utils.converters.OfferStatusConverter;
+import pl.kuklinski.clientsManagement.utils.converters.RelationConverter;
 
 import java.util.List;
+import java.util.stream.Stream;
 
 public class FiltersController {
 
@@ -39,6 +49,7 @@ public class FiltersController {
     public void initialize() {
         this.filterModel = new FilterModel();
         bindings();
+        initComboBoxes();
     }
 
     private void bindings() {
@@ -50,6 +61,34 @@ public class FiltersController {
         this.filterModel.getFilterFXObjectProperty().clickAmountProperty().bind(this.clickAmountField.textProperty());
         this.filterModel.getFilterFXObjectProperty().sourceProperty().bind(this.sourceFilter.textProperty());
     }
+
+    private void initComboBoxes() {
+        initRelationComboBox();
+        initOfferStatusComboBox();
+        initContactStatusComboBox();
+    }
+
+    private void initRelationComboBox() {
+        RelationDao relationDao = new RelationDao();
+        Stream<Relation> relationStream = relationDao.queryForAll(Relation.class);
+        relationStream.forEach(relation -> relationComboBox.getItems().add(RelationConverter.convertToRelationFX(relation)));
+        relationDao.closeConnection();
+    }
+
+    private void initOfferStatusComboBox() {
+        OfferStatusDao offerStatusDao = new OfferStatusDao();
+        Stream<OfferStatus> statusStream = offerStatusDao.queryForAll(OfferStatus.class);
+        statusStream.forEach(status -> offerStatusComboBox.getItems().add(OfferStatusConverter.convertToOfferStatusFX(status)));
+        offerStatusDao.closeConnection();
+    }
+
+    private void initContactStatusComboBox() {
+        ContactStatusDao contactStatusDao = new ContactStatusDao();
+        Stream<ContactStatus> statusStream = contactStatusDao.queryForAll(ContactStatus.class);
+        statusStream.forEach(status -> contactStatusComboBox.getItems().add(ContactStatusConverter.convertToAccStatusFX(status)));
+        contactStatusDao.closeConnection();
+    }
+
 
     @FXML
     public void showOrHideFilters() {
