@@ -20,7 +20,7 @@
             <Button minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#showOrHideFilters" prefHeight="25.0" prefWidth="40.0" text="&gt;&gt;" />
          </children>
       </VBox>
-      <GridPane fx:id="filtersPane" hgap="10.0" prefHeight="70.0" prefWidth="800.0">
+      <GridPane fx:id="filtersPane" disable="true" hgap="10.0" prefHeight="70.0" prefWidth="800.0" visible="false">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="100.0" minWidth="10.0" prefWidth="100.0" />
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="150.0" minWidth="10.0" prefWidth="150.0" />
