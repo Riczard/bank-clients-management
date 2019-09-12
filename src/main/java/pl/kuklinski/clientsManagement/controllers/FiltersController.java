@@ -69,6 +69,8 @@ public class FiltersController {
     }
 
     private void initRelationComboBox() {
+        relationComboBox.getItems().add(new RelationFX());
+        relationComboBox.getSelectionModel().selectFirst();
         RelationDao relationDao = new RelationDao();
         Stream<Relation> relationStream = relationDao.queryForAll(Relation.class);
         relationStream.forEach(relation -> relationComboBox.getItems().add(RelationConverter.convertToRelationFX(relation)));
@@ -76,6 +78,8 @@ public class FiltersController {
     }
 
     private void initOfferStatusComboBox() {
+        offerStatusComboBox.getItems().add(new OfferStatusFX());
+        offerStatusComboBox.getSelectionModel().selectFirst();
         OfferStatusDao offerStatusDao = new OfferStatusDao();
         Stream<OfferStatus> statusStream = offerStatusDao.queryForAll(OfferStatus.class);
         statusStream.forEach(status -> offerStatusComboBox.getItems().add(OfferStatusConverter.convertToOfferStatusFX(status)));
@@ -83,6 +87,8 @@ public class FiltersController {
     }
 
     private void initContactStatusComboBox() {
+        contactStatusComboBox.getItems().add(new ContactStatusFX());
+        contactStatusComboBox.getSelectionModel().selectFirst();
         ContactStatusDao contactStatusDao = new ContactStatusDao();
         Stream<ContactStatus> statusStream = contactStatusDao.queryForAll(ContactStatus.class);
         statusStream.forEach(status -> contactStatusComboBox.getItems().add(ContactStatusConverter.convertToAccStatusFX(status)));
