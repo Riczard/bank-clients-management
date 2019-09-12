@@ -1,29 +1,33 @@
 package pl.kuklinski.clientsManagement.controllers;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import pl.kuklinski.clientsManagement.javaFX.model.FilterModel;
 import pl.kuklinski.clientsManagement.javaFX.modelFX.ClientFX;
+import pl.kuklinski.clientsManagement.javaFX.modelFX.ContactStatusFX;
+import pl.kuklinski.clientsManagement.javaFX.modelFX.OfferStatusFX;
+import pl.kuklinski.clientsManagement.javaFX.modelFX.RelationFX;
 
 import java.util.List;
 
 public class FiltersController {
 
     @FXML
+    private ComboBox<RelationFX> relationComboBox;
+    @FXML
+    private ComboBox<OfferStatusFX> offerStatusComboBox;
+    @FXML
+    private ComboBox<ContactStatusFX> contactStatusComboBox;
+    @FXML
+    private TextField consolidationAmountField;
+    @FXML
+    private TextField clickAmountField;
+    @FXML
     private GridPane filtersPane;
     @FXML
     private TextField generalFilter;
-    @FXML
-    private TextField peselFilter;
-    @FXML
-    private TextField surnameFilter;
-    @FXML
-    private TextField relationFilter;
-    @FXML
-    private TextField offerStatusFilter;
-    @FXML
-    private TextField contactStatusFilter;
     @FXML
     private TextField sourceFilter;
 
@@ -38,13 +42,13 @@ public class FiltersController {
     }
 
     private void bindings() {
-        this.filterModel.filterFXObjectProperty().get().generalFilterProperty().bind(this.generalFilter.textProperty());
-        this.filterModel.filterFXObjectProperty().get().peselFilterProperty().bind(this.peselFilter.textProperty());
-        this.filterModel.filterFXObjectProperty().get().surnameFilterProperty().bind(this.surnameFilter.textProperty());
-        this.filterModel.filterFXObjectProperty().get().relationFilterProperty().bind(this.relationFilter.textProperty());
-        this.filterModel.filterFXObjectProperty().get().offerStatusFilterProperty().bind(this.offerStatusFilter.textProperty());
-        this.filterModel.filterFXObjectProperty().get().contactStatusFilterProperty().bind(this.contactStatusFilter.textProperty());
-        this.filterModel.filterFXObjectProperty().get().sourceFilterProperty().bind(this.sourceFilter.textProperty());
+        this.filterModel.getFilterFXObjectProperty().generalFilterProperty().bind(this.generalFilter.textProperty());
+        this.filterModel.getFilterFXObjectProperty().relationFxProperty().bind(this.relationComboBox.valueProperty());
+        this.filterModel.getFilterFXObjectProperty().offerStatusFxProperty().bind(this.offerStatusComboBox.valueProperty());
+        this.filterModel.getFilterFXObjectProperty().contactStatusFxProperty().bind(this.contactStatusComboBox.valueProperty());
+        this.filterModel.getFilterFXObjectProperty().consolidationAmountProperty().bind(this.consolidationAmountField.textProperty());
+        this.filterModel.getFilterFXObjectProperty().clickAmountProperty().bind(this.clickAmountField.textProperty());
+        this.filterModel.getFilterFXObjectProperty().sourceProperty().bind(this.sourceFilter.textProperty());
     }
 
     @FXML
