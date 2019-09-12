@@ -3,6 +3,7 @@ package pl.kuklinski.clientsManagement.javaFX.modelFX;
 import javafx.beans.property.*;
 
 import java.time.LocalDate;
+import java.util.Objects;
 
 public class ClientFX {
 
@@ -239,5 +240,26 @@ public class ClientFX {
 
     public void setSource(String source) {
         this.source.set(source);
+    }
+
+    @Override
+    public String toString() {
+        return name.get() + " " +
+                surname.get() + " " +
+                pesel.get() + " " +
+                phone.get() + " " +
+                Objects.toString(offerStatus.get(), "") +
+                Objects.toString(relation.get(), "") +
+                Objects.toString(contactStatus.get(), "") +
+                Objects.toString(lastContactDate.get(), "") +
+                Objects.toString(plannedDate.get(), "") +
+                incomeType.get() + " " +
+                comment.get() + " " +
+                Objects.toString(verificationDate.get(), "") +
+                clickAmount.get() + " " +
+                consolidationAmount.get() + " " +
+                city.get() + " " +
+                source.get() + " " +
+                Objects.toString(adviser.get(), "");
     }
 }
