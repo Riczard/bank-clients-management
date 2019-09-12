@@ -39,13 +39,13 @@
             <Label text="%contactStatus.client" GridPane.columnIndex="4" GridPane.rowIndex="1" />
             <Label text="%source.client" GridPane.columnIndex="4" />
             <TextField fx:id="sourceFilter" onKeyReleased="#filterClients" promptText="%source.client" GridPane.columnIndex="5" />
-            <ComboBox fx:id="relationComboBox" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <ComboBox fx:id="offerStatusComboBox" prefWidth="150.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-            <ComboBox fx:id="contactStatusComboBox" prefWidth="150.0" GridPane.columnIndex="5" GridPane.rowIndex="1" />
+            <ComboBox fx:id="relationComboBox" onAction="#filterClients" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <ComboBox fx:id="offerStatusComboBox" onAction="#filterClients" prefWidth="150.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+            <ComboBox fx:id="contactStatusComboBox" onAction="#filterClients" prefWidth="150.0" GridPane.columnIndex="5" GridPane.rowIndex="1" />
             <Label prefHeight="22.0" prefWidth="98.0" text="%consolidationAmountGreater.search" wrapText="true" />
             <Label text="%clickAmountGreater.search" GridPane.columnIndex="2" />
-            <TextField fx:id="consolidationAmountField" alignment="CENTER" promptText="%amount.general" GridPane.columnIndex="1" />
-            <TextField fx:id="clickAmountField" alignment="CENTER" promptText="%amount.general" GridPane.columnIndex="3" />
+            <TextField fx:id="consolidationAmountField" alignment="CENTER" onKeyReleased="#filterClients" promptText="%amount.general" GridPane.columnIndex="1" />
+            <TextField fx:id="clickAmountField" alignment="CENTER" onKeyReleased="#filterClients" promptText="%amount.general" GridPane.columnIndex="3" />
          </children>
          <HBox.margin>
             <Insets left="10.0" />
