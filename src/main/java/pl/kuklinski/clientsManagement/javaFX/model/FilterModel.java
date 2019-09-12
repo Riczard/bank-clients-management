@@ -9,6 +9,8 @@ import java.util.List;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
+import static org.apache.commons.lang3.StringUtils.containsIgnoreCase;
+
 public class FilterModel {
 
     private ObjectProperty<FilterFX> filterFXObjectProperty = new SimpleObjectProperty<>(new FilterFX());
@@ -18,7 +20,7 @@ public class FilterModel {
         if (!getFilterFXObjectProperty().generalFilterProperty().get().isEmpty()) {
             return filterPredicate(generalPredicate(), clientFxList);
         } else {
-            return clientFxList;
+            return filterPredicate(predicateRelation().and(predicateOfferStatus().and(predicateContactStatus())), clientFxList);
         }
     }
 
@@ -26,8 +28,27 @@ public class FilterModel {
         return clientFxList.stream().filter(predicate).collect(Collectors.toList());
     }
 
+
+    private Predicate<ClientFX> predicateRelation() {
+        return clientFX -> getFilterFXObjectProperty().getRelationFx().getTitle() == null
+                || clientFX.getRelation() != null
+                && clientFX.getRelation().getId() == getFilterFXObjectProperty().getRelationFx().getId();
+    }
+
+    private Predicate<ClientFX> predicateOfferStatus() {
+        return clientFX -> getFilterFXObjectProperty().getOfferStatusFx().getTitle() == null
+                || clientFX.getOfferStatus() != null
+                && clientFX.getOfferStatus().getId() == getFilterFXObjectProperty().getOfferStatusFx().getId();
+    }
+
+    private Predicate<ClientFX> predicateContactStatus() {
+        return clientFX -> getFilterFXObjectProperty().getContactStatusFx().getContactStatus() == null
+                || clientFX.getContactStatus() != null
+                && clientFX.getContactStatus().getId() == getFilterFXObjectProperty().getContactStatusFx().getId();
+    }
+
     private Predicate<ClientFX> generalPredicate() {
-        return clientFX -> clientFX.toString().toLowerCase().contains(getFilterFXObjectProperty().getGeneralFilter().toLowerCase());
+        return clientFX -> containsIgnoreCase(clientFX.toString(), getFilterFXObjectProperty().getGeneralFilter());
     }
 
     public FilterFX getFilterFXObjectProperty() {
