@@ -1,23 +1,25 @@
 package pl.kuklinski.clientsManagement.javaFX.modelFX;
 
+import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
 public class FilterFX {
 
-    private StringProperty generalFilter = new SimpleStringProperty();
-    private StringProperty peselFilter = new SimpleStringProperty();
-    private StringProperty surnameFilter = new SimpleStringProperty();
-    private StringProperty relationFilter = new SimpleStringProperty();
-    private StringProperty offerStatusFilter = new SimpleStringProperty();
-    private StringProperty contactStatusFilter = new SimpleStringProperty();
-    private StringProperty sourceFilter = new SimpleStringProperty();
+    private SimpleStringProperty generalFilter = new SimpleStringProperty();
+    private ObjectProperty<RelationFX> relationFx = new SimpleObjectProperty<>();
+    private ObjectProperty<OfferStatusFX> offerStatusFx = new SimpleObjectProperty<>();
+    private ObjectProperty<ContactStatusFX> contactStatusFx = new SimpleObjectProperty<>();
+    private SimpleStringProperty consolidationAmount = new SimpleStringProperty();
+    private SimpleStringProperty clickAmount = new SimpleStringProperty();
+    private SimpleStringProperty source = new SimpleStringProperty();
 
     public String getGeneralFilter() {
         return generalFilter.get();
     }
 
-    public StringProperty generalFilterProperty() {
+    public SimpleStringProperty generalFilterProperty() {
         return generalFilter;
     }
 
@@ -25,75 +27,75 @@ public class FilterFX {
         this.generalFilter.set(generalFilter);
     }
 
-    public String getPeselFilter() {
-        return peselFilter.get();
+    public RelationFX getRelationFx() {
+        return relationFx.get();
     }
 
-    public StringProperty peselFilterProperty() {
-        return peselFilter;
+    public ObjectProperty<RelationFX> relationFxProperty() {
+        return relationFx;
     }
 
-    public void setPeselFilter(String peselFilter) {
-        this.peselFilter.set(peselFilter);
+    public void setRelationFx(RelationFX relationFx) {
+        this.relationFx.set(relationFx);
     }
 
-    public String getSurnameFilter() {
-        return surnameFilter.get();
+    public OfferStatusFX getOfferStatusFx() {
+        return offerStatusFx.get();
     }
 
-    public StringProperty surnameFilterProperty() {
-        return surnameFilter;
+    public ObjectProperty<OfferStatusFX> offerStatusFxProperty() {
+        return offerStatusFx;
     }
 
-    public void setSurnameFilter(String surnameFilter) {
-        this.surnameFilter.set(surnameFilter);
+    public void setOfferStatusFx(OfferStatusFX offerStatusFx) {
+        this.offerStatusFx.set(offerStatusFx);
     }
 
-    public String getRelationFilter() {
-        return relationFilter.get();
+    public ContactStatusFX getContactStatusFx() {
+        return contactStatusFx.get();
     }
 
-    public StringProperty relationFilterProperty() {
-        return relationFilter;
+    public ObjectProperty<ContactStatusFX> contactStatusFxProperty() {
+        return contactStatusFx;
     }
 
-    public void setRelationFilter(String relationFilter) {
-        this.relationFilter.set(relationFilter);
+    public void setContactStatusFx(ContactStatusFX contactStatusFx) {
+        this.contactStatusFx.set(contactStatusFx);
     }
 
-    public String getOfferStatusFilter() {
-        return offerStatusFilter.get();
+    public String getConsolidationAmount() {
+        return consolidationAmount.get();
     }
 
-    public StringProperty offerStatusFilterProperty() {
-        return offerStatusFilter;
+    public SimpleStringProperty consolidationAmountProperty() {
+        return consolidationAmount;
     }
 
-    public void setOfferStatusFilter(String offerStatusFilter) {
-        this.offerStatusFilter.set(offerStatusFilter);
+    public void setConsolidationAmount(String consolidationAmount) {
+        this.consolidationAmount.set(consolidationAmount);
     }
 
-    public String getContactStatusFilter() {
-        return contactStatusFilter.get();
+    public String getClickAmount() {
+        return clickAmount.get();
     }
 
-    public StringProperty contactStatusFilterProperty() {
-        return contactStatusFilter;
+    public SimpleStringProperty clickAmountProperty() {
+        return clickAmount;
     }
 
-    public void setContactStatusFilter(String contactStatusFilter) {
-        this.contactStatusFilter.set(contactStatusFilter);
+    public void setClickAmount(String clickAmount) {
+        this.clickAmount.set(clickAmount);
     }
 
-    public String getSourceFilter() {
-        return sourceFilter.get();
+    public String getSource() {
+        return source.get();
     }
 
-    public StringProperty sourceFilterProperty() {
-        return sourceFilter;
+    public SimpleStringProperty sourceProperty() {
+        return source;
     }
 
-    public void setSourceFilter(String sourceFilter) {
-        this.sourceFilter.set(sourceFilter);
+    public void setSource(String source) {
+        this.source.set(source);
     }
 }
