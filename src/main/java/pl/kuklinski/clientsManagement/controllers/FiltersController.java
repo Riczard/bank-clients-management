@@ -102,7 +102,6 @@ public class FiltersController {
         contactStatusDao.closeConnection();
     }
 
-
     @FXML
     public void showOrHideFilters() {
         filtersPane.setVisible(!filtersPane.visibleProperty().get());
@@ -120,5 +119,14 @@ public class FiltersController {
         this.listClientsController = listClientsController;
     }
 
-
+    @FXML
+    public void clearFilters() {
+        relationComboBox.getSelectionModel().selectFirst();
+        contactStatusComboBox.getSelectionModel().selectFirst();
+        offerStatusComboBox.getSelectionModel().selectFirst();
+        sourceFilter.clear();
+        clickAmountField.clear();
+        consolidationAmountField.clear();
+        listClientsController.getListClientsModel().init();
+    }
 }
