@@ -78,9 +78,8 @@ public class ListClientsController {
         setCellValueFactories();
         setCellsFactory();
 
-        this.clientsTableView.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
-            this.listClientsModel.setClientFXObjectPropertyEdit(newValue);
-        });
+        this.clientsTableView.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue)
+                -> this.listClientsModel.setClientFXObjectPropertyEdit(newValue));
 
     }
 
@@ -113,7 +112,6 @@ public class ListClientsController {
         this.contactStatusColumn.setCellFactory(ComboBoxTableCell.forTableColumn(this.listClientsModel.getContactStatusFXES()));
         this.lastContactDateColumn.setCellFactory(LocalDateTableCell::new);
         this.plannedContactDateColumn.setCellFactory(LocalDateTableCell::new);
-        this.commentColumn.setCellFactory(TextFieldTableCell.forTableColumn());
         this.incomeTypeColumn.setCellFactory(TextFieldTableCell.forTableColumn());
         this.verificationDateColumn.setCellFactory(LocalDateTableCell::new);
         this.clickAmountColumn.setCellFactory(TextFieldTableCell.forTableColumn());
@@ -203,15 +201,16 @@ public class ListClientsController {
         this.listClientsModel.updateInDataBase();
     }
 
-    public void setClientFxList(List<ClientFX> clientFxList) {
+    void setClientFxList(List<ClientFX> clientFxList) {
         this.listClientsModel.getClientFXES().setAll(clientFxList);
     }
 
-    public List<ClientFX> getClientFxList() {
+    List<ClientFX> getClientFxList() {
         return this.listClientsModel.getClientFXList();
     }
 
-    public ListClientsModel getListClientsModel() {
+    ListClientsModel getListClientsModel() {
         return listClientsModel;
     }
+
 }
