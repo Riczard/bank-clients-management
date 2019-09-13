@@ -10,6 +10,7 @@ import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 import static org.apache.commons.lang3.StringUtils.containsIgnoreCase;
+import static org.apache.commons.lang3.StringUtils.substringBefore;
 
 public class FilterModel {
 
@@ -20,14 +21,19 @@ public class FilterModel {
         if (!getFilterFXObjectProperty().generalFilterProperty().get().isEmpty()) {
             return filterPredicate(generalPredicate(), clientFxList);
         } else {
-            return filterPredicate(predicateRelation().and(predicateOfferStatus().and(predicateContactStatus())), clientFxList);
+            return filterPredicate(predicateRelation()
+                            .and(predicateOfferStatus()
+                            .and(predicateContactStatus())
+                            .and(sourcePredicate())
+                            .and(clickAmountGreaterThanPredicate())
+                            .and(consolidationAmountGreaterThanPredicate()))
+                            , clientFxList);
         }
     }
 
     private List<ClientFX> filterPredicate(Predicate<ClientFX> predicate, List<ClientFX> clientFxList) {
         return clientFxList.stream().filter(predicate).collect(Collectors.toList());
     }
-
 
     private Predicate<ClientFX> predicateRelation() {
         return clientFX -> getFilterFXObjectProperty().getRelationFx().getTitle() == null
@@ -49,6 +55,26 @@ public class FilterModel {
 
     private Predicate<ClientFX> generalPredicate() {
         return clientFX -> containsIgnoreCase(clientFX.toString(), getFilterFXObjectProperty().getGeneralFilter());
+    }
+
+    private Predicate<ClientFX> sourcePredicate() {
+        return clientFX -> getFilterFXObjectProperty().getSource().isEmpty()
+                || clientFX.getSource() != null
+                && clientFX.getSource().equalsIgnoreCase(getFilterFXObjectProperty().getSource());
+    }
+
+    private Predicate<ClientFX> clickAmountGreaterThanPredicate() {
+        return clientFX -> getFilterFXObjectProperty().getClickAmount().isEmpty()
+                || clientFX.getClickAmount() != null
+                && Integer.parseInt(substringBefore(clientFX.getClickAmount(), ","))
+                >=  Integer.parseInt(substringBefore(getFilterFXObjectProperty().getClickAmount(),","));
+    }
+
+    private Predicate<ClientFX> consolidationAmountGreaterThanPredicate() {
+        return clientFX -> getFilterFXObjectProperty().getConsolidationAmount().isEmpty()
+                || clientFX.getConsolidationAmount() != null
+                && Integer.parseInt(substringBefore(clientFX.getConsolidationAmount(), ","))
+                >=  Integer.parseInt(substringBefore(getFilterFXObjectProperty().getConsolidationAmount(),","));
     }
 
     public FilterFX getFilterFXObjectProperty() {
