@@ -19,6 +19,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import static pl.kuklinski.clientsManagement.utils.Formatters.setFieldOnlyNumeric;
+
 public class ImportController {
 
     @FXML
@@ -64,9 +66,7 @@ public class ImportController {
     private Label filePath;
 
     private File file;
-    private DecimalFormat format = new DecimalFormat("#.0");
     private ImportModel importModel;
-
 
     @FXML
     public void initialize() {
@@ -93,22 +93,6 @@ public class ImportController {
         cityIndex.setTextFormatter(setFieldOnlyNumeric());
         sourceIndex.setTextFormatter(setFieldOnlyNumeric());
         adviserIndex.setTextFormatter(setFieldOnlyNumeric());
-    }
-
-    private TextFormatter<Object> setFieldOnlyNumeric() {
-        return new TextFormatter<>(c -> {
-            if (c.getControlNewText().isEmpty()) {
-                return c;
-            }
-            ParsePosition parsePosition = new ParsePosition(0);
-            Object object = format.parse(c.getControlNewText(), parsePosition);
-
-            if (object == null || parsePosition.getIndex() < c.getControlNewText().length()) {
-                return null;
-            } else {
-                return c;
-            }
-        });
     }
 
     private void validation() {
