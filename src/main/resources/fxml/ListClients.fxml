@@ -49,7 +49,7 @@
                 <TableColumn fx:id="plannedContactDateColumn" onEditCommit="#editPlannedContact" prefWidth="100.0" text="%plannedContactDate.client" />
                 <TableColumn fx:id="commentColumn" onEditCommit="#editComment" prefWidth="350.0" text="%comment.client" />
                 <TableColumn fx:id="incomeTypeColumn" onEditCommit="#editIncomeType" prefWidth="75.0" text="%incomeType.client" />
-                <TableColumn fx:id="verificationDateColumn" editable="false" prefWidth="75.0" text="%verificationDate.client" />
+                <TableColumn fx:id="verificationDateColumn" prefWidth="75.0" text="%verificationDate.client" />
                 <TableColumn fx:id="clickAmountColumn" onEditCommit="#editClickAmount" prefWidth="75.0" text="%clickAmount.client" />
                 <TableColumn fx:id="consolidationAmountColumn" onEditCommit="#editConsolidationAmount" prefWidth="75.0" text="%consolidationAmount.client" />
                 <TableColumn fx:id="detailsColumn" editable="false" prefWidth="75.0" text="%details.general" />
