@@ -15,6 +15,7 @@ import pl.kuklinski.clientsManagement.javaFX.modelFX.ClientFX;
 import pl.kuklinski.clientsManagement.javaFX.modelFX.ContactStatusFX;
 import pl.kuklinski.clientsManagement.javaFX.modelFX.OfferStatusFX;
 import pl.kuklinski.clientsManagement.javaFX.modelFX.RelationFX;
+import pl.kuklinski.clientsManagement.utils.Formatters;
 import pl.kuklinski.clientsManagement.utils.converters.ContactStatusConverter;
 import pl.kuklinski.clientsManagement.utils.converters.OfferStatusConverter;
 import pl.kuklinski.clientsManagement.utils.converters.RelationConverter;
@@ -49,6 +50,7 @@ public class FiltersController {
     public void initialize() {
         this.filterModel = new FilterModel();
         bindings();
+        setTextFormatters();
         initComboBoxes();
     }
 
@@ -60,6 +62,11 @@ public class FiltersController {
         this.filterModel.getFilterFXObjectProperty().consolidationAmountProperty().bind(this.consolidationAmountField.textProperty());
         this.filterModel.getFilterFXObjectProperty().clickAmountProperty().bind(this.clickAmountField.textProperty());
         this.filterModel.getFilterFXObjectProperty().sourceProperty().bind(this.sourceFilter.textProperty());
+    }
+
+    private void setTextFormatters() {
+        clickAmountField.setTextFormatter(Formatters.setFieldOnlyNumeric());
+        consolidationAmountField.setTextFormatter(Formatters.setFieldOnlyNumeric());
     }
 
     private void initComboBoxes() {
