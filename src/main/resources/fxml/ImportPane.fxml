@@ -40,17 +40,21 @@
          <children>
             <TextField fx:id="nameIndex" alignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <TextField fx:id="surnameIndex" alignment="CENTER" layoutX="310.0" layoutY="51.0" prefHeight="26.0" prefWidth="275.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <TextField fx:id="cityIndex" alignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="15" />
-            <TextField fx:id="phoneIndex" alignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-            <TextField fx:id="incomeType" alignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="11" />
             <TextField fx:id="peselIndex" alignment="CENTER" prefHeight="26.0" prefWidth="145.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <TextField fx:id="phoneIndex" alignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <TextField fx:id="offerStatusIndex" alignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="5" />
             <TextField fx:id="relationIndex" alignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-            <TextField fx:id="clickAmountIndex" alignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="13" />
-            <TextField fx:id="commentIndex" alignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="10" />
-            <TextField fx:id="lastContactDateIndex" alignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="8" />
-            <TextField fx:id="verificationDateIndex" alignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="12" />
-            <TextField fx:id="adviserIndex" alignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="17" />
             <TextField fx:id="contactStatusIndex" alignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+            <TextField fx:id="lastContactDateIndex" alignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+            <TextField fx:id="plannedContactIndex" alignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+            <TextField fx:id="commentIndex" alignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+            <TextField fx:id="incomeType" alignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="11" />
+            <TextField fx:id="verificationDateIndex" alignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="12" />
+            <TextField fx:id="clickAmountIndex" alignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="13" />
+            <TextField fx:id="consolidationAmountIndex" alignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="14" />
+            <TextField fx:id="cityIndex" alignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="15" />
+            <TextField fx:id="sourceIndex" alignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="16" />
+            <TextField fx:id="adviserIndex" alignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="17" />
             <Label text="%name.general" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
             <Label text="%surname.general" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
             <Label text="%phone.client" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
@@ -67,13 +71,9 @@
             <Label alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="32.0" prefWidth="114.0" text="%columnsName.label" textAlignment="CENTER" wrapText="true" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
             <Label contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="48.0" prefWidth="71.0" text="%columnsIndex.label" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
             <Label text="%offerStatus.client" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
-            <TextField fx:id="offerStatusIndex" alignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-            <TextField fx:id="plannedContactIndex" alignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="9" />
             <Label text="%plannedContactDate.client" GridPane.halignment="CENTER" GridPane.rowIndex="9" />
             <Label text="%consolidationAmount.client" GridPane.halignment="CENTER" GridPane.rowIndex="14" />
             <Label text="%source.client" GridPane.halignment="CENTER" GridPane.rowIndex="16" />
-            <TextField fx:id="consolidationAmountIndex" alignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="14" />
-            <TextField fx:id="sourceIndex" alignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="16" />
          </children>
          <padding>
             <Insets bottom="10.0" left="10.0" right="20.0" top="10.0" />
