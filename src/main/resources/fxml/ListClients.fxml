@@ -2,6 +2,8 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ContextMenu?>
+<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.effect.SepiaTone?>
@@ -47,16 +49,24 @@
                 <TableColumn fx:id="contactStatusColumn" onEditCommit="#editContactStatus" prefWidth="75.0" text="%contactStatus.client" />
                 <TableColumn fx:id="lastContactDateColumn" onEditCommit="#editLastContact" prefWidth="100.0" text="%lastContactDate.client" />
                 <TableColumn fx:id="plannedContactDateColumn" onEditCommit="#editPlannedContact" prefWidth="100.0" text="%plannedContactDate.client" />
-                <TableColumn fx:id="commentColumn" onEditCommit="#editComment" prefWidth="350.0" text="%comment.client" />
-                <TableColumn fx:id="incomeTypeColumn" onEditCommit="#editIncomeType" prefWidth="75.0" text="%incomeType.client" />
+                <TableColumn fx:id="commentColumn" onEditCommit="#editComment" prefWidth="214.0" text="%comment.client" />
+                <TableColumn fx:id="incomeTypeColumn" onEditCommit="#editIncomeType" prefWidth="211.0" text="%incomeType.client" />
                 <TableColumn fx:id="verificationDateColumn" editable="false" prefWidth="75.0" text="%verificationDate.client" />
                 <TableColumn fx:id="clickAmountColumn" onEditCommit="#editClickAmount" prefWidth="75.0" text="%clickAmount.client" />
                 <TableColumn fx:id="consolidationAmountColumn" onEditCommit="#editConsolidationAmount" prefWidth="75.0" text="%consolidationAmount.client" />
+                <TableColumn fx:id="sourceColumn" onEditCommit="#editSource" prefWidth="75.0" text="%source.client" />
                 <TableColumn fx:id="detailsColumn" editable="false" prefWidth="75.0" text="%details.general" />
             </columns>
          <VBox.margin>
             <Insets bottom="20.0" left="10.0" right="10.0" />
          </VBox.margin>
+         <contextMenu>
+            <ContextMenu>
+              <items>
+                <MenuItem mnemonicParsing="false" onAction="#deleteClient" text="%delete.general" />
+              </items>
+            </ContextMenu>
+         </contextMenu>
         </TableView>
     </children>
 </VBox>
