@@ -96,6 +96,13 @@ public class ListClientsModel {
         clientDao.closeConnection();
     }
 
+    public void deleteClientFromDB() {
+        ClientDao clientDao = new ClientDao();
+        clientDao.delete(ClientConverter.convertToClient(getClientFXObjectPropertyEdit()));
+        clientDao.closeConnection();
+        init();
+    }
+
     public ObservableList<ClientFX> getClientFXES() {
         return clientFXES;
     }

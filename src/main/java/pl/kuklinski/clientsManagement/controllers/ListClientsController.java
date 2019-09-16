@@ -1,9 +1,12 @@
 package pl.kuklinski.clientsManagement.controllers;
 
 import javafx.beans.property.ReadOnlyObjectWrapper;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableColumn.CellEditEvent;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.ComboBoxTableCell;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -16,10 +19,12 @@ import pl.kuklinski.clientsManagement.javaFX.modelFX.ClientFX;
 import pl.kuklinski.clientsManagement.javaFX.modelFX.ContactStatusFX;
 import pl.kuklinski.clientsManagement.javaFX.modelFX.OfferStatusFX;
 import pl.kuklinski.clientsManagement.javaFX.modelFX.RelationFX;
+import pl.kuklinski.clientsManagement.utils.DialogUtils;
 import pl.kuklinski.clientsManagement.utils.FXMLUtils;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 
 public class ListClientsController {
 
@@ -56,6 +61,8 @@ public class ListClientsController {
     private TableColumn<ClientFX, String> clickAmountColumn;
     @FXML
     private TableColumn<ClientFX, String> consolidationAmountColumn;
+    @FXML
+    private TableColumn<ClientFX, String> sourceColumn;
     @FXML
     private TableColumn<ClientFX, String> detailsColumn;
 
@@ -102,6 +109,7 @@ public class ListClientsController {
         this.verificationDateColumn.setCellValueFactory(new PropertyValueFactory<>("verificationDate"));
         this.clickAmountColumn.setCellValueFactory(new PropertyValueFactory<>("clickAmount"));
         this.consolidationAmountColumn.setCellValueFactory(new PropertyValueFactory<>("consolidationAmount"));
+        this.sourceColumn.setCellValueFactory(new PropertyValueFactory<>("source"));
     }
 
 
@@ -120,6 +128,7 @@ public class ListClientsController {
         this.verificationDateColumn.setCellFactory(LocalDateTableCell::new);
         this.clickAmountColumn.setCellFactory(TextFieldTableCell.forTableColumn());
         this.consolidationAmountColumn.setCellFactory(TextFieldTableCell.forTableColumn());
+        this.sourceColumn.setCellFactory(TextFieldTableCell.forTableColumn());
 
     }
 
@@ -129,84 +138,96 @@ public class ListClientsController {
     }
 
     @FXML
-    public void editName(TableColumn.CellEditEvent<ClientFX, String> event) {
+    public void editName(CellEditEvent<ClientFX, String> event) {
         this.listClientsModel.getClientFXObjectPropertyEdit().setName(event.getNewValue());
         this.listClientsModel.updateInDataBase();
     }
 
     @FXML
-    public void editSurname(TableColumn.CellEditEvent<ClientFX, String> event) {
+    public void editSurname(CellEditEvent<ClientFX, String> event) {
         this.listClientsModel.getClientFXObjectPropertyEdit().setSurname(event.getNewValue());
         this.listClientsModel.updateInDataBase();
     }
 
     @FXML
-    public void editPesel(TableColumn.CellEditEvent<ClientFX, String> event) {
+    public void editPesel(CellEditEvent<ClientFX, String> event) {
         this.listClientsModel.getClientFXObjectPropertyEdit().setPesel(event.getNewValue());
         this.listClientsModel.updateInDataBase();
     }
 
     @FXML
-    public void editClickAmount(TableColumn.CellEditEvent<ClientFX, String> event) {
+    public void editClickAmount(CellEditEvent<ClientFX, String> event) {
         this.listClientsModel.getClientFXObjectPropertyEdit().setClickAmount(event.getNewValue());
         this.listClientsModel.updateInDataBase();
     }
 
     @FXML
-    public void editPhone(TableColumn.CellEditEvent<ClientFX, String> event) {
+    public void editPhone(CellEditEvent<ClientFX, String> event) {
         this.listClientsModel.getClientFXObjectPropertyEdit().setPhone(event.getNewValue());
         this.listClientsModel.updateInDataBase();
     }
 
     @FXML
-    public void editIncomeType(TableColumn.CellEditEvent<ClientFX, String> event) {
+    public void editIncomeType(CellEditEvent<ClientFX, String> event) {
         this.listClientsModel.getClientFXObjectPropertyEdit().setIncomeType(event.getNewValue());
         this.listClientsModel.updateInDataBase();
     }
 
     @FXML
-    public void editConsolidationAmount(TableColumn.CellEditEvent<ClientFX, String> event) {
+    public void editConsolidationAmount(CellEditEvent<ClientFX, String> event) {
         this.listClientsModel.getClientFXObjectPropertyEdit().setClickAmount(event.getNewValue());
         this.listClientsModel.updateInDataBase();
     }
 
     @FXML
-    public void editComment(TableColumn.CellEditEvent<ClientFX, String> event) {
+    public void editComment(CellEditEvent<ClientFX, String> event) {
         this.listClientsModel.getClientFXObjectPropertyEdit().setComment(event.getNewValue());
         this.listClientsModel.updateInDataBase();
     }
 
     @FXML
-    public void editPlannedContact(TableColumn.CellEditEvent<ClientFX, LocalDate> event) {
+    public void editPlannedContact(CellEditEvent<ClientFX, LocalDate> event) {
         this.listClientsModel.getClientFXObjectPropertyEdit().setPlannedDate(event.getNewValue());
         this.listClientsModel.updateInDataBase();
     }
 
     @FXML
-    public void editLastContact(TableColumn.CellEditEvent<ClientFX, LocalDate> event) {
+    public void editLastContact(CellEditEvent<ClientFX, LocalDate> event) {
         this.listClientsModel.getClientFXObjectPropertyEdit().setLastContactDate(event.getNewValue());
         this.listClientsModel.updateInDataBase();
     }
 
     @FXML
-    public void editContactStatus(TableColumn.CellEditEvent<ClientFX, ContactStatusFX> event) {
+    public void editContactStatus(CellEditEvent<ClientFX, ContactStatusFX> event) {
         this.listClientsModel.getClientFXObjectPropertyEdit().setContactStatus(event.getNewValue());
         this.listClientsModel.updateInDataBase();
     }
 
     @FXML
-    public void editRelation(TableColumn.CellEditEvent<ClientFX, RelationFX> event) {
+    public void editRelation(CellEditEvent<ClientFX, RelationFX> event) {
         this.listClientsModel.getClientFXObjectPropertyEdit().setRelation(event.getNewValue());
         this.listClientsModel.updateInDataBase();
     }
 
     @FXML
-    public void editOfferStatus(TableColumn.CellEditEvent<ClientFX, OfferStatusFX> event) {
+    public void editOfferStatus(CellEditEvent<ClientFX, OfferStatusFX> event) {
         this.listClientsModel.getClientFXObjectPropertyEdit().setOfferStatus(event.getNewValue());
         this.listClientsModel.updateInDataBase();
     }
 
+    @FXML
+    public void editSource(CellEditEvent<ClientFX, String> event) {
+        this.listClientsModel.getClientFXObjectPropertyEdit().setSource(event.getNewValue());
+        this.listClientsModel.updateInDataBase();
+    }
 
+    @FXML
+    public void deleteClient() {
+        Optional<ButtonType> result = DialogUtils.deleteDialog();
+        if (result.get() == ButtonType.OK) {
+            this.listClientsModel.deleteClientFromDB();
+        }
+    }
 
     void setClientFxList(List<ClientFX> clientFxList) {
         this.listClientsModel.getClientFXES().setAll(clientFxList);
@@ -219,10 +240,4 @@ public class ListClientsController {
     ListClientsModel getListClientsModel() {
         return listClientsModel;
     }
-
-    public void cancel(TableColumn.CellEditEvent<ClientFX, String> event) {
-
-    }
-
-
 }
