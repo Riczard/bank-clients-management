@@ -58,6 +58,18 @@ public class LocalDateTableCell<T> extends TableCell<T, LocalDate> {
     }
 
     @Override
+    public void commitEdit(LocalDate newValue) {
+        super.commitEdit(newValue);
+        contentDisplayProperty().setValue(ContentDisplay.TEXT_ONLY);
+    }
+
+    @Override
+    public void cancelEdit() {
+        super.cancelEdit();
+        contentDisplayProperty().setValue(ContentDisplay.TEXT_ONLY);
+    }
+
+    @Override
     protected void updateItem(LocalDate item, boolean empty) {
 
         super.updateItem(item, empty);
@@ -74,6 +86,6 @@ public class LocalDateTableCell<T> extends TableCell<T, LocalDate> {
                 setText(formatter.format(item));
             }
         }
-
     }
+
 }
