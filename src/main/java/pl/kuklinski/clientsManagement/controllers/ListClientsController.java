@@ -6,7 +6,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.ComboBoxTableCell;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.control.cell.TextFieldTableCell;
+import pl.kuklinski.clientsManagement.javaFX.AcceptOnExitTableCell;
 import pl.kuklinski.clientsManagement.javaFX.LocalDateTableCell;
 import pl.kuklinski.clientsManagement.javaFX.model.ListClientsModel;
 import pl.kuklinski.clientsManagement.javaFX.modelFX.ClientFX;
@@ -65,7 +65,6 @@ public class ListClientsController {
 
     @FXML
     public void initialize() {
-
         this.listClientsModel = new ListClientsModel();
         listClientsModel.init();
         bindingTableView();
@@ -103,19 +102,21 @@ public class ListClientsController {
     }
 
     private void setCellsFactory() {
-        this.nameColumn.setCellFactory(TextFieldTableCell.forTableColumn());
-        this.surnameColumn.setCellFactory(TextFieldTableCell.forTableColumn());
-        this.peselColumn.setCellFactory(TextFieldTableCell.forTableColumn());
-        this.phoneColumn.setCellFactory(TextFieldTableCell.forTableColumn());
+        this.nameColumn.setCellFactory(AcceptOnExitTableCell.forTableColumn());
+        this.surnameColumn.setCellFactory(AcceptOnExitTableCell.forTableColumn());
+        this.peselColumn.setCellFactory(AcceptOnExitTableCell.forTableColumn());
+        this.phoneColumn.setCellFactory(AcceptOnExitTableCell.forTableColumn());
         this.offerStatusColumn.setCellFactory(ComboBoxTableCell.forTableColumn(this.listClientsModel.getOfferStatusFXES()));
         this.relationColumn.setCellFactory(ComboBoxTableCell.forTableColumn(this.listClientsModel.getRelationFXES()));
         this.contactStatusColumn.setCellFactory(ComboBoxTableCell.forTableColumn(this.listClientsModel.getContactStatusFXES()));
         this.lastContactDateColumn.setCellFactory(LocalDateTableCell::new);
         this.plannedContactDateColumn.setCellFactory(LocalDateTableCell::new);
-        this.incomeTypeColumn.setCellFactory(TextFieldTableCell.forTableColumn());
+        this.commentColumn.setCellFactory(AcceptOnExitTableCell.forTableColumn());
+        this.incomeTypeColumn.setCellFactory(AcceptOnExitTableCell.forTableColumn());
         this.verificationDateColumn.setCellFactory(LocalDateTableCell::new);
-        this.clickAmountColumn.setCellFactory(TextFieldTableCell.forTableColumn());
-        this.consolidationAmountColumn.setCellFactory(TextFieldTableCell.forTableColumn());
+        this.clickAmountColumn.setCellFactory(AcceptOnExitTableCell.forTableColumn());
+        this.consolidationAmountColumn.setCellFactory(AcceptOnExitTableCell.forTableColumn());
+
     }
 
     @FXML
