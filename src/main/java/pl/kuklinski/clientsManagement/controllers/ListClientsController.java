@@ -2,11 +2,14 @@ package pl.kuklinski.clientsManagement.controllers;
 
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.fxml.FXML;
+import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.ComboBoxTableCell;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.cell.TextFieldTableCell;
 import pl.kuklinski.clientsManagement.javaFX.AcceptOnExitTableCell;
+import pl.kuklinski.clientsManagement.javaFX.EditCell;
 import pl.kuklinski.clientsManagement.javaFX.LocalDateTableCell;
 import pl.kuklinski.clientsManagement.javaFX.model.ListClientsModel;
 import pl.kuklinski.clientsManagement.javaFX.modelFX.ClientFX;
@@ -101,21 +104,22 @@ public class ListClientsController {
         this.consolidationAmountColumn.setCellValueFactory(new PropertyValueFactory<>("consolidationAmount"));
     }
 
+
     private void setCellsFactory() {
-        this.nameColumn.setCellFactory(AcceptOnExitTableCell.forTableColumn());
-        this.surnameColumn.setCellFactory(AcceptOnExitTableCell.forTableColumn());
-        this.peselColumn.setCellFactory(AcceptOnExitTableCell.forTableColumn());
-        this.phoneColumn.setCellFactory(AcceptOnExitTableCell.forTableColumn());
+        this.nameColumn.setCellFactory(TextFieldTableCell.forTableColumn());
+        this.surnameColumn.setCellFactory(TextFieldTableCell.forTableColumn());
+        this.peselColumn.setCellFactory(TextFieldTableCell.forTableColumn());
+        this.phoneColumn.setCellFactory(TextFieldTableCell.forTableColumn());
         this.offerStatusColumn.setCellFactory(ComboBoxTableCell.forTableColumn(this.listClientsModel.getOfferStatusFXES()));
         this.relationColumn.setCellFactory(ComboBoxTableCell.forTableColumn(this.listClientsModel.getRelationFXES()));
         this.contactStatusColumn.setCellFactory(ComboBoxTableCell.forTableColumn(this.listClientsModel.getContactStatusFXES()));
         this.lastContactDateColumn.setCellFactory(LocalDateTableCell::new);
         this.plannedContactDateColumn.setCellFactory(LocalDateTableCell::new);
-        this.commentColumn.setCellFactory(AcceptOnExitTableCell.forTableColumn());
-        this.incomeTypeColumn.setCellFactory(AcceptOnExitTableCell.forTableColumn());
+        this.commentColumn.setCellFactory(TextFieldTableCell.forTableColumn());
+        this.incomeTypeColumn.setCellFactory(TextFieldTableCell.forTableColumn());
         this.verificationDateColumn.setCellFactory(LocalDateTableCell::new);
-        this.clickAmountColumn.setCellFactory(AcceptOnExitTableCell.forTableColumn());
-        this.consolidationAmountColumn.setCellFactory(AcceptOnExitTableCell.forTableColumn());
+        this.clickAmountColumn.setCellFactory(TextFieldTableCell.forTableColumn());
+        this.consolidationAmountColumn.setCellFactory(TextFieldTableCell.forTableColumn());
 
     }
 
@@ -202,6 +206,8 @@ public class ListClientsController {
         this.listClientsModel.updateInDataBase();
     }
 
+
+
     void setClientFxList(List<ClientFX> clientFxList) {
         this.listClientsModel.getClientFXES().setAll(clientFxList);
     }
@@ -213,5 +219,10 @@ public class ListClientsController {
     ListClientsModel getListClientsModel() {
         return listClientsModel;
     }
+
+    public void cancel(TableColumn.CellEditEvent<ClientFX, String> event) {
+
+    }
+
 
 }
