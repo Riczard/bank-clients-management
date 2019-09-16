@@ -23,6 +23,14 @@ public class DialogUtils {
         return confirmationDialog.showAndWait();
     }
 
+    public static Optional<ButtonType> deleteDialog() {
+        Alert confirmationDialog = new Alert(Alert.AlertType.CONFIRMATION);
+        confirmationDialog.setTitle(bundle.getString("delete.title"));
+        confirmationDialog.setHeaderText(bundle.getString("delete.header"));
+
+        return confirmationDialog.showAndWait();
+    }
+
     public static void informationDialog(String information) {
         Alert informationAlert = new Alert(Alert.AlertType.INFORMATION);
         informationAlert.setTitle(bundle.getString("information.title"));
