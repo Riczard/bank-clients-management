@@ -1,8 +1,8 @@
 # CRM SYSTEM (Client relation management) - still being developed
 Simple system of clients managaement
 ![MainPage](https://drive.google.com/uc?export=view&id=1Vn96DFbfO5ZOVNaPW4CqzyZp6VzpxDX5 "Main Page")
-![Resources](https://drive.google.com/open?id=1Vn96DFbfO5ZOVNaPW4CqzyZp6VzpxDX5 "Resources")
-![Add Client](https://drive.google.com/open?id=1dSg0UJHXcbMyS8Encz6Ho_9eCAHCJe6S "Add Client")
+![Resources](https://drive.google.com/uc?export=view&id=19Puh-LMoy1iY42lZGAXwfTpe-GoZ5GFx "Resources")
+![Add Client](https://drive.google.com/uc?export=view&id=1dSg0UJHXcbMyS8Encz6Ho_9eCAHCJe6S "Add Client")
 
 ## Getting Started
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
