@@ -10,7 +10,7 @@ create role admin with password admin
 create database 'clientManagement' with owner admin
 download latest version
 ### Download
-You can [DOWNLOAD] (https://github.com/Riczard/bank-clients-management/releases/tag/v0.3.3) the latest version. 
+You can [DOWNLOAD](https://github.com/Riczard/bank-clients-management/releases/tag/v0.3.3) the latest version. 
 ## Authors
 
 * **Patryk Kukliński** - *Initial work* - [Riczard](https://github.com/Riczard)
