@@ -8,11 +8,12 @@ install postgresql verion 9.6
 ### Installing
 create role admin with password admin
 create database 'clientManagement' with owner admin
+download latest version
 ### Download
-download latest version from https://drive.google.com/open?id=1VjFcp2hZuEGNRVy04Iz-eTlOk4rW4H0l
+You can [DOWNLOAD] (https://github.com/Riczard/bank-clients-management/releases/tag/v0.3.3) the latest version. 
 ## Authors
 
 * **Patryk Kukliński** - *Initial work* - [Riczard](https://github.com/Riczard)
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
