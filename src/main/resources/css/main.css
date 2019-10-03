@@ -1,0 +1,17 @@
+#clientsBtn:hover {
+    -fx-effect: dropshadow(three-pass-box, #6dbc40, 15, 0, 0, 0);
+    -fx-background-color: linear-gradient(from 25px 25px to 100px 100px, silver, #6dbc40);
+}
+
+#resourcesBtn:hover {
+    -fx-effect: dropshadow(three-pass-box, #904b69, 15, 0, 0, 0);
+}
+#searchBtn:hover {
+    -fx-effect: dropshadow(three-pass-box, #40752e, 15, 0, 0, 0);
+}
+#importBtn:hover {
+    -fx-effect: dropshadow(three-pass-box, #753c6b, 15, 0, 0, 0);
+}
+#exportBtn:hover {
+    -fx-effect: dropshadow(three-pass-box, #866b3d, 15, 0, 0, 0);
+}
