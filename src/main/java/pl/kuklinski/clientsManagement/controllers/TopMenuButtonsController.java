@@ -1,6 +1,5 @@
 package pl.kuklinski.clientsManagement.controllers;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 
 public class TopMenuButtonsController {
@@ -9,6 +8,7 @@ public class TopMenuButtonsController {
     private static final String IMPORT_PANE_FXML = "/fxml/ImportPane.fxml";
     private static final String SEARCH_PANE_FXML = "/fxml/SearchPane.fxml";
     private static final String RESOURCES_BUTTONS_FXML = "/fxml/ResourcesButtons.fxml";
+    private static final String EXPORT_PANE_FXML = "/fxml/ExportPane.fxml";
 
     private MainController mainController;
 
@@ -23,7 +23,7 @@ public class TopMenuButtonsController {
     }
 
     @FXML
-    public void exportFile(ActionEvent actionEvent) {
+    public void exportFile() { mainController.setCenter(EXPORT_PANE_FXML);
     }
 
     @FXML

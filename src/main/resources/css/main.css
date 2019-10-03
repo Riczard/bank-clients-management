@@ -1,6 +1,5 @@
 #clientsBtn:hover {
     -fx-effect: dropshadow(three-pass-box, #6dbc40, 15, 0, 0, 0);
-    -fx-background-color: linear-gradient(from 25px 25px to 100px 100px, silver, #6dbc40);
 }
 
 #resourcesBtn:hover {

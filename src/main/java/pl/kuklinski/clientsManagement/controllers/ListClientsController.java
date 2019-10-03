@@ -129,7 +129,6 @@ public class ListClientsController {
         this.clickAmountColumn.setCellFactory(TextFieldTableCell.forTableColumn());
         this.consolidationAmountColumn.setCellFactory(TextFieldTableCell.forTableColumn());
         this.sourceColumn.setCellFactory(TextFieldTableCell.forTableColumn());
-
     }
 
     @FXML
