@@ -25,7 +25,7 @@
                <opaqueInsets>
                   <Insets />
                </opaqueInsets></Button>
-            <Button mnemonicParsing="false" onAction="#showOffersStatus" prefWidth="130.0" text="%offerStatus.button" textFill="#95b43be8">
+            <Button mnemonicParsing="false" onAction="#showOffersStatus" prefWidth="130.0" text="%offerStatus.button" textFill="#95b43be8" wrapText="true">
                <graphic>
                   <ImageView fitHeight="35.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                      <image>
