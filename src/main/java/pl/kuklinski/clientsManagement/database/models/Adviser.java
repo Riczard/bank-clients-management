@@ -58,4 +58,8 @@ public class Adviser implements BaseModel {
     public void setClients(List<Client> clients) {
         this.clients = clients;
     }
+
+    public String getAdviserFullName() {
+        return name + " " + surname;
+    }
 }
