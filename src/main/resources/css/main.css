@@ -1,3 +1,6 @@
+.root {
+    -fx-background-color: linear-gradient(to bottom, #80b3ff 0%, #ff99cc 100%);
+}
 #clientsBtn:hover {
     -fx-effect: dropshadow(three-pass-box, #6dbc40, 15, 0, 0, 0);
 }
