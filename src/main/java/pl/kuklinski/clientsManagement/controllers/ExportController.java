@@ -3,8 +3,6 @@ package pl.kuklinski.clientsManagement.controllers;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.TextField;
 import pl.kuklinski.clientsManagement.javaFX.model.ExportModel;
 
 import java.util.HashMap;
@@ -17,10 +15,6 @@ public class ExportController {
     private Button exportButton;
     @FXML
     private CheckBox adviserCheckBox;
-    @FXML
-    private ComboBox<String> extensionComboBox;
-    @FXML
-    private TextField fileName;
     @FXML
     private CheckBox sourceCheckBox;
     @FXML
@@ -59,12 +53,11 @@ public class ExportController {
     public void initialize() {
         this.exportModel = new ExportModel();
         validation();
-        initExtensionComboBox();
     }
 
     private void validation() {
-        this.exportButton.disableProperty().bind(fileName.textProperty().isEmpty()
-                .or(this.adviserCheckBox.selectedProperty().not()
+        this.exportButton.disableProperty().bind(
+                this.adviserCheckBox.selectedProperty().not()
                         .and(sourceCheckBox.selectedProperty().not())
                         .and(consolidationCheckBox.selectedProperty().not())
                         .and(verificationDateCheckBox.selectedProperty().not())
@@ -80,22 +73,12 @@ public class ExportController {
                         .and(statusOfferCheckBox.selectedProperty().not())
                         .and(peselCheckBox.selectedProperty().not())
                         .and(contactStatusCheckBox.selectedProperty().not())
-                        .and(nameCheckBox.selectedProperty().not())));
-    }
-
-    private void initExtensionComboBox() {
-        extensionComboBox.getItems().add(".txt");
-        extensionComboBox.getSelectionModel().selectFirst();
-        extensionComboBox.getItems().add(".csv");
+                        .and(nameCheckBox.selectedProperty().not()));
     }
 
     @FXML
     public void exportData() {
-        if(extensionComboBox.getSelectionModel().getSelectedItem().equals(".txt")) {
-            this.exportModel.exportToTxt(getFieldsToImport());
-        }else {
-            this.exportModel.exportToCSV(getFieldsToImport());
-        }
+        this.exportModel.exportData(getFieldsToImport());
     }
 
     @FXML
