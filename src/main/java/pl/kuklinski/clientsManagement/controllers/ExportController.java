@@ -4,9 +4,11 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import pl.kuklinski.clientsManagement.javaFX.model.ExportModel;
+import pl.kuklinski.clientsManagement.utils.DialogUtils;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ExportController {
 
@@ -78,7 +80,14 @@ public class ExportController {
 
     @FXML
     public void exportData() {
-        this.exportModel.exportData(getFieldsToImport());
+        try {
+            this.exportModel.exportData(getFieldsToImport());
+            this.setCheckBoxesAs(false);
+            this.markOrUnmarkAll.selectedProperty().set(false);
+        } catch (IOException e) {
+            DialogUtils.informationDialog("Export Error");
+        }
+        DialogUtils.informationDialog("Export complete");
     }
 
     @FXML
@@ -110,26 +119,26 @@ public class ExportController {
         this.nameCheckBox.selectedProperty().set(b);
     }
 
-    private Map<String, Boolean> getFieldsToImport() {
-        Map<String, Boolean> checkBoxesValues = new HashMap<>();
-        checkBoxesValues.put("name", nameCheckBox.selectedProperty().getValue());
-        checkBoxesValues.put("surname", surnameCheckBox.selectedProperty().getValue());
-        checkBoxesValues.put("pesel", peselCheckBox.selectedProperty().getValue());
-        checkBoxesValues.put("statusOffer", statusOfferCheckBox.selectedProperty().getValue());
-        checkBoxesValues.put("contactStatus", contactStatusCheckBox.selectedProperty().getValue());
-        checkBoxesValues.put("plannedDate", plannedDateCheckBox.selectedProperty().getValue());
-        checkBoxesValues.put("income", incomeTypeCheckBox.selectedProperty().getValue());
-        checkBoxesValues.put("clickAmount", clickAmountCheckBox.selectedProperty().getValue());
-        checkBoxesValues.put("city", cityCheckBox.selectedProperty().getValue());
-        checkBoxesValues.put("phone", phoneCheckBox.selectedProperty().getValue());
-        checkBoxesValues.put("relation", relationCheckBox.selectedProperty().getValue());
-        checkBoxesValues.put("lastContact", lastContactCheckBox.selectedProperty().getValue());
-        checkBoxesValues.put("comment", commentCheckBox.selectedProperty().getValue());
-        checkBoxesValues.put("verification", verificationDateCheckBox.selectedProperty().getValue());
-        checkBoxesValues.put("consolidation", consolidationCheckBox.selectedProperty().getValue());
-        checkBoxesValues.put("source", sourceCheckBox.selectedProperty().getValue());
-        checkBoxesValues.put("adviser", adviserCheckBox.selectedProperty().getValue());
-        return checkBoxesValues;
+    private List<String> getFieldsToImport() {
+        List<String> fieldsToImport = new ArrayList<>();
+        if (nameCheckBox.selectedProperty().getValue()) fieldsToImport.add("name");
+        if (surnameCheckBox.selectedProperty().getValue()) fieldsToImport.add("surname");
+        if (peselCheckBox.selectedProperty().getValue()) fieldsToImport.add("pesel");
+        if (statusOfferCheckBox.selectedProperty().getValue()) fieldsToImport.add("statusOffer");
+        if (contactStatusCheckBox.selectedProperty().getValue()) fieldsToImport.add("contactStatus");
+        if (plannedDateCheckBox.selectedProperty().getValue()) fieldsToImport.add("plannedDate");
+        if (incomeTypeCheckBox.selectedProperty().getValue()) fieldsToImport.add("incomeType");
+        if (clickAmountCheckBox.selectedProperty().getValue()) fieldsToImport.add("clickAmount");
+        if (cityCheckBox.selectedProperty().getValue()) fieldsToImport.add("city");
+        if (phoneCheckBox.selectedProperty().getValue()) fieldsToImport.add("phone");
+        if (relationCheckBox.selectedProperty().getValue()) fieldsToImport.add("relation");
+        if (lastContactCheckBox.selectedProperty().getValue()) fieldsToImport.add("lastContactDate");
+        if (contactStatusCheckBox.selectedProperty().getValue()) fieldsToImport.add("comment");
+        if (verificationDateCheckBox.selectedProperty().getValue()) fieldsToImport.add("verificationDate");
+        if (consolidationCheckBox.selectedProperty().getValue()) fieldsToImport.add("consolidationAmount");
+        if (sourceCheckBox.selectedProperty().getValue()) fieldsToImport.add("source");
+        if (adviserCheckBox.selectedProperty().getValue()) fieldsToImport.add("adviser");
+        return fieldsToImport;
     }
 
 }
