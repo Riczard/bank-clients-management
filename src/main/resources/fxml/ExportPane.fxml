@@ -1,11 +1,65 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
 
-
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.kuklinski.clientsManagement.controllers.ExportController">
+<GridPane alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.kuklinski.clientsManagement.controllers.ExportController">
+   <columnConstraints>
+      <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+      <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+   </rowConstraints>
    <children>
-      <Button layoutX="196.0" layoutY="187.0" mnemonicParsing="false" onAction="#eksportClients" text="Eksportuj Wszystko do CSV" />
+      <CheckBox fx:id="nameCheckBox" alignment="CENTER_RIGHT" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" text="%name.general" />
+      <CheckBox fx:id="peselCheckBox" alignment="CENTER_RIGHT" contentDisplay="RIGHT" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" text="%pesel.client" GridPane.rowIndex="1" />
+      <CheckBox fx:id="statusOfferCheckBox" alignment="CENTER_RIGHT" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" text="%offerStatus.client" GridPane.halignment="RIGHT" GridPane.rowIndex="2" />
+      <CheckBox fx:id="contactStatusCheckBox" alignment="CENTER_RIGHT" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" text="%contactStatus.client" GridPane.rowIndex="3" />
+      <CheckBox fx:id="plannedDateCheckBox" alignment="CENTER_RIGHT" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" text="%plannedContactDate.client" wrapText="true" GridPane.rowIndex="4" />
+      <CheckBox fx:id="incomeTypeCheckBox" alignment="CENTER_RIGHT" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" text="%incomeType.client" GridPane.rowIndex="5" />
+      <CheckBox fx:id="clickAmountCheckBox" alignment="CENTER_RIGHT" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" text="%clickAmount.client" GridPane.rowIndex="6" />
+      <CheckBox fx:id="cityCheckBox" alignment="CENTER_RIGHT" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" text="%city.client" GridPane.rowIndex="7" />
+      <CheckBox fx:id="surnameCheckBox" alignment="CENTER_RIGHT" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" text="%surname.general" GridPane.columnIndex="1" />
+      <CheckBox fx:id="phoneCheckBox" alignment="CENTER_RIGHT" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" text="%phone.client" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+      <CheckBox fx:id="relationCheckBox" alignment="CENTER_RIGHT" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" text="%relation.client" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+      <CheckBox fx:id="lastContactCheckBox" alignment="CENTER_RIGHT" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" text="%lastContactDate.client" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+      <CheckBox fx:id="commentCheckBox" alignment="CENTER_RIGHT" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" text="%comment.client" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+      <CheckBox fx:id="verificationDateCheckBox" alignment="CENTER_RIGHT" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" text="%verificationDate.client" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+      <CheckBox fx:id="consolidationCheckBox" alignment="CENTER_RIGHT" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" text="%consolidationAmount.client" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+      <CheckBox fx:id="sourceCheckBox" alignment="CENTER_RIGHT" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" text="%source.client" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+      <CheckBox fx:id="checkAll" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" text="%check.export" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="10" />
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="10.0" GridPane.columnSpan="2" GridPane.halignment="LEFT" GridPane.rowIndex="11" GridPane.valignment="CENTER">
+         <children>
+            <Label text="%fileName.export" />
+            <TextField fx:id="fileName" prefWidth="141.0" />
+            <ComboBox fx:id="extensionComboBox" prefWidth="70.0" />
+         </children>
+      </HBox>
+      <Button fx:id="exportButton" alignment="CENTER_RIGHT" contentDisplay="TOP" mnemonicParsing="false" onAction="#exportData" text="%export.button" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="12" />
+      <CheckBox fx:id="adviserCheckBox" alignment="CENTER_RIGHT" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" text="%adviser.client" GridPane.rowIndex="8" />
    </children>
-</AnchorPane>
+   <opaqueInsets>
+      <Insets top="100.0" />
+   </opaqueInsets>
+</GridPane>
