@@ -2,66 +2,103 @@ package pl.kuklinski.clientsManagement.javaFX.model;
 
 import pl.kuklinski.clientsManagement.database.dao.ClientDao;
 import pl.kuklinski.clientsManagement.database.models.Client;
+import pl.kuklinski.clientsManagement.utils.DialogUtils;
 
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 import java.util.stream.Stream;
 
 public class ExportModel {
-    public void exportClients() {
+
+    private List<String> fieldsToImport;
+
+    public void saveAsCsv(File file) throws IOException {
         ClientDao clientDao = new ClientDao();
         Stream<Client> clientStream = clientDao.queryForAll(Client.class);
         FileWriter csvWriter = null;
         try {
-            csvWriter = new FileWriter("ClientsData");
+            csvWriter = new FileWriter(file);
         } catch (IOException e) {
             e.printStackTrace();
         }
         FileWriter finalCsvWriter = csvWriter;
+        assert finalCsvWriter != null;
         clientStream.forEach(client -> {
             try {
-                assert finalCsvWriter != null;
-                if (client.getName() != null) finalCsvWriter.append(client.getName());
-                finalCsvWriter.append(";");
-                if (client.getSurname() != null) finalCsvWriter.append(client.getSurname());
-                finalCsvWriter.append(";");
-                if (client.getPesel() != null) finalCsvWriter.append(client.getPesel());
-                finalCsvWriter.append(";");
-                if (client.getPhone() != null) finalCsvWriter.append(client.getPhone());
-                finalCsvWriter.append(";");
-                if (client.getOfferStatus() != null) finalCsvWriter.append(client.getOfferStatus().getTitle());
-                finalCsvWriter.append(";");
-                if (client.getRelation() != null) finalCsvWriter.append(client.getRelation().getTitle());
-                finalCsvWriter.append(";");
-                if (client.getStatus() != null) finalCsvWriter.append(client.getStatus().getTitle());
-                finalCsvWriter.append(";");
-                if(client.getLastContactDate() != null) finalCsvWriter.append(client.getLastContactDate().format(DateTimeFormatter.ofPattern("dd.MM.yyyy")));
-                finalCsvWriter.append(";");
-                if(client.getPlannedContactDate() != null) finalCsvWriter.append(client.getPlannedContactDate().format(DateTimeFormatter.ofPattern("dd.MM.yyyy")));
-                finalCsvWriter.append(";");
-                if (client.getComment() != null)finalCsvWriter.append(client.getComment());
-                finalCsvWriter.append(";");
-                if(client.getIncomeType() != null) finalCsvWriter.append(client.getIncomeType());
-                finalCsvWriter.append(";");
-                if(client.getVerificationDate() != null) finalCsvWriter.append(client.getVerificationDate().format(DateTimeFormatter.ofPattern("dd.MM.yyyy")));
-                finalCsvWriter.append(";");
-                if(client.getClickAmount() != null) finalCsvWriter.append(client.getClickAmount());
-                finalCsvWriter.append(";");
-                if(client.getConsolidationAmount() != null) finalCsvWriter.append(client.getConsolidationAmount());
-                finalCsvWriter.append(";");
-                if(client.getCity() != null) finalCsvWriter.append(client.getCity());
-                finalCsvWriter.append(";");
-                if(client.getAdviser() != null) {
-                    finalCsvWriter.append(client.getAdviser().getName());
-                    finalCsvWriter.append(" ");
-                    finalCsvWriter.append(client.getAdviser().getSurname());
-                }
+                finalCsvWriter.append(getClientData(client));
                 finalCsvWriter.append("\n");
-
             } catch (IOException e) {
                 e.printStackTrace();
             }
+
         });
+        finalCsvWriter.flush();
+        finalCsvWriter.close();
+        clientDao.closeConnection();
     }
+
+
+    public void exportData(List<String> fieldsToImport) throws IOException {
+        this.fieldsToImport = fieldsToImport;
+        File file = DialogUtils.setFileInFileChooser();
+        saveAsCsv(file);
+
+    }
+
+    private String getClientData(Client client) {
+        StringBuilder sb = new StringBuilder();
+
+        for (String fieldName : fieldsToImport) {
+            sb.append(getClientDataByField(fieldName, client));
+            sb.append(";");
+        }
+
+        return sb.toString();
+    }
+
+    private String getClientDataByField(String fieldName, Client client) {
+
+        switch (fieldName) {
+            case "name":
+                return client.getName() != null ? client.getName() : "";
+            case "surname":
+                return client.getSurname() != null ? client.getSurname() : "";
+            case "pesel":
+                return client.getPesel() != null ? client.getPesel() : "";
+            case "statusOffer":
+                return client.getOfferStatus() != null ? client.getOfferStatus().getTitle() : "";
+            case "contactStatus":
+                return client.getStatus() != null ? client.getStatus().getTitle() : "";
+            case "plannedDate":
+                return client.getPlannedContactDate() != null ? client.getPlannedContactDate().format(DateTimeFormatter.ofPattern("dd.MM.yyyy")) : "";
+            case "incomeType":
+                return client.getIncomeType() != null ? client.getIncomeType() : "";
+            case "clickAmount":
+                return client.getClickAmount() != null ? client.getClickAmount() : "";
+            case "city":
+                return client.getCity() != null ? client.getCity() : "";
+            case "phone":
+                return client.getPhone() != null ? client.getPhone() : "";
+            case "relation":
+                return client.getRelation() != null ? client.getRelation().getTitle() : "";
+            case "lastContactDate":
+                return client.getLastContactDate() != null ? client.getLastContactDate().format(DateTimeFormatter.ofPattern("dd.MM.yyyy")) : "";
+            case "comment":
+                return client.getComment() != null ? client.getComment() : "";
+            case "verificationDate":
+                return client.getVerificationDate() != null ? client.getVerificationDate().format(DateTimeFormatter.ofPattern("dd.MM.yyyy")) : "";
+            case "consolidationAmount":
+                return client.getConsolidationAmount() != null ? client.getConsolidationAmount() : "";
+            case "source":
+                return client.getSource() != null ? client.getSource() : "";
+            case "adviser":
+                return client.getAdviser() != null ? client.getAdviser().getAdviserFullName() : "";
+            default:
+                return "";
+        }
+    }
+
 }
