@@ -54,7 +54,6 @@ public class FilterModel {
     }
 
     private Predicate<ClientFX> generalPredicate() {
-//        return clientFX -> clientFX.toString().toLowerCase().contains(getFilterFXObjectProperty().getGeneralFilter());
         return clientFX -> containsIgnoreCase(clientFX.toString(), getFilterFXObjectProperty().getGeneralFilter());
     }
 
