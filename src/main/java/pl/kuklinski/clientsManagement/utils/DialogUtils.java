@@ -52,6 +52,17 @@ public class DialogUtils {
         return fileChooser.showOpenDialog(new Stage());
     }
 
+    public static File setFileInFileChooser() {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.getExtensionFilters().addAll(
+                new FileChooser.ExtensionFilter("All Files", "*.*"),
+                new FileChooser.ExtensionFilter("CSV", "*.csv"),
+                new FileChooser.ExtensionFilter("TXT", "*.txt")
+        );
+
+        return fileChooser.showSaveDialog(new Stage());
+    }
+
     public static File directoryChooserDialog() {
         DirectoryChooser directoryChooser = new DirectoryChooser();
         return directoryChooser.showDialog(new Stage());
