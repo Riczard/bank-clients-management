@@ -127,6 +127,7 @@ public class FiltersController {
         sourceFilter.clear();
         clickAmountField.clear();
         consolidationAmountField.clear();
+        generalFilter.clear();
         listClientsController.getListClientsModel().init();
     }
 }
