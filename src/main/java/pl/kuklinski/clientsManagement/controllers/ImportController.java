@@ -102,15 +102,15 @@ public class ImportController {
 
     @FXML
     public void chooseFile() {
-        file = DialogUtils.fileChooserDialog();
-        filePath.setText(file.getPath());
+        this.file = DialogUtils.fileChooserDialog();
+        this.filePath.setText(file.getPath());
     }
 
     @FXML
     public void importData() {
         List<String[]> dataFromCSV = CSVUtils.getDataFromCSV(file, delimiterField.getText());
-        importModel.setColumnsIndex(getColumnsIndex());
-        importModel.importToDB(dataFromCSV);
+        this.importModel.setColumnsIndex(getColumnsIndex());
+        this.importModel.importToDB(dataFromCSV);
         DialogUtils.informationDialog(FXMLUtils.getResourceBundle().getString("information.import"));
     }
 
