@@ -48,12 +48,12 @@
       <CheckBox fx:id="verificationDateCheckBox" alignment="CENTER_RIGHT" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" text="%verificationDate.client" GridPane.columnIndex="1" GridPane.rowIndex="5" />
       <CheckBox fx:id="consolidationCheckBox" alignment="CENTER_RIGHT" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" text="%consolidationAmount.client" GridPane.columnIndex="1" GridPane.rowIndex="6" />
       <CheckBox fx:id="sourceCheckBox" alignment="CENTER_RIGHT" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" text="%source.client" GridPane.columnIndex="1" GridPane.rowIndex="7" />
-      <CheckBox fx:id="checkAll" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" text="%check.export" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="10" />
+      <CheckBox fx:id="markOrUnmarkAll" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" onAction="#markAll" text="%check.export" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="10" />
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="10.0" GridPane.columnSpan="2" GridPane.halignment="LEFT" GridPane.rowIndex="11" GridPane.valignment="CENTER">
          <children>
             <Label text="%fileName.export" />
-            <TextField fx:id="fileName" prefWidth="141.0" />
-            <ComboBox fx:id="extensionComboBox" prefWidth="70.0" />
+            <TextField fx:id="fileName" prefHeight="26.0" prefWidth="112.0" />
+            <ComboBox fx:id="extensionComboBox" prefHeight="26.0" prefWidth="76.0" />
          </children>
       </HBox>
       <Button fx:id="exportButton" alignment="CENTER_RIGHT" contentDisplay="TOP" mnemonicParsing="false" onAction="#exportData" text="%export.button" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="12" />
