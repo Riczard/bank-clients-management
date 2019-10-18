@@ -1,5 +1,7 @@
 # CRM SYSTEM (Client relation management) - still being developed
-Simple system of clients managaement
+Simple system of clients management
+
+# Some screenshots
 ![MainPage](https://drive.google.com/uc?export=view&id=1Vn96DFbfO5ZOVNaPW4CqzyZp6VzpxDX5 "Main Page")
 ![Resources](https://drive.google.com/uc?export=view&id=19Puh-LMoy1iY42lZGAXwfTpe-GoZ5GFx "Resources")
 ![Add Client](https://drive.google.com/uc?export=view&id=1dSg0UJHXcbMyS8Encz6Ho_9eCAHCJe6S "Add Client")
