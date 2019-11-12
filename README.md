@@ -4,7 +4,7 @@ Simple system of clients management
 # Some screenshots
 ![MainPage](https://drive.google.com/uc?export=view&id=1SG-z3BoJWebcvfi94xwgSbaOYfG6NQQJ "Main Page")
 ![Resources](https://drive.google.com/uc?export=view&id=1HOAljUzLUFBt8_Ml6TrwL4Cc_Uv-Qw64 "Resources")
-![Add Client](https://drive.google.com/uc?export=view&id=1eFZvmLnGFK0I1n6HP4czsHj-tZJIxW-6/ "Add Client")
+![Add Client](https://drive.google.com/uc?export=view&id=1eFZvmLnGFK0I1n6HP4czsHj-tZJIxW-6 "Add Client")
 
 ## Getting Started
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
