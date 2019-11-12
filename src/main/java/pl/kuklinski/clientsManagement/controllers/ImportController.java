@@ -4,17 +4,12 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.control.TextFormatter;
-import javafx.stage.FileChooser;
-import javafx.stage.Stage;
 import pl.kuklinski.clientsManagement.javaFX.model.ImportModel;
 import pl.kuklinski.clientsManagement.utils.CSVUtils;
 import pl.kuklinski.clientsManagement.utils.DialogUtils;
 import pl.kuklinski.clientsManagement.utils.FXMLUtils;
 
 import java.io.File;
-import java.text.DecimalFormat;
-import java.text.ParsePosition;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
